@@ -1,0 +1,407 @@
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Packages ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}   % enhanced, breakable
+\usepackage{hyperref}
+
+% ---------- Geometry ----------
+\geometry{margin=2.5cm}
+
+% ---------- Header/Footer ----------
+\setlength{\headheight}{14pt}  % fancyhdr warning verhindern
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Introduction to Electrical Engineering}
+\rhead{Winter Term 2025}
+\cfoot{\thepage}
+
+% ---------- Exercise Environment ----------
+\newcounter{exercise}
+\newenvironment{exercise}[1][]
+  {\refstepcounter{exercise}%
+   \begin{tcolorbox}[enhanced, breakable, width=\textwidth,
+     colback=blue!5!white,colframe=blue!60!black,
+     fonttitle=\bfseries\large,
+     title=Exercise~\theexercise:~#1]}
+  {\end{tcolorbox}}
+
+% ---------- Solution Environment ----------
+\newif\ifshowsolutions
+\showsolutionstrue  % comment to hide solutions
+
+\newenvironment{solution}
+  {\ifshowsolutions
+     \begin{tcolorbox}[enhanced, breakable, width=\textwidth,
+       colback=green!5!white,colframe=green!50!black,
+       fonttitle=\bfseries\large,
+       title=Solution]}
+  {\end{tcolorbox}\fi}
+
+% ---------- Document ----------
+\begin{document}
+
+% ----- Header Box -----
+\begin{tcolorbox}[enhanced, breakable, colback=gray!10!white,
+  colframe=gray!70!black, fonttitle=\bfseries\large,
+  title={Exercise Sheet \#1}: Basic Concepts, sharp corners, width=\textwidth]
+\begin{center}
+  Lecturer: Prof.~Wick \\
+  Discussion: Oct 15, 2025
+\end{center}
+\end{tcolorbox}
+\vspace{1cm}
+
+% ----- Exercise 1 -----
+\begin{exercise}[Coulomb Force]
+Two point particles are separated by a distance of $0.60\,\text{m}$ and carry a total charge of $200\,\mu\text{C}$. Determine the charge of each of the two particles if they
+\begin{enumerate}[label=\alph*)]
+    \item repel each other with a force of $80\,\text{N}$,
+    \item attract each other with a force of $80\,\text{N}$.
+\end{enumerate}
+
+\ifshowsolutions
+\begin{solution}
+Let the charges be $q_1$ and $q_2$ with
+\[
+q_1 + q_2 = Q = 200 \times 10^{-6}\,\text{C}.
+\]
+
+The Coulomb force is
+\begin{align*}
+F &= k \frac{|q_1 q_2|}{r^2},\\
+k &= 8.99 \times 10^9 \,\text{N\,m}^2/\text{C}^2,\\
+r &= 0.60\,\text{m},\\
+F &= 80\,\text{N}.
+\end{align*}
+
+Thus,
+\[
+|q_1 q_2| = \frac{F r^2}{k} \approx 3.20 \times 10^{-9}\,\text{C}^2,
+\]
+
+with
+\[
+q_1 q_2 = q_1 (q - q_1).
+\]
+
+\textbf{Case (a): Repulsion} \\
+\[
+q_1 q_2 = +3.20 \times 10^{-9} \Rightarrow x^2 - (2.00\times10^{-4})x + 3.20\times10^{-9} = 0
+\]
+With
+\[
+ a x^2 + b x + c = 0 \Rightarrow x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a},
+\]
+\[
+q_1 \approx 1.8\times10^{-4}\,\text{C},\quad
+q_2 \approx 1.8\times10^{-5}\,\text{C}.
+\]
+
+\textbf{Case (b): Attraction} \\
+\[
+q_1 q_2 = -3.20 \times 10^{-9} \Rightarrow x^2 - (2.00\times10^{-4})x - 3.20\times10^{-9} = 0
+\]
+\[
+q_1 \approx -1.5\times10^{-5}\,\text{C},\quad
+q_2 \approx 2.1\times10^{-4}\,\text{C}.
+\]
+Reversed signs are also possible.
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 2 -----
+\begin{exercise}[Drift Velocity]
+...
+
+\ifshowsolutions
+\begin{solution}
+  ...
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 3 -----
+\begin{exercise}[Ohm's Law]
+...
+
+\ifshowsolutions
+\begin{solution}
+  ...
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 4 -----
+\begin{exercise}[Resistance]
+Given are two copper wires of equal mass with circular cross-sections; wire A is twice as long as wire B. How do the resistances of the wires compare (neglecting temperature effects)? 
+\begin{enumerate}[label=\alph*)]
+    \item $R_A = 8 R_B$,
+    \item $R_A = 4 R_B$
+    \item $R_A = 2 R_B$,
+    \item $R_A = R_B$.
+\end{enumerate}
+
+\ifshowsolutions
+\begin{solution}
+The resistance of a wire is given by 
+\[
+R = \rho \frac{l}{A},
+\]
+where $\rho$ is the resistivity, $l$ is the length, and $A$ is the cross-sectional area.
+
+Since both wires have the same mass and material, we have
+\[
+m = \rho_m V = \rho_m (A \cdot l) = \text{const.}
+\]
+Thus, $A \cdot l = \text{const.}$, which implies $A \propto \frac{1}{l}$.
+
+For wire A, the length is $l_A = 2 l_B$. Therefore, its cross-sectional area is
+\[
+A_A = \frac{1}{2} A_B.
+\]
+
+Now the resistance ratio becomes
+\[
+\frac{R_A}{R_B} 
+= \frac{\rho \frac{l_A}{A_A}}{\rho \frac{l_B}{A_B}}
+= \frac{l_A}{l_B} \cdot \frac{A_B}{A_A}
+= \frac{2l_B}{l_B} \cdot \frac{A_B}{\tfrac{1}{2}A_B}
+= 2 \cdot 2
+= 4.
+\]
+
+Therefore,
+\[
+R_A = 4 R_B.
+\]
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 5 -----
+\begin{exercise}[Resistivity]
+Suppose we have a copper wire with a resistance of $2 \,\Omega$. We want to replace the copper wire with an aluminum wire of the same length and resistance. By what factor must the diameter of the wire be increased?
+
+\ifshowsolutions
+\begin{solution}
+For a cylindrical wire,
+\[
+A = \frac{\pi d^2}{4},
+\]
+where \(d\) is the diameter.
+
+We require the aluminum wire to have the same resistance \(R\) as the copper wire, and both wires have the same length \(l\). Thus,
+\[
+\rho_{\text{Cu}} \frac{l}{A_{\text{Cu}}} = \rho_{\text{Al}} \frac{l}{A_{\text{Al}}}.
+\]
+
+Canceling \(l\),
+\[
+\frac{A_{\text{Al}}}{A_{\text{Cu}}} = \frac{\rho_{\text{Al}}}{\rho_{\text{Cu}}}.
+\]
+
+Since \(A \propto d^2\),
+\[
+\left(\frac{d_{\text{Al}}}{d_{\text{Cu}}}\right)^2 = \frac{\rho_{\text{Al}}}{\rho_{\text{Cu}}}.
+\]
+
+Therefore,
+\[
+\frac{d_{\text{Al}}}{d_{\text{Cu}}} = \sqrt{\frac{\rho_{\text{Al}}}{\rho_{\text{Cu}}}}.
+\]
+
+Numerical values of resistivity:
+\[
+\rho_{\text{Cu}} \approx 0.017 \,\frac{\Omega \cdot \text{mm}^2}{\text{m}},
+\quad 
+\rho_{\text{Al}} \approx 0.027 \,frac{\Omega \cdot \text{mm}^2}{\text{m}}.
+\]
+
+Thus,
+\[
+\frac{d_{\text{Al}}}{d_{\text{Cu}}} = \sqrt{\frac{0.027}{0.017}} \approx 1.26.
+\]
+
+\[
+\boxed{\text{The diameter of the aluminum wire must be about 1.3 times larger.}}
+\]
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 6 -----
+\begin{exercise}[Temperature Dependence of Resistance]
+At what temperature does a copper wire have a resistance that is 10\% greater than at 20\,$^\circ$C?
+
+\ifshowsolutions
+\begin{solution}
+The temperature dependence of the resistance is given by
+\[
+R(T) = R_{0}\bigl(1 + \alpha (T - T_{0})\bigr),
+\]
+where $R_{0}$ is the resistance at the reference temperature $T_{0}$ and $\alpha$ is the temperature coefficient of resistance.  
+
+We are looking for the temperature $T$ at which
+\[
+R(T) = 1.1 \, R_{0}.
+\]
+
+Thus,
+\[
+1.1 R_{0} = R_{0}\bigl(1 + \alpha (T - 20^\circ\mathrm{C})\bigr).
+\]
+
+Dividing through by $R_{0}$:
+\[
+1.1 = 1 + \alpha (T - 20).
+\]
+
+Hence,
+\[
+T - 20 = \frac{0.1}{\alpha}.
+\]
+
+For copper, $\alpha \approx 0.0039 \,\text{K}^{-1}$, so
+\[
+T \approx 20 + \frac{0.1}{0.0039} \approx 45.6^\circ\mathrm{C}.
+\]
+
+Therefore, the copper wire has a 10\% greater resistance at approximately
+\[
+\boxed{46^\circ\mathrm{C}}
+\]
+than at 20\,$^\circ$C.
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 7 -----
+\begin{exercise}[Energy]
+A rechargeable flashlight battery is capable of delivering $90 \,\mathrm{mA}$ for about $12 \,\mathrm{h}$. How much charge can it release at that rate? If its terminal voltage is $1.5 \,\mathrm{V}$, how much energy can the battery deliver?
+
+\ifshowsolutions
+\begin{solution}
+The battery delivers a current of
+\[
+I = 0.09 \,\mathrm{A},
+\]
+for a time of
+\[
+t = 12 \cdot 3600 \,\mathrm{s} = 43200 \,\mathrm{s}.
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item \[
+Q = I \cdot t = 0.09 \times 43200 = 3888 \,\mathrm{C}.
+\]
+
+So the total charge is
+\[
+Q \approx 3.9 \,\mathrm{kC}.
+\]
+
+\item 
+The energy is given by
+\[
+W = Q \cdot V,
+\]
+where \(V = 1.5 \,\mathrm{V}\). Thus,
+\[
+W = 3888 \times 1.5 = 5832 \,\mathrm{J}.
+\]
+
+So the total energy is
+\[
+W \approx 5.8 \,\mathrm{kJ}.
+\]
+\end{enumerate}
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 8 -----
+\begin{exercise}[Power]
+Find the hot resistance of a light bulb rated $60\,\text{W}$, $120\,\text{V}$.
+
+\ifshowsolutions
+\begin{solution}
+The electrical power is related to the voltage and resistance by
+\[
+P = \frac{V^2}{R}.
+\]
+
+Rearranging for \(R\),
+\[
+R = \frac{V^2}{P}.
+\]
+
+Substitute the given values:
+\[
+V = 120\,\text{V}, 
+\quad 
+P = 60\,\text{W}.
+\]
+
+\[
+R = \frac{(120)^2}{60} 
+= \frac{14400}{60} 
+= 240\,\Omega.
+\]
+
+Thus, the \emph{hot resistance} of the bulb is \(240 \,\Omega\).
+
+\bigskip
+
+\textbf{Remark:}  
+The filament of a light bulb has a much lower resistance when it is cold, typically about 
+\[
+R_{\text{cold}} \approx \frac{R_{\text{hot}}}{10} \sim 20\text{--}30 \,\Omega,
+\]
+depending on the material and temperature coefficient of resistance. This explains the large inrush current when the bulb is first switched on.
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 9 -----
+\begin{exercise}[Particles]
+A particle accelerator produces a proton beam with a current of $3.50 \,\mu\mathrm{A}$. Each proton has an energy of $60.0 \,\mathrm{MeV}$. The protons strike a target in a vacuum chamber and come to rest in it, heating the target.
+\begin{enumerate}[label=\alph*)]
+    \item How many protons strike the target per second?
+    \item How much energy is deposited in the target per second?
+\end{enumerate}
+
+\ifshowsolutions
+\begin{solution}
+The beam current is $I=3.50 \,\mu\mathrm{A}=3.50\times10^{-6} \,\mathrm{A}$.  
+The elementary charge is $e=1.602\times10^{-19} \,\mathrm{C}$.  
+
+\begin{enumerate}[label=\alph*)]
+\item The number of protons per second is
+\[
+\dot{N}=\frac{I}{e}.
+\]
+Substituting,
+\[
+\dot{N} = \frac{3.50\times10^{-6}}{1.602176634\times10^{-19}}
+\approx 2.18\times10^{13} \,\mathrm{s}^{-1}.
+\]
+\item Each proton has an energy of $60.0 \,\mathrm{MeV}$.
+
+The deposited energy per second is
+\[
+P = V \cdot I = \frac{W}{Q} \cdot I = \frac{60.0 \,\mathrm{MeV}}{e} \cdot 3.50 \,\mu\mathrm{A} = 210 \,\mathrm{W}.
+\]
+\end{enumerate}
+\end{solution}
+\fi
+\end{exercise}
+
+\end{document}
