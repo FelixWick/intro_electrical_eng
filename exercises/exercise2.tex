@@ -1,0 +1,108 @@
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Packages ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[most]{tcolorbox}   % enhanced, breakable
+\usepackage{hyperref}
+
+% ---------- Geometry ----------
+\geometry{margin=2.5cm}
+
+% ---------- Header/Footer ----------
+\setlength{\headheight}{14pt}  % fancyhdr warning verhindern
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Introduction to Electrical Engineering}
+\rhead{Winter Term 2025}
+\cfoot{\thepage}
+
+% ---------- Exercise Environment ----------
+\newcounter{exercise}
+\newenvironment{exercise}[1][]
+  {\refstepcounter{exercise}%
+   \begin{tcolorbox}[enhanced, breakable, width=\textwidth,
+     colback=blue!5!white,colframe=blue!60!black,
+     fonttitle=\bfseries\large,
+     title=Exercise~\theexercise:~#1]}
+  {\end{tcolorbox}}
+
+% ---------- Solution Environment ----------
+\newif\ifshowsolutions
+\showsolutionstrue  % comment to hide solutions
+
+\newenvironment{solution}
+  {\ifshowsolutions
+     \begin{tcolorbox}[enhanced, breakable, width=\textwidth,
+       colback=green!5!white,colframe=green!50!black,
+       fonttitle=\bfseries\large,
+       title=Solution]}
+  {\end{tcolorbox}\fi}
+
+% ---------- Document ----------
+\begin{document}
+
+% ----- Header Box -----
+\begin{tcolorbox}[enhanced, breakable, colback=gray!10!white,
+  colframe=gray!70!black, fonttitle=\bfseries\large,
+  title={Exercise Sheet \#2}: DC 1: Circuit Calculations, sharp corners, width=\textwidth]
+\begin{center}
+  Discussion: Oct 22, 2025
+\end{center}
+\end{tcolorbox}
+\vspace{1cm}
+
+% ----- Exercise 1 -----
+\begin{exercise}[KCL]
+Find  $i_1$, $i_2$, and $i_3$.
+
+\includegraphics[width=0.5\textwidth]{figures/kcl.png}
+
+\ifshowsolutions
+\begin{solution}
+$-1\, \mathrm{A} - 6\, \mathrm{A} - i_1 = 0$ \\
+$\Rightarrow i_1 = -1\, \mathrm{A} - 6\, \mathrm{A} = -7\, \mathrm{A}$ \\
+\\
+$7\, \mathrm{A} - 2\, \mathrm{A}= 5\, \mathrm{A} - i_3 = 0$\\
+$\Rightarrow i_3 =  7\, \mathrm{A} - 2\, \mathrm{A}= 5\, \mathrm{A}$ \\
+\\
+$i_2 + i_3 - 4\, \mathrm{A} = 0$\\
+$\Rightarrow i_2 = 4\, \mathrm{A} - i_3 = -1\, \mathrm{A}$
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 2 -----
+\begin{exercise}[KVL]
+Calculate  $V_1$ and $V_2$.
+
+\includegraphics[width=0.5\textwidth]{figures/kvl.png}
+
+\ifshowsolutions
+\begin{solution}
+$1\, \mathrm{V} + 5\, \mathrm{V} - V_1 = 0$ \\
+$\Rightarrow V_1 = 1\, \mathrm{V} + 5\, \mathrm{V} = 6\, \mathrm{V}$ \\
+\\
+$2\, \mathrm{A} + V_2 - 5\, \mathrm{V}= 0$\\
+$\Rightarrow V_2 =  5\, \mathrm{V} - 2\, \mathrm{V}= 3\, \mathrm{V}$ \\
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 3 -----
+\begin{exercise}[...]
+...
+
+\ifshowsolutions
+\begin{solution}
+...
+\end{solution}
+\fi
+\end{exercise}
+
+\end{document}
