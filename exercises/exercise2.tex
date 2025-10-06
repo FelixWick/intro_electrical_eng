@@ -61,18 +61,30 @@
 \begin{exercise}[KCL]
 Find  $i_1$, $i_2$, and $i_3$.
 
-\includegraphics[width=0.5\textwidth]{figures/kcl.png}
+\includegraphics[width=0.7\textwidth]{figures/kcl.png}
 
 \ifshowsolutions
 \begin{solution}
-$-1\, \mathrm{A} - 6\, \mathrm{A} - i_1 = 0$ \\
-$\Rightarrow i_1 = -1\, \mathrm{A} - 6\, \mathrm{A} = -7\, \mathrm{A}$ \\
-\\
-$7\, \mathrm{A} - 2\, \mathrm{A}= 5\, \mathrm{A} - i_3 = 0$\\
-$\Rightarrow i_3 =  7\, \mathrm{A} - 2\, \mathrm{A}= 5\, \mathrm{A}$ \\
-\\
-$i_2 + i_3 - 4\, \mathrm{A} = 0$\\
-$\Rightarrow i_2 = 4\, \mathrm{A} - i_3 = -1\, \mathrm{A}$
+\[
+-1\, \mathrm{A} - 6\, \mathrm{A} - i_1 = 0
+\]
+\[
+\Rightarrow i_1 = -1\, \mathrm{A} - 6\, \mathrm{A} = -7\, \mathrm{A}
+\]
+
+\[
+7\, \mathrm{A} - 2\, \mathrm{A}= 5\, \mathrm{A} - i_3 = 0
+\]
+\[
+\Rightarrow i_3 =  7\, \mathrm{A} - 2\, \mathrm{A}= 5\, \mathrm{A}
+\]
+
+\[
+i_2 + i_3 - 4\, \mathrm{A} = 0
+\]
+\[
+\Rightarrow i_2 = 4\, \mathrm{A} - i_3 = -1\, \mathrm{A}
+\]
 \end{solution}
 \fi
 \end{exercise}
@@ -81,20 +93,199 @@ $\Rightarrow i_2 = 4\, \mathrm{A} - i_3 = -1\, \mathrm{A}$
 \begin{exercise}[KVL]
 Calculate  $V_1$ and $V_2$.
 
-\includegraphics[width=0.5\textwidth]{figures/kvl.png}
+\includegraphics[width=0.7\textwidth]{figures/kvl.png}
 
 \ifshowsolutions
 \begin{solution}
-$1\, \mathrm{V} + 5\, \mathrm{V} - V_1 = 0$ \\
-$\Rightarrow V_1 = 1\, \mathrm{V} + 5\, \mathrm{V} = 6\, \mathrm{V}$ \\
-\\
-$2\, \mathrm{A} + V_2 - 5\, \mathrm{V}= 0$\\
-$\Rightarrow V_2 =  5\, \mathrm{V} - 2\, \mathrm{V}= 3\, \mathrm{V}$ \\
+\[
+1\, \mathrm{V} + 5\, \mathrm{V} - V_1 = 0
+\]
+\[
+\Rightarrow V_1 = 1\, \mathrm{V} + 5\, \mathrm{V} = 6\, \mathrm{V}
+\]
+
+\[
+2\, \mathrm{A} + V_2 - 5\, \mathrm{V}= 0
+\]
+\[
+\Rightarrow V_2 =  5\, \mathrm{V} - 2\, \mathrm{V}= 3\, \mathrm{V}
+\]
 \end{solution}
 \fi
 \end{exercise}
 
 % ----- Exercise 3 -----
+\begin{exercise}[Series and Parallel Resistors]
+Calculate $I_0$.
+
+\includegraphics[width=0.7\textwidth]{figures/series_parallel.png}
+
+\ifshowsolutions
+\begin{solution}
+First, we calculate the equivalent resistance of the paralles resistors with $3\, \Omega$ and $6\, \Omega$, then we add the series resistor with $8\, \Omega$:
+
+\[
+R = \frac{3\, \Omega \cdot 6\, \Omega}{3\, \Omega + 6\, \Omega} + 8\, \Omega= 10\, \Omega
+\]
+
+Finally, we can calculate the current \(I_0\) using Ohm's law:
+
+\[
+I_o = \frac{10\, \mathrm{V}}{10\, \Omega} = 1\, \mathrm{A}
+\]
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 4 -----
+\begin{exercise}[Current Divider Rule]
+Calculate $i_1$ to $i_5$.
+
+\includegraphics[width=0.7\textwidth]{figures/current_divider.png}
+
+\ifshowsolutions
+\begin{solution}
+First, we calculate the equivalent resistance of the paralles resistors with $1\, \Omega$ and $2\, \Omega$ and call it \(R_3\):
+
+\[
+R_3 = \frac{1\, \Omega \cdot 2\, \Omega}{1\, \Omega + 2\, \Omega} = \frac{2}{3}\, \Omega
+\]
+
+Then we calculate the total resistance \(R\) from the $4\, \Omega$ resistor parallel to \(R_3\) and the $3\, \Omega$ resistor in series:
+
+\[
+R = 3\, \Omega + \frac{4\, \Omega \cdot \frac{2}{3}\, \Omega}{4\, \Omega + \frac{2}{3}\, \Omega} = \frac{25}{7}\, \Omega
+\]
+
+Using Ohm's law, we can calculate the total current \(i_1\):
+
+\[
+i_1 = \frac{200\, \mathrm{V}}{\frac{25}{7}\, \Omega} = 56\, \mathrm{A}
+\]
+
+Then, we can calculate \(i_2\) using current division:
+
+\[
+i_2 = i_1 \cdot \frac{R_3}{R_2 + R_3} = 56\, \mathrm{A} \cdot \frac{\frac{2}{3}\, \Omega}{4\, \Omega + \frac{2}{3}\, \Omega} = 8\, \mathrm{A}
+\]
+
+KCL gives us \(i_3\):
+
+\[
+i_3 = i_1 - i_2 = 56\, \mathrm{A} - 8\, \mathrm{A} = 48\, \mathrm{A}
+\]
+
+Again, we can calculate \(i_4\) using current division:
+
+\[
+i_4 = i_3 \cdot \frac{R_5}{R_4 + R_5} = 48\, \mathrm{A} \cdot \frac{2\, \Omega}{1\, \Omega + 2\, \Omega} = 32\, \mathrm{A}
+\]
+
+Finally, KCL gives us \(i_5\):
+
+\[
+i_5 = i_3 - i_4 = 48\, \mathrm{A} - 32\, \mathrm{A} = 16\, \mathrm{A}
+\]
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 5 -----
+\begin{exercise}[Node Connection]
+Calculate $I_o$ and $V_o$.
+
+\includegraphics[width=0.7\textwidth]{figures/node_connection.png}
+
+\ifshowsolutions
+\begin{solution}
+A node is a point where two or more circuit elements connect (electrically the same point). A branch is a path that connects two nodes and contains a circuit element (resistor, source, etc.).
+
+Here, there are three main nodes:
+\begin{itemize}
+  \item Top node: connected to the $+200\, \mathrm{V}$ source, top of the $70\, \Omega$ and $30\, \Omega$ resistors.
+  \item Bottom node: $0\, \mathrm{V}$ reference.
+  \item Middle node: connection between two branches. On the left, the branch formed by the $70\, \Omega$ and $20\, \Omega$. And on the right, the branch formed by the $30\, \Omega$ and $5\, \Omega$.
+\end{itemize}
+
+The middle horizontal wire (with $I_o$) is part of the middle node, but because there’s a potential difference between the left and right parts of that node before it’s connected, current flows through that connection — hence we analyze $I_o$ as if it’s a branch current.
+
+As the output voltage \(V_o\) is the voltage across the $5\, \Omega$ resistor, the output voltage equals the middle node voltage.
+
+\[
+\text{Currents from the top node to the middle node:}
+\]
+\[
+I_{70} = \frac{200\, \mathrm{V} - V_o}{70\, \Omega}, \qquad I_{30} = \frac{200\, \mathrm{V} - V_o}{30\, \Omega}
+\]
+
+\[
+\text{Currents from the middle node to the bottom node:}
+\]
+\[
+I_{20} = \frac{V_o}{20\, \Omega}, \qquad I_{5} = \frac{V_o}{5\, \Omega}
+\]
+
+Applying KCL at the middle node:
+\[
+\frac{200\, \mathrm{V} - V_o}{70\, \Omega} + \frac{200\, \mathrm{V} - V_o}{30\, \Omega} = \frac{V_o}{20\, \Omega} + \frac{V_o}{5\, \Omega}
+\]
+
+Simplify:
+\[
+\frac{200\, \mathrm{V} - V_o}{21\, \Omega} = \frac{V_o}{4\, \Omega}
+\]
+
+\[
+\Rightarrow 800\, \mathrm{V} - 4 \cdot V_o = 21 \cdot V_o
+\]
+
+\[
+\Rightarrow \boxed{V_o = 32~\text{V}}
+\]
+
+Now we use KCL to compute the current \( I_o \) (defined to the right):
+
+\[
+I_o = I_{70} - I_{20} = \frac{200\, \mathrm{V} - 32\, \mathrm{V}}{70\, \Omega} - \frac{32\, \mathrm{V}}{20\, \Omega} =\boxed{0.8\, \mathrm{A}}
+\]
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 6 -----
+\begin{exercise}[...]
+...
+
+\ifshowsolutions
+\begin{solution}
+...
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 7 -----
+\begin{exercise}[...]
+...
+
+\ifshowsolutions
+\begin{solution}
+...
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 8 -----
+\begin{exercise}[...]
+...
+
+\ifshowsolutions
+\begin{solution}
+...
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 9 -----
 \begin{exercise}[...]
 ...
 
