@@ -152,6 +152,63 @@ I_o = \frac{10\, \mathrm{V}}{10\, \Omega} = 1\, \mathrm{A}
 \end{exercise}
 
 % ----- Exercise 5 -----
+\begin{exercise}[Series vs. Parallel]
+Three light bulbs are connected in series to a $120\, \mathrm{V}$ source as shown below. Find the current $I$ through each of the bulbs. Each bulb is rated at $120\, \mathrm{V}$. How much power is each bulb absorbing? Do they generate much light?
+
+\includegraphics[width=0.7\textwidth]{figures/light_bulbs.png}
+
+\ifshowsolutions
+\begin{solution}
+First, we calculate the resistances of each bulb using their rated power and voltage:
+\[
+R = \frac{V^2}{P}
+\]
+
+\[
+R_{30\, \mathrm{W}} = \frac{(120\, \mathrm{V})^2}{30\, \mathrm{W}} = 480\, \Omega
+\]
+
+\[
+R_{40\, \mathrm{W}} = \frac{(120\, \mathrm{V})^2}{40\, \mathrm{W}} = 360\, \Omega
+\]
+
+\[
+R_{50\, \mathrm{W}} = \frac{(120\, \mathrm{V})^2}{50\, \mathrm{W}} = 288\, \Omega
+\]
+
+Then, we calculate the equivalent resistance of the three light bulbs in series:
+\[
+R = 480\, \Omega + 360\, \Omega + 288\, \Omega = 1128\, \Omega
+\]
+
+Then, we can calculate the current \(I\) using Ohm's law:
+\[
+I = \frac{120\, \mathrm{V}}{1128\, \Omega} = 0.1063\, \mathrm{A}
+\]  
+
+Finally, we can calculate the power absorbed by each bulb:
+\[
+P = I^2 \cdot R
+\]
+
+\[
+P_{30\, \mathrm{W}} = (0.1063\, \mathrm{A})^2 \cdot 480\, \Omega = 5.432\, \mathrm{W}
+\]
+
+\[
+P_{40\, \mathrm{W}} = (0.1063\, \mathrm{A})^2 \cdot 360\, \Omega = 4.074\, \mathrm{W}
+\]
+
+\[
+P_{50\, \mathrm{W}} = (0.1063\, \mathrm{A})^2 \cdot 288\, \Omega = 3.259\, \mathrm{W}
+\]
+
+Clearly these values are well below the rated powers of each light bulb, so we would not expect very much light from any of them. To work properly, they need to be connected in parallel.
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 6 -----
 \begin{exercise}[Equivalent Resistance]
 Calculate the equivalent resistance $R_{ab}$ across the terminals.
 
@@ -177,7 +234,7 @@ R_{ab} = \frac{1}{\frac{1}{20\, \Omega} + \frac{1}{80\, \Omega}} = 16\, \Omega
 \fi
 \end{exercise}
 
-% ----- Exercise 6 -----
+% ----- Exercise 7 -----
 \begin{exercise}[Current Divider Rule]
 Calculate $i_1$ to $i_5$.
 
@@ -230,7 +287,7 @@ i_5 = i_3 - i_4 = 48\, \mathrm{A} - 32\, \mathrm{A} = 16\, \mathrm{A}
 \fi
 \end{exercise}
 
-% ----- Exercise 7 -----
+% ----- Exercise 8 -----
 \begin{exercise}[Node Connection]
 Calculate $I_o$ and $V_o$.
 
@@ -292,7 +349,7 @@ I_o = I_{70} - I_{20} = \frac{200\, \mathrm{V} - 32\, \mathrm{V}}{70\, \Omega} -
 \fi
 \end{exercise}
 
-% ----- Exercise 8 -----
+% ----- Exercise 9 -----
 \begin{exercise}[$\Delta$-Y Transformation]
 Calculate the equivalent resistance across the terminals.
 
