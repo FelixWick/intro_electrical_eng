@@ -10,6 +10,7 @@
 \usepackage{fancyhdr}
 \usepackage[most]{tcolorbox}   % enhanced, breakable
 \usepackage{hyperref}
+\usepackage[siunitx]{circuitikz}
 
 % ---------- Geometry ----------
 \geometry{margin=2.5cm}
@@ -58,6 +59,19 @@
 \vspace{1cm}
 
 % ----- Exercise 1 -----
+\begin{exercise}[Topology]
+Find the number of nodes, branches, and loops.
+
+\includegraphics[width=0.5\textwidth]{figures/nodes.png}
+
+\ifshowsolutions
+\begin{solution}
+$n = 9$, $b = 15$, $l = 7$
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 2 -----
 \begin{exercise}[KCL]
 Find  $i_1$, $i_2$, and $i_3$.
 
@@ -89,7 +103,7 @@ i_2 + i_3 - 4\, \mathrm{A} = 0
 \fi
 \end{exercise}
 
-% ----- Exercise 2 -----
+% ----- Exercise 3 -----
 \begin{exercise}[KVL]
 Calculate  $V_1$ and $V_2$.
 
@@ -114,7 +128,7 @@ Calculate  $V_1$ and $V_2$.
 \fi
 \end{exercise}
 
-% ----- Exercise 3 -----
+% ----- Exercise 4 -----
 \begin{exercise}[Series and Parallel Resistors]
 Calculate $I_0$.
 
@@ -122,7 +136,7 @@ Calculate $I_0$.
 
 \ifshowsolutions
 \begin{solution}
-First, we calculate the equivalent resistance of the paralles resistors with $3\, \Omega$ and $6\, \Omega$, then we add the series resistor with $8\, \Omega$:
+First, we calculate the equivalent resistance of the parallel resistors with $3\, \Omega$ and $6\, \Omega$, then we add the series resistor with $8\, \Omega$:
 
 \[
 R = \frac{3\, \Omega \cdot 6\, \Omega}{3\, \Omega + 6\, \Omega} + 8\, \Omega= 10\, \Omega
@@ -137,7 +151,33 @@ I_o = \frac{10\, \mathrm{V}}{10\, \Omega} = 1\, \mathrm{A}
 \fi
 \end{exercise}
 
-% ----- Exercise 4 -----
+% ----- Exercise 5 -----
+\begin{exercise}[Equivalent Resistance]
+Calculate the equivalent resistance $R_{ab}$ across the terminals.
+
+\includegraphics[width=0.7\textwidth]{figures/equivalent_R_1.png}
+
+\ifshowsolutions
+\begin{solution}
+First we calculate the equivalent resistance of the parallel resistors with $60\, \Omega$, $20\, \Omega$, and $30\, \Omega$:
+\[
+R_p = \frac{1}{\frac{1}{60\, \Omega} + \frac{1}{20\, \Omega} + \frac{1}{30\, \Omega}} = 10\, \Omega
+\]
+
+Then we add the series resistor with $10\, \Omega$:
+\[
+R_{ab} = 10\, \Omega + 10\, \Omega = 20\, \Omega
+\]
+
+And finally we combine with the parallal resistor of $80\, \Omega$:
+\[
+R_{ab} = \frac{1}{\frac{1}{20\, \Omega} + \frac{1}{80\, \Omega}} = 16\, \Omega
+\]
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 6 -----
 \begin{exercise}[Current Divider Rule]
 Calculate $i_1$ to $i_5$.
 
@@ -145,7 +185,7 @@ Calculate $i_1$ to $i_5$.
 
 \ifshowsolutions
 \begin{solution}
-First, we calculate the equivalent resistance of the paralles resistors with $1\, \Omega$ and $2\, \Omega$ and call it \(R_3\):
+First, we calculate the equivalent resistance of the parallel resistors with $1\, \Omega$ and $2\, \Omega$ and call it \(R_3\):
 
 \[
 R_3 = \frac{1\, \Omega \cdot 2\, \Omega}{1\, \Omega + 2\, \Omega} = \frac{2}{3}\, \Omega
@@ -190,7 +230,7 @@ i_5 = i_3 - i_4 = 48\, \mathrm{A} - 32\, \mathrm{A} = 16\, \mathrm{A}
 \fi
 \end{exercise}
 
-% ----- Exercise 5 -----
+% ----- Exercise 7 -----
 \begin{exercise}[Node Connection]
 Calculate $I_o$ and $V_o$.
 
@@ -252,46 +292,85 @@ I_o = I_{70} - I_{20} = \frac{200\, \mathrm{V} - 32\, \mathrm{V}}{70\, \Omega} -
 \fi
 \end{exercise}
 
-% ----- Exercise 6 -----
-\begin{exercise}[...]
-...
-
-\ifshowsolutions
-\begin{solution}
-...
-\end{solution}
-\fi
-\end{exercise}
-
-% ----- Exercise 7 -----
-\begin{exercise}[...]
-...
-
-\ifshowsolutions
-\begin{solution}
-...
-\end{solution}
-\fi
-\end{exercise}
-
 % ----- Exercise 8 -----
-\begin{exercise}[...]
-...
+\begin{exercise}[$\Delta$-Y Transformation]
+Calculate the equivalent resistance across the terminals.
+
+\includegraphics[width=0.7\textwidth]{figures/equivalent_R_2.png}
 
 \ifshowsolutions
 \begin{solution}
-...
-\end{solution}
-\fi
-\end{exercise}
+1. Combine the right vertical resistors:
+\[
+12\, \Omega \parallel 60\, \Omega = \frac{12\, \Omega \cdot 60\, \Omega}{12\, \Omega + 60\, \Omega} = 10\, \Omega
+\]
 
-% ----- Exercise 9 -----
-\begin{exercise}[...]
-...
+2. Series combination with the $20\, \Omega$ resistor:
+\[
+20\, \Omega + 10\, \Omega = 30\, \Omega
+\]
 
-\ifshowsolutions
-\begin{solution}
-...
+3. Parallel combination with the other $30\, \Omega$:
+\[
+30\, \Omega \parallel 30\, \Omega = \frac{30\, \Omega \cdot 30\, \Omega}{30\, \Omega + 30\, \Omega} = 15\, \Omega
+\]
+
+After these three steps, the circuit reduces to a triangle ($\Delta$):
+
+\begin{center}
+\begin{circuitikz}[american]
+    \draw
+    (0,0) node[anchor=east]{}
+    to[R=$15\,\Omega$, o-*] (2,0)
+    to[short] (3,0)
+    to[R=$10\,\Omega$] (5,0)
+    node[circle,draw,fill=white,inner sep=1pt,label=below:$N_3$]{};
+
+    \draw
+    (0,4) node[anchor=east]{}
+    to[R=$5\,\Omega$, o-*] (2,4)
+    to[R=$25\,\Omega$] (2,0)
+    (2,4) to[R=$15\,\Omega$] (5,0);
+\end{circuitikz}
+\end{center}
+
+4. Convert the $\Delta$-network to equivalent Y-resistances:
+\[
+R_1 = \frac{R_b R_c}{R_a + R_b + R_c} = \frac{15\, \Omega \cdot 25\, \Omega}{50\, \Omega} = 7.5\, \Omega
+\]
+\[
+R_2 = \frac{R_a R_c}{R_a + R_b + R_c} = \frac{10\, \Omega \cdot 25\, \Omega}{50\, \Omega} = 5\, \Omega
+\]
+\[
+R_3 = \frac{R_a R_b}{R_a + R_b + R_c} = \frac{10\, \Omega \cdot 15\, \Omega}{50\, \Omega} = 3\, \Omega
+\]
+
+\begin{center}
+\begin{circuitikz}[american]
+    % Nodes
+    \node[] (A) at (0,4) {};
+    \node[] (B) at (0,0) {};
+    \node[circle,draw,fill=white,inner sep=1pt,label=above:$N_1$] (N1) at (2,3) {};
+    \node[circle,draw,fill=white,inner sep=1pt,label=below:$N_2$] (N2) at (2,1) {};
+    \node[circle,draw,fill=white,inner sep=1pt,label=right:$N_3$] (N3) at (5,2) {};
+    \node[circle,draw,fill=white,inner sep=1pt] (O) at (3.5,2) {}; % star center
+
+    % External connections
+    \draw (A) to[R=$5\,\Omega$, o-*] (N1);
+    \draw (B) to[R=$15\,\Omega$, o-*] (N2);
+
+    % Star (Y) arms
+    \draw (O) to[R=$7.5\,\Omega$] (N1);
+    \draw (O) to[R=$5\,\Omega$] (N2);
+    \draw (O) to[R=$3\,\Omega$] (N3);
+
+\end{circuitikz}
+\end{center}
+
+The branch with the \( 3\, \Omega \) resistor connects to a dead-end node \( N_3 \), so it carries no current and can be ignored.
+\[
+\Rightarrow R_{eq} = 5\, \Omega + 7.5\, \Omega + 5\, \Omega + 15\, \Omega = 32.5\, \Omega
+\]
 \end{solution}
 \fi
 \end{exercise}
