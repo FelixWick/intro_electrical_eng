@@ -58,12 +58,123 @@
 \vspace{1cm}
 
 % ----- Exercise 1 -----
-\begin{exercise}[...]
+\begin{exercise}[Method of Complete Tree]
 ...
 
 \ifshowsolutions
 \begin{solution}
 ...
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 2 -----
+\begin{exercise}[Thévenin and Power Matching]
+The variable resistor $R$ is adjusted until it absorbs the maximum power from the circuit.
+\begin{enumerate}[label=\alph*)]
+    \item Calculate the value of $R$ for maximum power.
+    \item Determine the maximum power absorbed by $R$.
+\end{enumerate}
+
+\includegraphics[width=0.7\textwidth]{figures/maximum_power.png}
+
+\ifshowsolutions
+\begin{solution}
+\begin{enumerate}[label=\alph*)]
+\item First, we calculate the Thévenin equivalent seen from the terminals of R.
+
+Let node $D$ (left of $40\, \mathrm{V}$ source) be at $40\, \mathrm{V}$, and node $B$ (right of source) be at $0\, \mathrm{V}$.
+
+For the upper node $A$:
+\[
+\frac{V_A - 40}{80} + \frac{V_A - 0}{20} = 0
+\Rightarrow 5V_A - 200 = 0
+\Rightarrow V_A = 8\, \mathrm{V}
+\]
+
+For the lower node $C$:
+\[
+\frac{V_C - 40}{10} + \frac{V_C - 0}{90} = 0
+\Rightarrow 9V_C - 360 = 0
+\Rightarrow V_C = 36\, \mathrm{V}
+\]
+
+Thus, the open-circuit (Thévenin) voltage is:
+\[
+V_\mathrm{th} = |V_A - V_C| = |8 - 36| = 28\, \mathrm{V}
+\]
+
+Now we deactivate the $40\, \mathrm{V}$ source (replace by a short circuit):
+\[
+R_A = (80\, \Omega \parallel 20\, \Omega) = \frac{80 \cdot 20}{80 + 20} = 16\, \Omega
+\]
+\[
+R_C = (10\, \Omega \parallel 90\, \Omega) = \frac{10 \cdot 90}{10 + 90} = 9\, \Omega
+\]
+
+Since $R_A$ and $R_C$ are in series,
+\[
+R_\mathrm{th} = R_A + R_C = 16 + 9 = 25\, \Omega.
+\]
+
+For maximum power: $R = R_\mathrm{th} = 25\, \Omega$
+
+\item The circuit can be represented by a Thévenin voltage source $V_\mathrm{th}$ in series with a Thévenin resistance $R_\mathrm{th}$ and a load $R_L$.
+\[
+I = \frac{V_{\text{th}}}{R_{\text{th}} + R_L}
+\]
+
+Power in the load:
+\[
+P = I^2 R_L = \frac{V_\mathrm{th}^2 R_L}{(R_\mathrm{th} + R_L)^2}
+\]
+
+Substitute $R_L = R_\mathrm{th}$ into the power equation:
+\[
+P_{\max} = \frac{V_\mathrm{th}^2 R_\mathrm{th}}{(R_\mathrm{th} + R_\mathrm{th})^2} = \frac{V_\mathrm{th}^2}{4R_\mathrm{th}} = \frac{28^2}{4 \cdot 25} = \frac{784}{100} = 7.84\, \mathrm{W}
+\]
+\end{enumerate}
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 3 -----
+\begin{exercise}[Efficiency]
+If we want at least $75\%$ efficiency, what fraction of the maximum load power do we get?
+
+\ifshowsolutions
+\begin{solution}
+Efficiency $\eta$ is defined as the ratio of power delivered to the load to the total power supplied by the source.
+
+For a Thévenin source ($V_\mathrm{th}$, $R_\mathrm{th}$) with a load $R_L$, the efficiency is:
+\[
+\eta = \frac{P_L}{P_L + P_\mathrm{th}} = \frac{R_L}{R_L + R_\mathrm{th}}
+\]
+
+Given $\eta = 75\%$, solve for $R_L$:
+\[
+0.75 = \frac{R_L}{R_L + R_\mathrm{th}}
+\]
+\[
+\Rightarrow R_L = 3R_\mathrm{th}
+\]
+
+At maximum power ($R_L = R_\mathrm{th}$): 
+\[
+P_{L,\max} = \frac{V_\mathrm{th}^2}{4 R_\mathrm{th}}.
+\]
+
+Hence, the power ratio is:
+\[
+\frac{P_L}{P_{L,\max}} = \frac{ \dfrac{V_\mathrm{th}^2 R_L}{(R_\mathrm{th} + R_L)^2} }{ \dfrac{V_\mathrm{th}^2}{4R_\mathrm{th}} } = 4R_\mathrm{th} \cdot \frac{R_L}{(R_\mathrm{th} + R_L)^2}.
+\]
+
+Substitute $R_L = 3R_\mathrm{th}$:
+\[
+\frac{P_L}{P_{L,\max}} = 4R_\mathrm{th} \cdot \frac{3R_\mathrm{th}}{(R_\mathrm{th} + 3R_\mathrm{th})^2} = \frac{12R_\mathrm{th}^2}{(4R_\mathrm{th})^2} = 0.75.
+\]
+
+Even when efficiency increases to 75\%, the load still receives 75\% of the maximum possible power. Thus, higher efficiency is achieved at the cost of only a moderate reduction in power delivered to the load.
 \end{solution}
 \fi
 \end{exercise}
