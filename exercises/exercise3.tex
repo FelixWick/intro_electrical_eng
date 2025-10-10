@@ -10,6 +10,7 @@
 \usepackage{fancyhdr}
 \usepackage[most]{tcolorbox}   % enhanced, breakable
 \usepackage{hyperref}
+\usepackage{circuitikz}
 
 % ---------- Geometry ----------
 \geometry{margin=2.5cm}
@@ -50,7 +51,7 @@
 % ----- Header Box -----
 \begin{tcolorbox}[enhanced, breakable, colback=gray!10!white,
   colframe=gray!70!black, fonttitle=\bfseries\large,
-  title={Exercise Sheet \#3}: DC 2: Network Analysis, sharp corners, width=\textwidth]
+  title={Exercise Sheet \#3}: DC 2: Network Analysis and Power, sharp corners, width=\textwidth]
 \begin{center}
   Discussion: Oct 29, 2025
 \end{center}
@@ -59,11 +60,75 @@
 
 % ----- Exercise 1 -----
 \begin{exercise}[Method of Complete Tree]
-...
+The following network contains the resistors $R_1 = 1\,\Omega$, $R_2 = 2\,\Omega$, $R_3 = 5\,\Omega$, $R_4 = 25\,\Omega$, and $R_5 = 40\,\Omega$, as well as the source voltages $U_{q1} = 16.2\,\mathrm{V}$ and $U_{q2} = 11.4\,\mathrm{V}$. All branch currents are to be determined.
+
+\includegraphics[width=0.7\textwidth]{figures/complete_tree_1.png}
 
 \ifshowsolutions
 \begin{solution}
+This network has $n = 3$ nodes, so there are $n - 1 = 2$ linearly independent node equations. Picking nodes $B$ and $C$:
+\[
+I_3 + I_4 - I_1 = 0
+\]
+\[
+I_5 - I_2 - I_3 = 0
+\]
+
+The number of branches is 5, so there are $5 - (3 - 1) = 3$ linearly independent mesh equations. Graph of the network with a selected complete tree (marked in red):
+
+\includegraphics[width=0.4\textwidth]{figures/complete_tree_2.png}
+
+The branch currents in the connecting branches, i.e., $I_1$, $I_2$, and $I_3$, are chosen as mesh currents. The mesh equations are set up by traversing the meshes in the direction of the counting arrows of the mesh currents:
+\[
+\begin{aligned}
+M_1 &: \quad R_1 I_1 + R_4 I_4 - U_{q1} = 0 \\
+M_2 &: \quad R_2 I_2 + R_5 I_5 - U_{q2} = 0 \\
+M_3 &: \quad R_3 I_3 - R_4 I_4 + R_5 I_5 = 0
+\end{aligned}
+\]
+
+Resulting system of equations as matrix equation:
+\[
+\begin{bmatrix}
+-1 & 0 & 1 & 1 & 0 \\
+0 & -1 & -1 & 0 & 1 \\
+R_1 & 0 & 0 & R_4 & 0 \\
+0 & R_2 & 0 & 0 & R_5 \\
+0 & 0 & R_3 & -R_4 & R_5
+\end{bmatrix}
+\begin{bmatrix}
+I_1 \\[4pt] I_2 \\[4pt] I_3 \\[4pt] I_4 \\[4pt] I_5
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\[4pt] 0 \\[4pt] U_{q1} \\[4pt] U_{q2} \\[4pt] 0
+\end{bmatrix}.
+\]
+Substituting numerical values gives:
+\[
+\begin{bmatrix}
+-1 & 0 & 1 & 1 & 0 \\
+0 & -1 & -1 & 0 & 1 \\
+1 & 0 & 0 & 25 & 0 \\
+0 & 2 & 0 & 0 & 40 \\
+0 & 0 & 5 & -25 & 40
+\end{bmatrix}
+\begin{bmatrix}
+I_1 \\[4pt] I_2 \\[4pt] I_3 \\[4pt] I_4 \\[4pt] I_5
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\[4pt] 0 \\[4pt] 16.2 \\[4pt] 11.4 \\[4pt] 0
+\end{bmatrix}.
+\]
 ...
+\[
+I_1 = 1.2\,\mathrm{A}, \qquad
+I_2 = -0.3\,\mathrm{A}, \qquad
+I_3 = 0.6\,\mathrm{A}, \qquad
+I_4 = 0.6\,\mathrm{A}, \qquad
+I_5 = 0.3\,\mathrm{A}.
+\]
 \end{solution}
 \fi
 \end{exercise}
@@ -131,7 +196,7 @@ P = I^2 R_L = \frac{V_\mathrm{th}^2 R_L}{(R_\mathrm{th} + R_L)^2}
 
 Substitute $R_L = R_\mathrm{th}$ into the power equation:
 \[
-P_{\max} = \frac{V_\mathrm{th}^2 R_\mathrm{th}}{(R_\mathrm{th} + R_\mathrm{th})^2} = \frac{V_\mathrm{th}^2}{4R_\mathrm{th}} = \frac{28^2}{4 \cdot 25} = \frac{784}{100} = 7.84\, \mathrm{W}
+P_{\max} = \frac{V_\mathrm{th}^2 R_\mathrm{th}}{(R_\mathrm{th} + R_\mathrm{th})^2} = \frac{V_\mathrm{th}^2}{4 R_\mathrm{th}} = \frac{28^2}{4 \cdot 25} = \frac{784}{100} = 7.84\, \mathrm{W}
 \]
 \end{enumerate}
 \end{solution}
@@ -140,7 +205,11 @@ P_{\max} = \frac{V_\mathrm{th}^2 R_\mathrm{th}}{(R_\mathrm{th} + R_\mathrm{th})^
 
 % ----- Exercise 3 -----
 \begin{exercise}[Efficiency]
-If we want at least $75\%$ efficiency, what fraction of the maximum load power do we get?
+Given the efficiencies listed below, determine the corresponding fraction of the maximum load power for each case.
+\begin{enumerate}[label=\alph*)]
+    \item $\eta = 75\%$
+    \item $\eta = 90\%$
+\end{enumerate}
 
 \ifshowsolutions
 \begin{solution}
@@ -151,30 +220,157 @@ For a Thévenin source ($V_\mathrm{th}$, $R_\mathrm{th}$) with a load $R_L$, the
 \eta = \frac{P_L}{P_L + P_\mathrm{th}} = \frac{R_L}{R_L + R_\mathrm{th}}
 \]
 
-Given $\eta = 75\%$, solve for $R_L$:
-\[
-0.75 = \frac{R_L}{R_L + R_\mathrm{th}}
-\]
-\[
-\Rightarrow R_L = 3R_\mathrm{th}
-\]
-
 At maximum power ($R_L = R_\mathrm{th}$): 
 \[
-P_{L,\max} = \frac{V_\mathrm{th}^2}{4 R_\mathrm{th}}.
+P_{L,\max} = \frac{V_\mathrm{th}^2}{4 R_\mathrm{th}}
 \]
 
 Hence, the power ratio is:
 \[
-\frac{P_L}{P_{L,\max}} = \frac{ \dfrac{V_\mathrm{th}^2 R_L}{(R_\mathrm{th} + R_L)^2} }{ \dfrac{V_\mathrm{th}^2}{4R_\mathrm{th}} } = 4R_\mathrm{th} \cdot \frac{R_L}{(R_\mathrm{th} + R_L)^2}.
+\frac{P_L}{P_{L,\max}} = \frac{ \dfrac{V_\mathrm{th}^2 R_L}{(R_\mathrm{th} + R_L)^2} }{ \dfrac{V_\mathrm{th}^2}{4 R_\mathrm{th}} } = 4 R_\mathrm{th} \cdot \frac{R_L}{(R_\mathrm{th} + R_L)^2}
 \]
 
-Substitute $R_L = 3R_\mathrm{th}$:
+\begin{enumerate}[label=\alph*)]
+\item For $\eta = 75\%$:
 \[
-\frac{P_L}{P_{L,\max}} = 4R_\mathrm{th} \cdot \frac{3R_\mathrm{th}}{(R_\mathrm{th} + 3R_\mathrm{th})^2} = \frac{12R_\mathrm{th}^2}{(4R_\mathrm{th})^2} = 0.75.
+0.75 = \frac{R_L}{R_L + R_\mathrm{th}}
+\]
+\[
+\Rightarrow R_L = 3 R_\mathrm{th}
+\]
+\[
+\Rightarrow \frac{P_L}{P_{L,\max}} = 4R_\mathrm{th} \cdot \frac{3R_\mathrm{th}}{(R_\mathrm{th} + 3R_\mathrm{th})^2} = \frac{12R_\mathrm{th}^2}{(4R_\mathrm{th})^2} = 0.75
+\]
+Even when efficiency increases to 75\%, the load still receives 75\% of the maximum possible power. Thus, higher efficiency is achieved at the cost of only a moderate reduction in power delivered to the load.
+\item For $\eta = 90\%$:
+\[
+0.9 = \frac{R_L}{R_L + R_\mathrm{th}}
+\]
+\[
+\Rightarrow R_L = 9 R_\mathrm{th}
+\]
+\[
+\Rightarrow \frac{P_L}{P_{L,\max}} = 4 R_\mathrm{th} \cdot \frac{9 R_\mathrm{th}}{(R_\mathrm{th} + 9 R_\mathrm{th})^2} = \frac{36 R_\mathrm{th}^2}{(10 R_\mathrm{th})^2} = 0.36
+\]
+So as efficiency rises, delivered power drops sharply.
+\end{enumerate}
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 4 -----
+\begin{exercise}[Power Measurement]
+Calculate the effect of voltmeter and ammeter placement on the measured power in a DC resistive circuit with the parameters and configuratons below. Compare the measured power to the true power dissipated in the load resistor for both configurations and for the two different load resistances.
+
+\begin{itemize}
+  \item Source voltage: $V_s = 12\, \mathrm{V}$
+  \item Source internal resistance: $R_s = 1\, \Omega$
+  \item Voltmeter internal resistance: $R_v = 1000\, \Omega$
+  \item Ammeter internal resistance: $R_a = 0.1\, \Omega$
+  \item Load resistance (two cases):
+  \begin{itemize}
+      \item Low load resistance: $R_L =  1\, \Omega$
+      \item High load resistance: $R_L = 100\, \Omega$
+  \end{itemize}
+\end{itemize}
+
+\begin{enumerate}
+  \item Configuration A (Current-corrected):\\
+  Voltmeter connected across the source, ammeter in series with the load.\\
+
+\begin{center}
+\begin{tikzpicture}[thick, scale=1.0]
+  % Source with internal resistance
+  \draw (0,0) to[battery, l_={$V_s$}] (0,3);
+  \draw (0,3) to[resistor, l_={$R_s$}] (2,3);
+
+  % Ammeter (as a circle)
+  \draw (2,3) -- (2.5,3);
+  \draw (3,3) node[circle,draw,minimum size=10mm,inner sep=0pt]{A};
+  \draw (3.5,3) -- (4,3);
+
+  % Load resistor
+  \draw (4,3) to[resistor, l_={$R_L$}] (4,0);
+
+  % Return path
+  \draw (4,0) -- (0,0);
+
+  % Voltmeter (as a circle)
+  \draw (2,1.5) node[circle,draw,minimum size=10mm,inner sep=0pt]{V};
+  \draw (2,0) -- (2,1);
+  \draw (2,2) -- (2,3);
+\end{tikzpicture}
+\end{center}
+
+  \item Configuration B (Voltage-corrected):\\
+  Voltmeter connected across the load, ammeter in series with the source.\\
+\end{enumerate}
+
+\ifshowsolutions
+\begin{solution}
+\paragraph{Configuration A}
+\[
+I_s = I_L + I_v
+\]
+\[
+I_L=\frac{V_t}{R_a + R_L}\quad\text{(through ammeter + load)}
+\]
+\[
+I_v=\frac{V_t}{R_v}\quad\text{(through voltmeter)}.
 \]
 
-Even when efficiency increases to 75\%, the load still receives 75\% of the maximum possible power. Thus, higher efficiency is achieved at the cost of only a moderate reduction in power delivered to the load.
+Source terminal relation:
+\[
+V_t = V_s - R_s \cdot I_s = \frac{V_s}{1 + R_s \left(\frac{1}{R_a + R_L} + \frac{1}{R_v}\right)}
+\]
+
+Measured power (what you would calculate from the meter readings, i.e.\ voltmeter~$\times$~ammeter):
+\[
+P_{\text{meas},A} = V_t I_L = \frac{V_t^2}{R_a + R_L} = \frac{V_s^2}{(R_a + R_L) (1 + R_s \left(\frac{1}{R_a + R_L} + \frac{1}{R_v}\right)^2}
+\]
+
+True power dissipated in load resistor:
+\[
+P_\text{true}=I_L^2 R_L = \dfrac{V_t^2\,R_L}{(R_a + R_L)^2}
+\]
+
+\paragraph{Configuration B}
+\[
+R_p = \frac{R_L R_v}{R_L + R_v} \quad\text{(parallel combination of load and voltmeter)}
+\]
+\[
+I_s = \frac{V_s}{R_s + R_a + R_p}
+\]
+\[
+V_L = I_s \, R_p \quad\text{(voltage across load + voltmeter branch)}
+\]
+
+Measured power:
+\[
+P_{\text{meas},B} = V_L I_s = I_s^2 R_p = \frac{V_s^2 R_p}{(R_s + R_a + R_p)^2}
+\]
+
+True power dissipated in load resistor:
+\[
+P_\text{true} = I_L^2 R_L
+\]
+\[
+I_L = \frac{V_L}{R_L} = \frac{I_s R_p}{R_L}
+\]
+\[
+\Rightarrow P_\text{true} = \frac{I_s^2 R_p^2}{R_L}
+\]
+
+\begin{center}
+\begin{tabular}{lrrrrr}
+\hline
+$R_L$ & $P_\text{true}$ & $P_{\text{meas},A}$ & $P_{\text{meas},B}$ \\
+\hline
+$1\, \Omega$ & $32.62\, \mathrm{W}$ & $35.88\, \mathrm{W}$ & $32.65\, \mathrm{W}$ \\
+$100\, \Omega$ & $1.406\, \mathrm{W}$ & $1.407\, \mathrm{W}$ & $1.546\, \mathrm{W}$ \\
+\hline
+\end{tabular}
+\end{center}
 \end{solution}
 \fi
 \end{exercise}
