@@ -58,6 +58,52 @@
 \vspace{1cm}
 
 % ----- Exercise 1 -----
+\begin{exercise}[Discrete Charge Distribution]
+Two point charges of $+3.0\, \mu\mathrm{C}$ each are located at the points $(x, y) = (0, 2.0\, \mathrm{m})$ and $(x, y) = (0, -2.0\, \mathrm{m})$. Two additional point charges, each with charge $q$, are located at $(x, y) = (4.0\, \mathrm{m}, 2.0\, \mathrm{m})$ and $(x, y) = (4.0\, \mathrm{m}, -2.0\, \mathrm{m})$. The electric field at the point $(x, y) = (0, 0)$ due to the four charges is $\vec{E} = (4.0 \cdot 10^{3}~\hat{x})~\mathrm{N/C}$. Determine the value of $q$.
+
+\ifshowsolutions
+\begin{solution}
+The electric field at the origin due to a point charge $Q$ at position $(x, y)$ is given by
+\[
+\vec{E} = \frac{1}{4\pi \varepsilon_0} \frac{Q}{r^2} \, \hat{r},
+\]
+where $\hat{r}$ is the unit vector pointing from the charge to the field point.
+
+For the two charges at $(0, 2~\mathrm{m})$ and $(0, -2~\mathrm{m})$, the electric field components at the origin point along the $y$-axis. Since they are equal in magnitude and opposite in direction, they cancel each other:
+\[
+E_y = 0 \quad \text{(net field from the two $3.0\, \mu\mathrm{C}$ charges)}
+\]
+
+The distance to the origin of each $q$ charge is
+\[
+r = \sqrt{(4.0)^2 + (2.0)^2}\, \mathrm{m} = \sqrt{20}\, \mathrm{m},
+\]
+and the electric field at the origin due to one $q$ charge has magnitude
+\[
+E_q = \frac{1}{4\pi\varepsilon_0} \frac{|q|}{r^2}.
+\]
+
+At the origin, the $y$-components of the fields from the charges at $(4\, \mathrm{m}, 2\, \mathrm{m})$ and $(4\, \mathrm{m}, -2\, \mathrm{m})$ cancel, while the $x$-components add.
+
+Thus, the total field at the origin due to both $q$ charges is
+\[
+|E_x| = 2 \cdot E_q \cos\theta,
+\]
+where $\cos\theta = \frac{x}{r} = \frac{4}{4.472} = 0.894$.
+
+Given that the total field at the origin is 
+\[
+E_x = 4.0 \cdot 10^3\, \mathrm{N/C},
+\]
+we have
+\[
+q = -\frac{E_x \cdot 4\pi\varepsilon_0 \cdot r^2}{2 \cdot \cos\theta} = -\frac{4.0 \cdot 10^3 \cdot 2\pi \cdot 8.854 \cdot 10^{-12} \cdot 20}{0.894}\, \mathrm{C} = -5.0\, \mu\mathrm{C}.
+\]
+\end{solution}
+\fi
+\end{exercise}
+
+% ----- Exercise 2 -----
 \begin{exercise}[...]
 ...
 
