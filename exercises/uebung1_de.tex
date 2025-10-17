@@ -18,8 +18,8 @@
 \setlength{\headheight}{14pt}  % fancyhdr warning verhindern
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{Introduction to Electrical Engineering}
-\rhead{Winter Term 2025}
+\lhead{Einführung in die Elektrotechnik}
+\rhead{Wintersemester 2025}
 \cfoot{\thepage}
 
 % ---------- Exercise Environment ----------
@@ -29,7 +29,7 @@
    \begin{tcolorbox}[enhanced, breakable, width=\textwidth,
      colback=blue!5!white,colframe=blue!60!black,
      fonttitle=\bfseries\large,
-     title=Exercise~\theexercise:~#1]}
+     title=Aufgabe~\theexercise:~#1]}
   {\end{tcolorbox}}
 
 % ---------- Solution Environment ----------
@@ -41,7 +41,7 @@
      \begin{tcolorbox}[enhanced, breakable, width=\textwidth,
        colback=green!5!white,colframe=green!50!black,
        fonttitle=\bfseries\large,
-       title=Solution]}
+       title=Lösung]}
   {\end{tcolorbox}\fi}
 
 % ---------- Document ----------
@@ -50,29 +50,29 @@
 % ----- Header Box -----
 \begin{tcolorbox}[enhanced, breakable, colback=gray!10!white,
   colframe=gray!70!black, fonttitle=\bfseries\large,
-  title={Exercise Sheet \#1}: Basic Concepts, sharp corners, width=\textwidth]
+  title={Aufgabenblatt \#1}: Grundlegende Konzepte, sharp corners, width=\textwidth]
 \begin{center}
-  Discussion: Oct 15, 2025
+  Besprechung: 15.10.2025
 \end{center}
 \end{tcolorbox}
 \vspace{1cm}
 
-% ----- Exercise 1 -----
-\begin{exercise}[Coulomb Force]
-Two point particles are separated by a distance of $60\,\text{cm}$ and carry a total charge of $200\,\mu\text{C}$. Determine the charge of each of the two particles if they
+% ----- Aufgabe 1 -----
+\begin{exercise}[Coulomb-Kraft]
+Zwei Punktladungen sind $60\,\text{cm}$ voneinander entfernt und tragen eine Gesamtladung von $200\,\mu\text{C}$. Bestimmen Sie die Ladung der beiden Teilchen, wenn sie
 \begin{enumerate}[label=\alph*)]
-    \item repel each other with a force of $80\,\text{N}$,
-    \item attract each other with a force of $80\,\text{N}$.
+    \item sich mit einer Kraft von $80\,\text{N}$ abstoßen,
+    \item sich mit einer Kraft von $80\,\text{N}$ anziehen.
 \end{enumerate}
 
 \ifshowsolutions
 \begin{solution}
-Let the charges be $q_1$ and $q_2$ with
+Die Ladungen seien $q_1$ und $q_2$ mit
 \[
 q_1 + q_2 = Q = 200 \cdot 10^{-6}\,\text{C}.
 \]
 
-The Coulomb force is
+Die Coulomb-Kraft ist
 \begin{align*}
 F &= k \frac{|q_1 q_2|}{r^2},\\
 k &= 8.99 \cdot 10^9 \,\text{N\,m}^2/\text{C}^2,\\
@@ -80,11 +80,11 @@ r &= 0.60\,\text{m},\\
 F &= 80\,\text{N}.
 \end{align*}
 
-Thus,
+Also gilt
 \[
 |q_1 q_2| = \frac{F r^2}{k} \approx 3.2 \cdot 10^{-9}\,\text{C}^2,
 \]
-with
+mit
 \[
 q_1 q_2 = q_1 (q - q_1).
 \]
@@ -94,7 +94,7 @@ q_1 q_2 = q_1 (q - q_1).
 \[
 q_1 q_2 = +3.2 \cdot 10^{-9} \Rightarrow x^2 - (200 \cdot 10^{-6})x + 3.2 \cdot 10^{-9} = 0
 \]
-With
+Mit
 \[
  a x^2 + b x + c = 0 \Rightarrow x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a},
 \]
@@ -116,23 +116,23 @@ q_2 \approx 2.1 \cdot 10^{-4}\,\text{C}.
 \fi
 \end{exercise}
 
-% ----- Exercise 2 -----
-\begin{exercise}[Ohm's Law]
-A resistor of $15\, \Omega$ is connected to a voltage of $30\, \mathrm{V}$. What are the current and the conductance?  
+% ----- Aufgabe 2 -----
+\begin{exercise}[Ohmsches Gesetz]
+Ein Widerstand von $15\, \Omega$ liegt an einer Spannung von $30\, \mathrm{V}$. Wie groß sind Stromstärke und Leitwert?  
 
 \ifshowsolutions
 \begin{solution}
-Ohm's law states:  
+Ohmsches Gesetz:  
 \[
 I = \frac{U}{R}
 \]
 
-Substituting the given values:  
+Einsetzen der Werte:  
 \[
 I = \frac{30\, \mathrm{V}}{15\, \Omega} = 2\, \mathrm{A}
 \]
 
-The conductance is the reciprocal of the resistance:  
+Der Leitwert ist der Kehrwert des Widerstands:  
 \[
 G = \frac{1}{R} = \frac{1}{15\, \Omega} \approx 0.067\, \mathrm{S}
 \]
@@ -140,9 +140,9 @@ G = \frac{1}{R} = \frac{1}{15\, \Omega} \approx 0.067\, \mathrm{S}
 \fi
 \end{exercise}
 
-% ----- Exercise 3 -----
-\begin{exercise}[Resistance]
-Given are two copper wires of equal mass with circular cross-sections; wire A is twice as long as wire B. How do the resistances of the wires compare (neglecting temperature effects)? 
+% ----- Aufgabe 3 -----
+\begin{exercise}[Elektrischer Widerstand]
+Gegeben seien zwei Kupferdrähte von gleicher Masse und kreisförmigem Querschnitt; Draht A ist doppelt so lang wie Draht B. Wie groß sind die Widerstände der beiden Drähte im Vergleich (unter Vernachlässigung von Temperatureffekten)? 
 \begin{enumerate}[label=\alph*)]
     \item $R_A = 8 R_B$,
     \item $R_A = 4 R_B$
@@ -152,24 +152,24 @@ Given are two copper wires of equal mass with circular cross-sections; wire A is
 
 \ifshowsolutions
 \begin{solution}
-The resistance of a wire is given by 
+Der Widerstand eines Drahtes ist gegeben durch
 \[
 R = \rho \frac{l}{A},
 \]
-where $\rho$ is the resistivity, $l$ is the length, and $A$ is the cross-sectional area.
+wobei $\rho$ der spezifische Widerstand, $l$ die Länge und $A$ die Querschnittsfläche ist.
 
-Since both wires have the same mass and material, we have
+Da beide Drähte die gleiche Masse und das gleiche Material haben, gilt
 \[
 m = \rho_m V = \rho_m (A \cdot l) = \text{const.}
 \]
-Thus, $A \cdot l = \text{const.}$, which implies $A \propto \frac{1}{l}$.
+Also ist $A \cdot l = \text{const.}$, was bedeutet, dass $A \propto \frac{1}{l}$.
 
-For wire A, the length is $l_A = 2 l_B$. Therefore, its cross-sectional area is
+Für Draht A ist die Länge $l_A = 2 l_B$. Daher ist die Querschnittsfläche
 \[
 A_A = \frac{1}{2} A_B.
 \]
 
-Now the resistance ratio becomes
+Somit ergibt sich das Widerstandsverhältnis zu
 \[
 \frac{R_A}{R_B} 
 = \frac{\rho \frac{l_A}{A_A}}{\rho \frac{l_B}{A_B}}
@@ -179,7 +179,7 @@ Now the resistance ratio becomes
 = 4.
 \]
 
-Therefore,
+Daher gilt
 \[
 R_A = 4 R_B.
 \]
@@ -187,114 +187,114 @@ R_A = 4 R_B.
 \fi
 \end{exercise}
 
-% ----- Exercise 4 -----
-\begin{exercise}[Resistivity]
-Suppose we have a copper wire with a resistance of $2 \,\Omega$. We want to replace the copper wire with an aluminum wire of the same length and resistance. By what factor must the diameter of the wire be increased?
+% ----- Aufgabe 4 -----
+\begin{exercise}[Spezifischer Widerstand]
+Angenommen, wir haben einen Kupferdraht mit einem Widerstand von $2 \,\Omega$. Wir möchten den Kupferdraht durch einen Aluminiumdraht gleicher Länge und gleichen Widerstands ersetzen. Um welchen Faktor muss der Durchmesser des Drahtes vergrößert werden?
 
 \ifshowsolutions
 \begin{solution}
-For a cylindrical wire,
+Für einen zylindrischen Draht gilt
 \[
 A = \frac{\pi d^2}{4},
 \]
-where \(d\) is the diameter.
+wobei \(d\) der Durchmesser ist.
 
-We require the aluminum wire to have the same resistance \(R\) as the copper wire, and both wires have the same length \(l\). Thus,
+Wir verlangen, dass der Aluminiumdraht den gleichen Widerstand \(R\) wie der Kupferdraht hat. Außerdem haben beide Drähte die gleiche Länge \(l\). Somit gilt
 \[
 \rho_{\text{Cu}} \frac{l}{A_{\text{Cu}}} = \rho_{\text{Al}} \frac{l}{A_{\text{Al}}}.
 \]
 
-Canceling \(l\),
+Kürzen von \(l\) ergibt
 \[
 \frac{A_{\text{Al}}}{A_{\text{Cu}}} = \frac{\rho_{\text{Al}}}{\rho_{\text{Cu}}}.
 \]
 
-Since \(A \propto d^2\),
+Da \(A \propto d^2\),
 \[
 \left(\frac{d_{\text{Al}}}{d_{\text{Cu}}}\right)^2 = \frac{\rho_{\text{Al}}}{\rho_{\text{Cu}}}.
 \]
 
-Therefore,
+Somit gilt
 \[
 \frac{d_{\text{Al}}}{d_{\text{Cu}}} = \sqrt{\frac{\rho_{\text{Al}}}{\rho_{\text{Cu}}}}.
 \]
 
-Numerical values of resistivity:
+Numerische Werte für den spezifischen Widerstand:
 \[
 \rho_{\text{Cu}} \approx 0.017 \,\frac{\Omega \cdot \text{mm}^2}{\text{m}},
 \quad 
 \rho_{\text{Al}} \approx 0.027 \,\frac{\Omega \cdot \text{mm}^2}{\text{m}}
 \]
 
-Thus,
+Also ist
 \[
 \frac{d_{\text{Al}}}{d_{\text{Cu}}} = \sqrt{\frac{0.027}{0.017}} \approx 1.26.
 \]
 
 \[
-\boxed{\text{The diameter of the aluminum wire must be about 1.3 times larger.}}
+\boxed{\text{Der Durchmesser des Aluminiumdrahtes muss etwa 1,3-mal größer sein.}}
 \]
 \end{solution}
 \fi
 \end{exercise}
 
-% ----- Exercise 5 -----
-\begin{exercise}[Temperature Dependence of Resistance]
-At what temperature does a copper wire have a resistance that is 10\% greater than at 20\,$^\circ$C?
+% ----- Aufgabe 5 -----
+\begin{exercise}[Temperaturabhängigkeit des Widerstands]
+Bei welcher Temperatur hat ein Kupferdraht einen um 10\% größeren Widerstand als bei 20\,$^\circ$C?
 
 \ifshowsolutions
 \begin{solution}
-The temperature dependence of the resistance is given by
+Die Temperaturabhängigkeit des Widerstands wird beschrieben durch
 \[
 R(T) = R_{0}\bigl(1 + \alpha (T - T_{0})\bigr),
 \]
-where $R_{0}$ is the resistance at the reference temperature $T_{0}$ and $\alpha$ is the temperature coefficient of resistance.  
+wobei $R_{0}$ der Widerstand bei der Referenztemperatur $T_{0}$ und $\alpha$ der Temperaturkoeffizient des Widerstands ist.
 
-We are looking for the temperature $T$ at which
+Wir suchen die Temperatur $T$, bei der
 \[
 R(T) = 1.1 \, R_{0}.
 \]
 
-Thus,
+Also
 \[
 1.1 R_{0} = R_{0}\bigl(1 + \alpha (T - 20^\circ\mathrm{C})\bigr).
 \]
 
-Dividing by $R_{0}$:
+Dividieren durch $R_{0}$ ergibt
 \[
 1.1 = 1 + \alpha (T - 20).
 \]
 
-Hence,
+Somit gilt
 \[
 T - 20 = \frac{0.1}{\alpha}.
 \]
 
-For copper, $\alpha \approx 0.0039 \,\text{K}^{-1}$, so
+Für Kupfer ist $\alpha \approx 0.0039 \,\text{K}^{-1}$, also
 \[
 T \approx 20 + \frac{0.1}{0.0039} \approx 45.6^\circ\mathrm{C}.
 \]
 
-Therefore, the copper wire has a 10\% greater resistance at approximately
+Demnach hat der Kupferdraht bei etwa
 \[
 \boxed{46^\circ\mathrm{C}}
 \]
-than at 20\,$^\circ$C.
+einen um 10\% größeren Widerstand als bei 20\,$^\circ$C.
 \end{solution}
 \fi
 \end{exercise}
 
-% ----- Exercise 6 -----
-\begin{exercise}[Energy]
-A rechargeable flashlight battery is capable of delivering $90 \,\mathrm{mA}$ for about $12 \,\mathrm{h}$. How much charge can it release at that rate? If its terminal voltage is $1.5 \,\mathrm{V}$, how much energy can the battery deliver?
+% ----- Aufgabe 6 -----
+\begin{exercise}[Energie]
+Eine wiederaufladbare Taschenlampenbatterie kann etwa $90 \,\mathrm{mA}$ für ca. $12 \,\mathrm{h}$ liefern. Wieviel Ladung kann sie bei dieser Stromstärke abgeben? Wenn ihre Klemmenspannung $1.5 \,\mathrm{V}$ beträgt, wieviel Energie kann die Batterie liefern?
 
 \ifshowsolutions
 \begin{solution}
-The battery delivers a current of
+Die Batterie liefert einen Strom von
 \[
 I = 0.09 \,\mathrm{A},
 \]
-for a time of
+für eine Zeit von
 \[
 t = 12 \cdot 3600 \,\mathrm{s} = 43200 \,\mathrm{s}.
 \]
@@ -304,21 +304,21 @@ t = 12 \cdot 3600 \,\mathrm{s} = 43200 \,\mathrm{s}.
 Q = I \cdot t = 0.09 \cdot 43200 \,\mathrm{C} = 3888 \,\mathrm{C}
 \]
 
-So the total charge is
+Also ist die gesamte Ladung
 \[
 Q \approx 3.9 \,\mathrm{kC}.
 \]
 
-\item The energy is given by
+\item Die Energie ist gegeben durch
 \[
 W = Q \cdot V,
 \]
-where \(V = 1.5 \,\mathrm{V}\). Thus,
+wobei \(V = 1.5 \,\mathrm{V}\). Somit ist
 \[
 W = 3888 \cdot 1.5 \,\mathrm{J} = 5832 \,\mathrm{J}.
 \]
 
-So the total energy is
+Die gesamte Energie beträgt also
 \[
 W \approx 5.8 \,\mathrm{kJ}.
 \]
@@ -327,23 +327,23 @@ W \approx 5.8 \,\mathrm{kJ}.
 \fi
 \end{exercise}
 
-% ----- Exercise 7 -----
-\begin{exercise}[Power]
-Find the hot resistance of a light bulb rated $60\,\text{W}$, $120\,\text{V}$.
+% ----- Aufgabe 7 -----
+\begin{exercise}[Leistung]
+Gesucht wird der Widerstand einer Glühbirne mit Nennwert $60\,\text{W}$ bei $120\,\text{V}$.
 
 \ifshowsolutions
 \begin{solution}
-The electrical power is related to the voltage and resistance by
+Die elektrische Leistung hängt von Spannung und Widerstand ab gemäß
 \[
 P = \frac{V^2}{R}.
 \]
 
-Rearranging for \(R\),
+Umstellen nach \(R\) ergibt
 \[
 R = \frac{V^2}{P}.
 \]
 
-Substitute the given values:
+Einsetzen der gegebenen Werte:
 \[
 V = 120\,\text{V}, 
 \quad 
@@ -351,48 +351,48 @@ P = 60\,\text{W}
 \]
 
 \[
-\Rightarrow R = \frac{(120)^2}{60} \,\Omega = \frac{14400}{60} \,\Omega = 240 \,\Omega.
+\Rightarrow R = \frac{(120)^2}{60} \,\Omega = \frac{14400}{60} \,\Omega = 240 \,\Omega
 \]
 
-Thus, the \emph{hot resistance} of the bulb is \(240 \,\Omega\).
+Der \emph{heiße Widerstand} der Glühbirne beträgt also \(240 \,\Omega\).
 
 \bigskip
 
-\textbf{Remark:}
-The filament of a light bulb has a much lower resistance when it is cold, typically about 
+\textbf{Bemerkung:}
+Der Glühfaden einer Glühbirne hat im kalten Zustand einen viel geringeren Widerstand, typischerweise etwa
 \[
 R_{\text{cold}} \approx \frac{R_{\text{hot}}}{10} \sim 20\text{--}30 \,\Omega,
 \]
-depending on the material and temperature coefficient of resistance. This explains the large inrush current when the bulb is first switched on.
+abhängig vom Material und dem Temperaturkoeffizienten des Widerstands. Dies erklärt den hohen Strom, wenn die Birne erstmals eingeschaltet wird.
 \end{solution}
 \fi
 \end{exercise}
 
-% ----- Exercise 8 -----
-\begin{exercise}[Particles]
-A particle accelerator produces a proton beam with a current of $3.5 \,\mu\mathrm{A}$. Each proton has an energy of $60 \,\mathrm{MeV}$. The protons strike a target in a vacuum chamber and come to rest in it, heating the target.
+% ----- Aufgabe 8 -----
+\begin{exercise}[Teilchen]
+Ein Teilchenbeschleuniger erzeugt einen Protonenstrahl mit einer Stromstärke von $3.5 \,\mu\mathrm{A}$. Jedes Proton hat eine Energie von $60 \,\mathrm{MeV}$. Die Protonen treffen auf ein Ziel in einer Vakuumkammer und kommen darin zur Ruhe, wodurch das Ziel erhitzt wird.
 \begin{enumerate}[label=\alph*)]
-    \item How many protons strike the target per second?
-    \item How much energy is deposited in the target per second?
+    \item Wie viele Protonen treffen pro Sekunde auf das Ziel?
+    \item Wieviel Energie wird pro Sekunde im Ziel umgesetzt?
 \end{enumerate}
 
 \ifshowsolutions
 \begin{solution}
-The beam current is $I = 3.5 \,\mu\mathrm{A} = 3.5 \cdot 10^{-6} \,\mathrm{A}$.
-The elementary charge is $e = 1.602 \cdot 10^{-19} \,\mathrm{C}$.
+Die Stromstärke des Strahls beträgt $I = 3.5 \,\mu\mathrm{A} = 3.5 \cdot 10^{-6} \,\mathrm{A}$.  
+Die Elementarladung ist $e = 1.602 \cdot 10^{-19} \,\mathrm{C}$.  
 
 \begin{enumerate}[label=\alph*)]
-\item The number of protons per second is
+\item Die Anzahl der Protonen pro Sekunde ist
 \[
 \dot{N}=\frac{I}{e}.
 \]
-Substituting,
+Einsetzen ergibt
 \[
 \dot{N} = \frac{3.5 \cdot 10^{-6}}{1.602 \cdot 10^{-19}} \,\mathrm{s}^{-1} \approx 2.18 \cdot 10^{13} \,\mathrm{s}^{-1}.
 \]
-\item Each proton has an energy of $60 \,\mathrm{MeV}$.
+\item Jedes Proton hat eine Energie von $60 \,\mathrm{MeV}$.
 
-The deposited energy per second is
+Die pro Sekunde umgesetzte Energie beträgt
 \[
 P = V \cdot I = \frac{W}{Q} \cdot I = \frac{60 \,\mathrm{MeV}}{e} \cdot 3.5 \,\mu\mathrm{A} = 210 \,\mathrm{W}.
 \]
