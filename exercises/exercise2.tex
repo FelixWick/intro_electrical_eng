@@ -66,7 +66,11 @@ Find the number of nodes, branches, and loops.
 
 \ifshowsolutions
 \begin{solution}
-$n = 9$, $b = 15$, $l = 7$
+There are $n = 9$ nodes, corresponding to the junctions.
+
+There are $b = 15$ branches, corresponding to the individual segments connecting two nodes.
+
+There are overall $l = 15$ geometric loops, i.e., closed paths. But only $m = b - n + 1 = 7$ of these closed paths are independent loops. One could choose the $7$ meshes (smallest possible loops, not enclosing any other loop) for an electrical network analysis, but other combinations are also possible.
 \end{solution}
 \fi
 \end{exercise}
