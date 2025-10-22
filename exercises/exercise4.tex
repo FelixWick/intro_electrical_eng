@@ -60,6 +60,7 @@
 % ----- Exercise 1 -----
 \begin{exercise}[Discrete Charge Distribution]
 Two point charges of $+3.0\, \mu\mathrm{C}$ each are located at the points $(x, y) = (0, 2.0\, \mathrm{m})$ and $(x, y) = (0, -2.0\, \mathrm{m})$. Two additional point charges, each with charge $q$, are located at $(x, y) = (4.0\, \mathrm{m}, 2.0\, \mathrm{m})$ and $(x, y) = (4.0\, \mathrm{m}, -2.0\, \mathrm{m})$. The electric field at the point $(x, y) = (0, 0)$ due to the four charges is $\vec{E} = (4.0 \cdot 10^{3}~\hat{x})~\mathrm{N/C}$. Determine the value of $q$.
+\end{exercise}
 
 \ifshowsolutions
 \begin{solution}
@@ -101,17 +102,145 @@ q = -\frac{E_x \cdot 4\pi\varepsilon_0 \cdot r^2}{2 \cdot \cos\theta} = -\frac{4
 \]
 \end{solution}
 \fi
-\end{exercise}
 
 % ----- Exercise 2 -----
-\begin{exercise}[...]
+\begin{exercise}[Electric Displacement]
 ...
+\end{exercise}
 
 \ifshowsolutions
 \begin{solution}
 ...
 \end{solution}
 \fi
+
+% ----- Exercise 3 -----
+\begin{exercise}[Gauss‘s Law]
+...
 \end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+...
+\end{solution}
+\fi
+
+% ----- Exercise 4 -----
+\begin{exercise}[DC Steady State]
+Find the voltages across the capacitors in the circuit below under DC conditions.
+
+\includegraphics[width=0.7\textwidth]{figures/capacitors.png}
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+Under DC steady-state conditions, the capacitors act as open circuits.  
+Therefore, no current flows through \( C_1 \) or \( C_2 \), and we can analyze only the resistive network.
+
+Let the bottom node be the reference (0 V).  
+The voltage at the top of the \( 60\text{ V} \) source is \( V_C = 60\text{ V} \).  
+Let \( V_A \) and \( V_B \) be the node voltages at the top of \( C_1 \) and the junction between the \( 10\:\Omega \), \( 20\:\Omega \), and \( 50\:\Omega \) resistors, respectively.
+
+\[
+\text{KCL at node } A: \quad \frac{V_A - 0}{70} + \frac{V_A - V_B}{10} + I_{C_1} = 0
+\]
+\[
+\Rightarrow \frac{V_A - 0}{70} + \frac{V_A - V_B}{10} = 0
+\]
+
+\[
+\text{KCL at node } B: \quad \frac{V_B - V_A}{10} + \frac{V_B - 60}{20} + I_{C_2} = 0
+\]
+\[
+\Rightarrow \frac{V_B - V_A}{10} + \frac{V_B - 60}{20} = 0
+\]
+
+Multiply the first equation by \(70\):
+\[
+V_A + 7(V_A - V_B) = 0 \quad \Longrightarrow \quad 8V_A - 7V_B = 0
+\]
+
+Multiply the second equation by \(20\):
+\[
+2(V_B - V_A) + (V_B - 60) = 0 \quad \Longrightarrow \quad -2V_A + 3V_B = 60
+\]
+
+Substitute into each other:
+\[
+-2\left(\frac{7}{8}V_B\right) + 3V_B = 60
+\]
+
+\[
+\Rightarrow \left(-\frac{14}{8} + \frac{24}{8}\right)V_B = 60
+\]
+
+\[
+\Rightarrow V_B = 60 \cdot \frac{8}{10} = 48~\text{V}
+\]
+
+\[
+V_A = \frac{7}{8}V_B = \frac{7}{8} \cdot 48 = 42~\text{V} = v_1
+\]
+
+Finally, let \( V_D \) be the trivial node (just one input and one output) voltage between the top of \( C_2 \) and the \( 50\:\Omega \) resistor.
+\[
+\text{KCL at node } D: \quad \frac{V_D - V_B}{50} + I_{C_2} = 0 
+\]
+\[
+I_{C_2} = 0 \; (\text{DC steady state}) 
+\;\Rightarrow\; \frac{V_D - V_B}{50} = 0 
+\;\Rightarrow\; V_D = V_B
+\;\Rightarrow\; v_2 = V_B
+\]
+
+\[
+\boxed{v_1 = 42~\text{V}, \quad v_2 = 48~\text{V}}
+\]
+\end{solution}
+\fi
+
+% ----- Exercise 5 -----
+\begin{exercise}[Plate Capacitor]
+...
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+...
+\end{solution}
+\fi
+
+% ----- Exercise 6 -----
+\begin{exercise}[...]
+...
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+...
+\end{solution}
+\fi
+
+% ----- Exercise 7 -----
+\begin{exercise}[...]
+...
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+...
+\end{solution}
+\fi
+
+% ----- Exercise 8 -----
+\begin{exercise}[...]
+...
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+...
+\end{solution}
+\fi
 
 \end{document}

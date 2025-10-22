@@ -63,6 +63,7 @@
 Find the number of nodes, branches, and loops.
 
 \includegraphics[width=0.5\textwidth]{figures/nodes.png}
+\end{exercise}
 
 \ifshowsolutions
 \begin{solution}
@@ -73,13 +74,13 @@ There are $b = 15$ branches, corresponding to the individual segments connecting
 There are overall $l = 15$ geometric loops, i.e., closed paths. But only $m = b - n + 1 = 7$ of these closed paths are independent loops. One could choose the $7$ meshes (smallest possible loops, not enclosing any other loop) for an electrical network analysis, but other combinations are also possible.
 \end{solution}
 \fi
-\end{exercise}
 
 % ----- Exercise 2 -----
 \begin{exercise}[KCL]
 Find  $i_1$, $i_2$, and $i_3$.
 
 \includegraphics[width=0.7\textwidth]{figures/kcl.png}
+\end{exercise}
 
 \ifshowsolutions
 \begin{solution}
@@ -116,13 +117,13 @@ i_2 + i_3 - 4\, \mathrm{A} = 0
 \]
 \end{solution}
 \fi
-\end{exercise}
 
 % ----- Exercise 3 -----
 \begin{exercise}[KVL]
 Calculate  $V_1$ and $V_2$.
 
 \includegraphics[width=0.7\textwidth]{figures/kvl.png}
+\end{exercise}
 
 \ifshowsolutions
 \begin{solution}
@@ -141,13 +142,13 @@ Calculate  $V_1$ and $V_2$.
 \]
 \end{solution}
 \fi
-\end{exercise}
 
 % ----- Exercise 4 -----
 \begin{exercise}[Series and Parallel Resistors]
 Calculate $I_0$.
 
 \includegraphics[width=0.7\textwidth]{figures/series_parallel.png}
+\end{exercise}
 
 \ifshowsolutions
 \begin{solution}
@@ -164,13 +165,13 @@ I_o = \frac{10\, \mathrm{V}}{10\, \Omega} = 1\, \mathrm{A}
 \]
 \end{solution}
 \fi
-\end{exercise}
 
 % ----- Exercise 5 -----
 \begin{exercise}[Series vs. Parallel]
 Three light bulbs are connected in series to a $120\, \mathrm{V}$ source as shown below. Find the current $I$ through each of the bulbs. Each bulb is rated at $120\, \mathrm{V}$. How much power is each bulb absorbing? Do they generate much light?
 
 \includegraphics[width=0.7\textwidth]{figures/light_bulbs.png}
+\end{exercise}
 
 \ifshowsolutions
 \begin{solution}
@@ -221,13 +222,13 @@ P_{50\, \mathrm{W}} = (0.1063\, \mathrm{A})^2 \cdot 288\, \Omega = 3.259\, \math
 Clearly these values are well below the rated powers of each light bulb, so we would not expect very much light from any of them. To work properly, they need to be connected in parallel.
 \end{solution}
 \fi
-\end{exercise}
 
 % ----- Exercise 6 -----
 \begin{exercise}[Equivalent Resistance]
 Calculate the equivalent resistance $R_{ab}$ across the terminals.
 
 \includegraphics[width=0.7\textwidth]{figures/equivalent_R_1.png}
+\end{exercise}
 
 \ifshowsolutions
 \begin{solution}
@@ -247,13 +248,13 @@ R_{ab} = \frac{1}{\frac{1}{20\, \Omega} + \frac{1}{80\, \Omega}} = 16\, \Omega
 \]
 \end{solution}
 \fi
-\end{exercise}
 
 % ----- Exercise 7 -----
 \begin{exercise}[Current Divider Rule]
 Calculate $i_1$ to $i_5$.
 
 \includegraphics[width=0.7\textwidth]{figures/current_divider.png}
+\end{exercise}
 
 \ifshowsolutions
 \begin{solution}
@@ -300,13 +301,13 @@ i_5 = i_3 - i_4 = 48\, \mathrm{A} - 32\, \mathrm{A} = 16\, \mathrm{A}
 \]
 \end{solution}
 \fi
-\end{exercise}
 
 % ----- Exercise 8 -----
 \begin{exercise}[Node Connection]
 Calculate $I_o$ and $V_o$.
 
 \includegraphics[width=0.7\textwidth]{figures/node_connection.png}
+\end{exercise}
 
 \ifshowsolutions
 \begin{solution}
@@ -362,13 +363,13 @@ I_o = I_{70} - I_{20} = \frac{200\, \mathrm{V} - 32\, \mathrm{V}}{70\, \Omega} -
 \]
 \end{solution}
 \fi
-\end{exercise}
 
 % ----- Exercise 9 -----
-\begin{exercise}[$\Delta$-Y Transformation]
+\begin{exercise}[Circuit Analysis]
 Calculate the equivalent resistance across the terminals.
 
 \includegraphics[width=0.7\textwidth]{figures/equivalent_R_2.png}
+\end{exercise}
 
 \ifshowsolutions
 \begin{solution}
@@ -446,8 +447,11 @@ The branch with the \( 3\, \Omega \) resistor connects to a dead-end node \( N_3
 \[
 \Rightarrow R_{eq} = 5\, \Omega + 7.5\, \Omega + 5\, \Omega + 15\, \Omega = 32.5\, \Omega
 \]
+
+Alternative for 4. without $\Delta$-Y transformation:
+
+Since $N_3$ is a trivial node (just one input and one equal output), you can simply calculate the series resistance of the $15\, \Omega$ and $10\, \Omega$ resistors, then combine it in parallel with the $25\, \Omega$ resistor, and finally add the series resistors with $5\, \Omega$ and $15\, \Omega$.
 \end{solution}
 \fi
-\end{exercise}
 
 \end{document}
