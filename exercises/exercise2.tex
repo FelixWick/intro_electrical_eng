@@ -83,6 +83,7 @@ Find  $i_1$, $i_2$, and $i_3$.
 
 \ifshowsolutions
 \begin{solution}
+node A:
 \[
 -1\, \mathrm{A} - 6\, \mathrm{A} - i_1 = 0
 \]
@@ -90,13 +91,21 @@ Find  $i_1$, $i_2$, and $i_3$.
 \Rightarrow i_1 = -1\, \mathrm{A} - 6\, \mathrm{A} = -7\, \mathrm{A}
 \]
 
+node B:
 \[
-7\, \mathrm{A} - 2\, \mathrm{A}= 5\, \mathrm{A} - i_3 = 0
+6\, \mathrm{A} - 7\, \mathrm{A} - i_2 = 0
+\Rightarrow i_2 = 6\, \mathrm{A} - 7\, \mathrm{A} = -1\, \mathrm{A}
+\]
+
+node C:
+\[
+7\, \mathrm{A} - 2\, \mathrm{A} - i_3 = 0
 \]
 \[
 \Rightarrow i_3 =  7\, \mathrm{A} - 2\, \mathrm{A}= 5\, \mathrm{A}
 \]
 
+... other nodes:
 \[
 i_2 + i_3 - 4\, \mathrm{A} = 0
 \]
@@ -386,6 +395,9 @@ After these three steps, the circuit reduces to a triangle ($\Delta$):
     to[short] (3,0)
     to[R=$10\,\Omega$] (5,0)
     node[circle,draw,fill=white,inner sep=1pt,label=below:$N_3$]{};
+
+    \node[circle,draw,fill=black,inner sep=1pt,label=above:$N_1$] (N1) at (2,4) {};
+    \node[circle,draw,fill=black,inner sep=1pt,label=below:$N_2$] (N2) at (2,0) {};
 
     \draw
     (0,4) node[anchor=east]{}
