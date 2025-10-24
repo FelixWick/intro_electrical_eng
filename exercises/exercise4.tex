@@ -59,7 +59,7 @@
 
 % ----- Exercise 1 -----
 \begin{exercise}[Discrete Charge Distribution]
-Two point charges of $+3.0\, \mu\mathrm{C}$ each are located at the points $(x, y) = (0, 2.0\, \mathrm{m})$ and $(x, y) = (0, -2.0\, \mathrm{m})$. Two additional point charges, each with charge $q$, are located at $(x, y) = (4.0\, \mathrm{m}, 2.0\, \mathrm{m})$ and $(x, y) = (4.0\, \mathrm{m}, -2.0\, \mathrm{m})$. The electric field at the point $(x, y) = (0, 0)$ due to the four charges is $\vec{E} = (4.0 \cdot 10^{3}~\hat{x})~\mathrm{N/C}$. Determine the value of $q$.
+Two point charges of $+3.0\, \mu\mathrm{C}$ each are located at the points $(x, y) = (0, 2.0\, \mathrm{m})$ and $(x, y) = (0, -2.0\, \mathrm{m})$. Two additional point charges, each with charge $q$, are located at $(x, y) = (4.0\, \mathrm{m}, 2.0\, \mathrm{m})$ and $(x, y) = (4.0\, \mathrm{m}, -2.0\, \mathrm{m})$. The electric field at the point $(x, y) = (0, 0)$ due to the four charges is $\vec{E} = (4.0 \times 10^{3}~\hat{x})~\mathrm{N/C}$. Determine the value of $q$.
 \end{exercise}
 
 \ifshowsolutions
@@ -94,17 +94,17 @@ where $\cos\theta = \frac{x}{r} = \frac{4}{4.472} = 0.894$.
 
 Given that the total field at the origin is 
 \[
-E_x = 4.0 \cdot 10^3\, \mathrm{N/C},
+E_x = 4.0 \times 10^3\, \mathrm{N/C},
 \]
 we have
 \[
-q = -\frac{E_x \cdot 4\pi\varepsilon_0 \cdot r^2}{2 \cdot \cos\theta} = -\frac{4.0 \cdot 10^3 \cdot 2\pi \cdot 8.854 \cdot 10^{-12} \cdot 20}{0.894}\, \mathrm{C} = -5.0\, \mu\mathrm{C}.
+q = -\frac{E_x \cdot 4\pi\varepsilon_0 \cdot r^2}{2 \cdot \cos\theta} = -\frac{4.0 \times 10^3 \cdot 2\pi \cdot 8.854 \times 10^{-12} \cdot 20}{0.894}\, \mathrm{C} = -5.0\, \mu\mathrm{C}.
 \]
 \end{solution}
 \fi
 
 % ----- Exercise 2 -----
-\begin{exercise}[Electric Displacement]
+\begin{exercise}[Electrostatic Induction]
 ...
 \end{exercise}
 
@@ -201,45 +201,170 @@ I_{C_2} = 0 \; (\text{DC steady state})
 
 % ----- Exercise 5 -----
 \begin{exercise}[Plate Capacitor]
-...
+We want to design a capacitor with capacitance $C=1\,\mu\mathrm{F}$. Compute the length required for rectangular plates of $2\,\mathrm{cm}$ width if the dielectric is polyester ($\varepsilon_r = 3.4$) of $15\,\mu\mathrm{m}$ thickness.
 \end{exercise}
 
 \ifshowsolutions
 \begin{solution}
-...
+For a parallel-plate capacitor
+\[
+C = \varepsilon_0 \varepsilon_r \frac{A}{d},
+\]
+where \(A\) is the plate area and \(\varepsilon_0 = 8.85\times 10^{-12}\,\mathrm{F/m}\) is the vacuum permittivity. For rectangular plates \(A = wL\). Solving for \(L\) gives
+\[
+L = \frac{C\,d}{\varepsilon_0 \varepsilon_r w} = \frac{1\times 10^{-6} \cdot 15\times 10^{-6}}{8.85\times 10^{-12} \cdot 3.4 \cdot 0.02}\,\mathrm{m} = 24.93\,\mathrm{m}.
+\]
+
+Remarks: This large length is a consequence of the relatively small plate width and the modest relative permittivity; achieving $1\,\mu\mathrm{F}$ with a simple parallel-plate geometry and a thin polyester dielectric requires a very large plate area. Practical capacitors obtain large capacitances by using multiple layers, rolled foils, much higher-permittivity dielectrics, or much smaller effective separations (thin films, electrolytic constructions, etc.).
 \end{solution}
 \fi
 
 % ----- Exercise 6 -----
-\begin{exercise}[...]
-...
+\begin{exercise}[Time-Dependent Capacitor Voltage and Current]
+If $v(0) = 0$, find $v(t)$, $i_1(t)$, and $i_2(t)$ in the circuit below.
+
+\includegraphics[width=0.7\textwidth]{figures/capacitor_VI.png}
 \end{exercise}
 
 \ifshowsolutions
 \begin{solution}
-...
+\[
+i = C \frac{dv}{dt} \Rightarrow v = \frac{\int i\ dt}{C}
+\]
+Here,
+\[
+v(t) = \frac{\int i_s\ dt}{C_{eq}},
+\]
+with the equivalent capacitance
+\[
+C_{eq} = 6\,\mu\mathrm{F} + 4\,\mu\mathrm{F} = 10\,\mu\mathrm{F}.
+\]
+For $0 < t < 1\,\mathrm{s}$:
+\[
+v(t) = \frac{\int 30 t\ dt\,\mathrm{mA} \cdot \mathrm{s}}{10\,\mu\mathrm{F}} = \frac{15 t^2 + \text{const}}{10}\,\mathrm{kV}
+\]
+\[
+v(0) = 0
+\]
+\[
+\Rightarrow \text{const} = 0
+\]
+\[
+\Rightarrow v(t) = 1.5 t^2\,\mathrm{kV}
+\]
+For $1 < t < 3\,\mathrm{s}$:
+\[
+v(t) = \frac{\int 30\ dt}{10}\,\mathrm{kV} = \frac{30 t + \text{const}}{10}\,\mathrm{kV}
+\]
+\[
+v(1\,\mathrm{s}) = 1.5 \cdot 1^2\,\mathrm{kV} = 1.5\,\mathrm{kV}
+\]
+\[
+\Rightarrow \text{const} = 1.5 \cdot 10 - 30 \cdot 1 = -15
+\]
+\[
+\Rightarrow v(t) = (3 t - 1.5)\,\mathrm{kV}
+\]
+For $3 < t < 5\,\mathrm{s}$:
+\[
+v(t) = \frac{\int (\frac{30}{2} t - 75)\ dt}{10}\,\mathrm{kV} = \frac{7.5 t^2 - 75 t  + \text{const}}{10}\,\mathrm{kV}
+\]
+\[
+v(3\,\mathrm{s}) = [1.5 t^2]_0^1\,\mathrm{kV} + [3 t - 1.5]_1^3\,\mathrm{kV} = (1.5 - 0)\,\mathrm{kV} + (7.5 - 1.5)\,\mathrm{kV} = 7.5\,\mathrm{kV}
+\]
+\[
+\Rightarrow \text{const} = 7.5 \cdot 10 - 7.5 \cdot 9 + 75 \cdot 3 = 232.5
+\]
+\[
+\Rightarrow v(t) = (0.75 t^2 - 7.5 t + 23.25)\,\mathrm{kV}
+\]
+The currents through each capacitor are:
+\[
+i_1 = C_1 \frac{dv}{dt}; \qquad i_2 = C_2 \frac{dv}{dt}
+\]
+For $0 < t < 1\,\mathrm{s}$:
+\[
+i_1 = 6\,\mu\mathrm{F} \cdot 3 t\,\mathrm{kV/s} = 18 t\,\mathrm{mA}
+\]
+\[
+i_2 = 4\,\mu\mathrm{F} \cdot 3 t\,\mathrm{kV/s} = 12 t\,\mathrm{mA}
+\]
+For $1 < t < 3\,\mathrm{s}$:
+\[
+i_1 = 6\,\mu\mathrm{F} \cdot 3\,\mathrm{kV/s} = 18\,\mathrm{mA}
+\]
+\[
+i_2 = 4\,\mu\mathrm{F} \cdot 3\,\mathrm{kV/s} = 12\,\mathrm{mA}
+\]
+For $3 < t < 5\,\mathrm{s}$:
+\[
+i_1 = 6\,\mu\mathrm{F} \cdot (1.5 t - 7.5)\,\mathrm{kV/s} = (9 t - 45)\,\mathrm{mA}
+\]
+\[
+i_2 = 4\,\mu\mathrm{F} \cdot (1.5 t - 7.5)\,\mathrm{kV/s} = (6 t - 30)\,\mathrm{mA}
+\]
 \end{solution}
 \fi
 
 % ----- Exercise 7 -----
-\begin{exercise}[...]
-...
+\begin{exercise}[Energy of Capacitors]
+Two capacitors ($25\,\mu\mathrm{F}$ and $75\,\mu\mathrm{F}$) are connected to a $100\,\mathrm{V}$ source. Find the energy stored in each capacitor if they are connected in:
+\begin{enumerate}[label=\alph*)]
+    \item parallel
+    \item series
+\end{enumerate}
 \end{exercise}
 
 \ifshowsolutions
 \begin{solution}
-...
+\begin{enumerate}[label=\alph*)]
+\item The equivalent capacitance for parallel connection is
+\[
+C_{eq} = C_1 + C_2 = 25\,\mu\mathrm{F} + 75\,\mu\mathrm{F} = 100\,\mu\mathrm{F}.
+\]
+The energy stored in each capacitor is
+\[
+E_1 = \frac{1}{2} \cdot C_1 \cdot V^2 = \frac{1}{2} \cdot 25 \times 10^{-6}\,\mathrm{F} \cdot (100\,\mathrm{V})^2 = 125\,\mathrm{mJ},
+\]
+\[
+E_2 = \frac{1}{2} \cdot C_2 \cdot V^2 = \frac{1}{2} \cdot 75 \times 10^{-6}\,\mathrm{F} \cdot (100\,\mathrm{V})^2 = 375\,\mathrm{mJ}.
+\]
+\item The equivalent capacitance for series connection is
+\[
+C_{eq} = \frac{C_1 \cdot C_2}{C_1 + C_2} = \frac{25\,\mu\mathrm{F} \cdot 75\,\mu\mathrm{F}}{25\,\mu\mathrm{F} + 75\,\mu\mathrm{F}} = 18.75\,\mu\mathrm{F}.
+\]
+The voltage across each capacitor is
+\[
+V_1 = \frac{Q}{C_1} = \frac{C_{eq} \cdot V}{C_1} = \frac{18.75\,\mu\mathrm{F} \cdot 100\,\mathrm{V}}{25\,\mu\mathrm{F}} = 75\,\mathrm{V},
+\]
+\[
+V_2 = \frac{Q}{C_2} = \frac{C_{eq} \cdot V}{C_2} = \frac{18.75\,\mu\mathrm{F} \cdot 100\,\mathrm{V}}{75\,\mu\mathrm{F}} = 25\,\mathrm{V}.
+\]
+The energy stored in each capacitor is
+\[E_1 = \frac{1}{2} \cdot C_1 \cdot V_1^2 = \frac{1}{2} \cdot 25 \times 10^{-6}\,\mathrm{F} \cdot (75\,\mathrm{V})^2 = 70.31\,\mathrm{mJ},\]
+\[E_2 = \frac{1}{2} \cdot C_2 \cdot V_2^2 = \frac{1}{2} \cdot 75 \times 10^{-6}\,\mathrm{F} \cdot (25\,\mathrm{V})^2 = 23.44\,\mathrm{mJ}.\]
+\end{enumerate}
 \end{solution}
 \fi
 
 % ----- Exercise 8 -----
-\begin{exercise}[...]
-...
+\begin{exercise}[Series and Parallel Capacitors]
+Determine the equivalent capacitance at terminals a-b of the circuit below.
+
+\includegraphics[width=0.7\textwidth]{figures/capacitors_circuit.png}
 \end{exercise}
 
 \ifshowsolutions
 \begin{solution}
-...
+\[
+C_{12, 4, 3} = \frac{12\,\mu\mathrm{F} \cdot 4\,\mu\mathrm{F}}{12\,\mu\mathrm{F} + 4\,\mu\mathrm{F}} + 3\,\mu\mathrm{F} = 6\,\mu\mathrm{F}
+\]
+\[
+C_{12, 4, 3, 6, 2} = \frac{C_{4, 12, 3} \cdot 6\,\mu\mathrm{F}}{C_{4, 12, 3} + 6\,\mu\mathrm{F}} + 2\,\mu\mathrm{F} = 5\,\mu\mathrm{F}
+\]
+\[
+C_{a-b} = \frac{C_{12, 4, 3, 6, 2} \cdot 5\,\mu\mathrm{F}}{C_{12, 4, 3, 6, 2} + 5\,\mu\mathrm{F}} = 2.5\,\mu\mathrm{F}
+\]
 \end{solution}
 \fi
 
