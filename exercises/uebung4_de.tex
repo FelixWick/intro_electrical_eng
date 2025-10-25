@@ -18,8 +18,8 @@
 \setlength{\headheight}{14pt}  % fancyhdr warning verhindern
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{Introduction to Electrical Engineering}
-\rhead{Winter Term 2025}
+\lhead{Einführung in die Elektrotechnik}
+\rhead{Wintersemester 2025}
 \cfoot{\thepage}
 
 % ---------- Exercise Environment ----------
@@ -29,7 +29,7 @@
    \begin{tcolorbox}[enhanced, breakable, width=\textwidth,
      colback=blue!5!white,colframe=blue!60!black,
      fonttitle=\bfseries\large,
-     title=Exercise~\theexercise:~#1]}
+     title=Aufgabe~\theexercise:~#1]}
   {\end{tcolorbox}}
 
 % ---------- Solution Environment ----------
@@ -41,7 +41,7 @@
      \begin{tcolorbox}[enhanced, breakable, width=\textwidth,
        colback=green!5!white,colframe=green!50!black,
        fonttitle=\bfseries\large,
-       title=Solution]}
+       title=Lösung]}
   {\end{tcolorbox}\fi}
 
 % ---------- Document ----------
@@ -50,53 +50,52 @@
 % ----- Header Box -----
 \begin{tcolorbox}[enhanced, breakable, colback=gray!10!white,
   colframe=gray!70!black, fonttitle=\bfseries\large,
-  title={Exercise Sheet \#4}: Electric Field]
+  title={Aufgabenblatt \#4}: Elektrisches Feld]
 \begin{center}
-  Discussion: Nov 12, 2025
-\end{center}
+  Besprechung: 29.10.2025\end{center}
 \end{tcolorbox}
 \vspace{1cm}
 
 % ----- Exercise 1 -----
-\begin{exercise}[Discrete Charge Distribution]
-Two point charges of $+3.0\, \mu\mathrm{C}$ each are located at the points $(x, y) = (0, 2.0\, \mathrm{m})$ and $(x, y) = (0, -2.0\, \mathrm{m})$. Two additional point charges, each with charge $q$, are located at $(x, y) = (4.0\, \mathrm{m}, 2.0\, \mathrm{m})$ and $(x, y) = (4.0\, \mathrm{m}, -2.0\, \mathrm{m})$. The electric field at the point $(x, y) = (0, 0)$ due to the four charges is $\vec{E} = (4.0 \times 10^{3}~\hat{x})~\mathrm{N/C}$. Determine the value of $q$.
+\begin{exercise}[Diskrete Ladungsverteilung]
+Zwei Punktladungen von jeweils $+3.0\, \mu\mathrm{C}$ befinden sich an den Punkten $(x, y) = (0, 2.0\, \mathrm{m})$ und $(x, y) = (0, -2.0\, \mathrm{m})$. Zwei weitere Punktladungen, jeweils mit Ladung $q$, befinden sich an den Punkten $(x, y) = (4.0\, \mathrm{m}, 2.0\, \mathrm{m})$ und $(x, y) = (4.0\, \mathrm{m}, -2.0\, \mathrm{m})$. Das elektrische Feld am Punkt $(x, y) = (0, 0)$ aufgrund der vier Ladungen beträgt $\vec{E} = (4.0 \times 10^{3}~\hat{x})~\mathrm{N/C}$. Bestimmen Sie den Wert von $q$.
 \end{exercise}
 
 \ifshowsolutions
 \begin{solution}
-The electric field at the origin due to a point charge $Q$ at position $(x, y)$ is given by
+Das elektrische Feld am Ursprung aufgrund einer Punktladung $Q$ an der Position $(x, y)$ ist gegeben durch
 \[
 \vec{E} = \frac{1}{4\pi \varepsilon_0} \frac{Q}{r^2} \, \hat{r},
 \]
-where $\hat{r}$ is the unit vector pointing from the charge to the field point.
+wobei $\hat{r}$ der Einheitsvektor ist, der von der Ladung zum Feldpunkt zeigt.
 
-For the two charges at $(0, 2~\mathrm{m})$ and $(0, -2~\mathrm{m})$, the electric field components at the origin point along the $y$-axis. Since they are equal in magnitude and opposite in direction, they cancel each other:
+Für die beiden Ladungen bei $(0, 2\, \mathrm{m})$ und $(0, -2\, \mathrm{m})$ zeigen die elektrischen Feldkomponenten am Ursprung entlang der $y$-Achse. Da sie gleich groß und entgegengesetzt gerichtet sind, heben sie sich gegenseitig auf:
 \[
 E_y = 0 \quad \text{(net field from the two $3.0\, \mu\mathrm{C}$ charges)}
 \]
 
-The distance to the origin of each $q$ charge is
+Der Abstand jeder $q$-Ladung zum Ursprung ist
 \[
 r = \sqrt{(4.0)^2 + (2.0)^2}\, \mathrm{m} = \sqrt{20}\, \mathrm{m},
 \]
-and the electric field at the origin due to one $q$ charge has magnitude
+und das elektrische Feld am Ursprung aufgrund einer der $q$-Ladungen hat die Größe
 \[
 E_q = \frac{1}{4\pi\varepsilon_0} \frac{|q|}{r^2}.
 \]
 
-At the origin, the $y$-components of the fields from the charges at $(4\, \mathrm{m}, 2\, \mathrm{m})$ and $(4\, \mathrm{m}, -2\, \mathrm{m})$ cancel, while the $x$-components add.
+Am Ursprung heben sich die $y$-Komponenten der Felder der Ladungen bei $(4\, \mathrm{m}, 2\, \mathrm{m})$ und $(4\, \mathrm{m}, -2\, \mathrm{m})$ auf, während die $x$-Komponenten sich addieren.
 
-Thus, the total field at the origin due to both $q$ charges is
+Demnach beträgt die Gesamtfeldstärke am Ursprung aufgrund beider $q$-Ladungen
 \[
 |E_x| = 2 \cdot E_q \cos\theta,
 \]
-where $\cos\theta = \frac{x}{r} = \frac{4}{4.472} = 0.894$.
+wobei $\cos\theta = \frac{x}{r} = \frac{4}{4.472} = 0.894$.
 
-Given that the total field at the origin is
+Mit dem Gesamtfeld am Ursprung von
 \[
 E_x = 4.0 \times 10^3\, \mathrm{N/C},
 \]
-we have
+ergibt sich
 \[
 q = -\frac{E_x \cdot 4\pi\varepsilon_0 \cdot r^2}{2 \cdot \cos\theta} = -\frac{4.0 \times 10^3 \cdot 2\pi \cdot 8.854 \times 10^{-12} \cdot 20}{0.894}\, \mathrm{C} = -5.0\, \mu\mathrm{C}.
 \]
@@ -104,65 +103,66 @@ q = -\frac{E_x \cdot 4\pi\varepsilon_0 \cdot r^2}{2 \cdot \cos\theta} = -\frac{4
 \fi
 
 % ----- Exercise 2 -----
-\begin{exercise}[Gauss‘s Law]
-A solid, non-conducting sphere of radius \(R\) carries a total charge \(Q\) distributed uniformly throughout its volume. Using Gauss's law, determine the electric field magnitude \(E(r)\) as a function of radial distance \(r\) from the centre for:
+\begin{exercise}[Gaußsches Gesetz]
+Eine solide, nicht leitende Kugel mit Radius \(R\) trägt eine Gesamtladung \(Q\), die gleichmäßig über ihr Volumen verteilt ist. Mithilfe des Gaußschen Gesetzes soll die Größe des elektrischen Feldes \(E(r)\) als Funktion des radialen Abstands \(r\) vom Zentrum bestimmt werden für:
 \begin{enumerate}[label=\alph*)]
-  \item \(0 \le r < R\) (inside the sphere),
-  \item \(r \ge R\) (outside the sphere).
+  \item \(0 \le r < R\) (innerhalb der Kugel),
+  \item \(r \ge R\) (außerhalb der Kugel).
 \end{enumerate}
-Give the final expressions in terms of \(Q\), \(R\), \(r\), and the permittivity of free space \(\varepsilon_0\).
+Die Ausdrücke sind in Abhängigkeit von \(Q\), \(R\), \(r\) und der Permittivität des freien Raums \(\varepsilon_0\) anzugeben.
 \end{exercise}
 
 \ifshowsolutions
 \begin{solution}
-Because the charge is uniformly distributed over a sphere, the problem is spherically symmetric. The electric field must therefore be radial and have the same magnitude at every point on a spherical surface concentric with the charged sphere. Choose a spherical Gaussian surface of radius \(r\), concentric with the charged sphere.
+Da die Ladung gleichmäßig über eine Kugel verteilt ist, ist das Problem kugelsymmetrisch. Das elektrische Feld muss daher radial sein und an jedem Punkt auf einer kugelförmigen Oberfläche, die mit der geladenen Kugel konzentrisch ist, die gleiche Größe haben. Wir wählen eine kugelförmige Gaußsche Oberfläche mit Radius \(r\), die mit der geladenen Kugel konzentrisch ist.
 
-Gauss's law states:
+Das Gaußsche Gesetz lautet:
 \[
 \oint_{\mathcal{S}} \mathbf{E}\cdot d\mathbf{A}=\frac{Q_{\mathrm{enc}}}{\varepsilon_0}.
 \]
-On the chosen spherical surface the field is radial and constant in magnitude, and \(d\mathbf{A}\) is radial, so the left-hand side becomes
+Auf der gewählten kugelförmigen Oberfläche ist das Feld radial und betragsmäßig konstant, und \(d\mathbf{A}\) ist radial, sodass
 \[
 \oint_{\mathcal{S}} \mathbf{E}\cdot d\mathbf{A}=E(r)\cdot 4\pi r^2.
 \]
 
-We now compute \(Q_{\mathrm{enc}}\) for the two regions.
+Wir berechnen nun \(Q_{\mathrm{enc}}\) für die beiden Bereiche.
 
 \begin{enumerate}[label=\alph*)]
-\item Outside the sphere: \(r\ge R\)
+\item Außerhalb der Kugel: \(r\ge R\)
 
-For \(r\ge R\) the Gaussian surface encloses the entire charge \(Q\). Thus \(Q_{\mathrm{enc}}=Q\), and Gauss's law gives:
+Für \(r\ge R\) umschließt die Gaußsche Oberfläche die gesamte Ladung \(Q\). Somit ist \(Q_{\mathrm{enc}}=Q\), und das Gaußsche Gesetz ergibt:
 \[
 E(r)\,4\pi r^2=\frac{Q}{\varepsilon_0}
 \quad\Rightarrow\quad
 E(r)=\frac{Q}{4\pi\varepsilon_0\,r^2},\qquad r\ge R.
 \]
-This is identical to the electric field of a point charge \(Q\) placed at the centre.
+Dies ist identisch mit dem elektrischen Feld einer Punktladung \(Q\), die sich im Zentrum befindet.
 
-\item Inside the sphere: \(0\le r< R\)
-First compute the volume charge density \(\rho\). The sphere's total volume is \(\tfrac{4}{3}\pi R^3\), so
+\item Innerhalb der Kugel: \(0\le r< R\)
+Zunächst berechnen wir die Volumenladungsdichte \(\rho\). Das Gesamtvolumen der Kugel ist \(\tfrac{4}{3}\pi R^3\), also
 \[
 \rho=\frac{Q}{\tfrac{4}{3}\pi R^3}=\frac{3Q}{4\pi R^3}.
 \]
 The charge enclosed by a Gaussian sphere of radius \(r<R\) is the charge occupying a smaller sphere of radius \(r\):
+Die von einer Gaußschen Kugel mit Radius \(r<R\) eingeschlossene Ladung ist diejenige, die in einer kleineren Kugel mit Radius \(r\) enthalten ist:
 \[
 Q_{\mathrm{enc}}=\rho\cdot \frac{4}{3}\pi r^3
 = \frac{3Q}{4\pi R^3}\cdot \frac{4}{3}\pi r^3
 = Q\frac{r^3}{R^3}.
 \]
-Apply Gauss's law:
+Anwendung des Gaußschen Gesetzes:
 \[
 E(r)\,4\pi r^2=\frac{Q_{\mathrm{enc}}}{\varepsilon_0}
 =\frac{Q}{\varepsilon_0}\frac{r^3}{R^3}.
 \]
-Solve for \(E(r)\):
+Lösen nach \(E(r)\):
 \[
 E(r)=\frac{Q}{4\pi\varepsilon_0}\cdot\frac{r}{R^3},\qquad 0\le r< R.
 \]
-Thus inside the sphere the magnitude of the field increases linearly with \(r\).
+Demnach nimmt die Feldstärke innerhalb der Kugel linear mit \(r\) zu.
 \end{enumerate}
 
-Combined (piecewise) result:
+Kombiniertes (stückweises) Ergebnis:
 \[
 E(r)=
 \begin{cases}
@@ -170,59 +170,59 @@ E(r)=
 \dfrac{Q}{4\pi\varepsilon_0\,r^2}, & r\ge R.
 \end{cases}
 \]
-The direction is radial outward when \(Q>0\) and radial inward when \(Q<0\).
+Die Richtung ist radial nach außen, wenn \(Q>0\) ist, und radial nach innen, wenn \(Q<0\) ist.
 
 \bigskip
 
-\textbf{Remarks:}\begin{itemize}
-  \item Continuity at the surface: At \(r=R\) the inside expression gives \(Q/(4\pi\varepsilon_0 R^2)\), which matches the outside expression evaluated at \(r=R\). So the field is continuous at the surface.
-  \item At the centre \(r=0\), \(E(0)=0\) (from the inside formula), consistent with symmetry.
-  \item Outside the sphere the field is identical to that of a point charge \(Q\) at the centre.
+\textbf{Anmerkungen:}\begin{itemize}
+  \item Kontinuität an der Oberfläche: Bei \(r=R\) ergibt der innere Ausdruck \(Q/(4\pi\varepsilon_0 R^2)\), was mit dem äußeren Ausdruck bei \(r=R\) übereinstimmt. Das Feld ist also an der Oberfläche stetig.
+  \item Im Zentrum \(r=0\) ist \(E(0)=0\) (aus der inneren Formel), was mit der Symmetrie übereinstimmt.
+  \item Außerhalb der Kugel ist das Feld identisch mit dem einer Punktladung \(Q\) im Zentrum.
 \end{itemize}
 \end{solution}
 \fi
 
 % ----- Exercise 3 -----
-\begin{exercise}[Capacitors in DC Steady State]
-Find the voltages across the capacitors in the circuit below under DC conditions.
+\begin{exercise}[Kondensatoren im Gleichstrombetrieb]
+Bestimme die Spannungen über den Kondensatoren im untenstehenden Schaltbild im stationären Gleichstrombetrieb.
 
 \includegraphics[width=0.7\textwidth]{figures/capacitors.png}
 \end{exercise}
 
 \ifshowsolutions
 \begin{solution}
-Under DC steady-state conditions, the capacitors act as open circuits.
-Therefore, no current flows through \( C_1 \) or \( C_2 \), and we can analyze only the resistive network.
+Im stationären Gleichstrombetrieb verhalten sich die Kondensatoren wie offene Schaltkreise.
+Daher fließt kein Strom durch \( C_1 \) oder \( C_2 \), und wir können einfach das Widerstandsnetzwerk analysieren.
 
-Let the bottom node be the reference (0 V).
-The voltage at the top of the \( 60\text{ V} \) source is \( V_C = 60\text{ V} \).
-Let \( V_A \) and \( V_B \) be the node voltages at the top of \( C_1 \) and the junction between the \( 10\:\Omega \), \( 20\:\Omega \), and \( 50\:\Omega \) resistors, respectively.
+Der untere Knoten sei die Referenz (0 V).
+Die Spannung an der Oberseite der \( 60\text{ V} \)-Quelle ist \( V_C = 60\text{ V} \).
+\( V_A \) und \( V_B \) seien die Knotenpotentiale an der Oberseite von \( C_1 \) bzw. am Knoten zwischen den \( 10\:\Omega \)-, \( 20\:\Omega \)- und \( 50\:\Omega \)-Widerständen.
 
 \[
-\text{KCL at node } A: \quad \frac{V_A - 0}{70} + \frac{V_A - V_B}{10} + I_{C_1} = 0
+\text{KCL am Knoten } A: \quad \frac{V_A - 0}{70} + \frac{V_A - V_B}{10} + I_{C_1} = 0
 \]
 \[
 \Rightarrow \frac{V_A - 0}{70} + \frac{V_A - V_B}{10} = 0
 \]
 
 \[
-\text{KCL at node } B: \quad \frac{V_B - V_A}{10} + \frac{V_B - 60}{20} + I_{C_2} = 0
+\text{KCL am Knoten } B: \quad \frac{V_B - V_A}{10} + \frac{V_B - 60}{20} + I_{C_2} = 0
 \]
 \[
 \Rightarrow \frac{V_B - V_A}{10} + \frac{V_B - 60}{20} = 0
 \]
 
-Multiply the first equation by \(70\):
+Multipliziere die erste Gleichung mit \(70\):
 \[
 V_A + 7(V_A - V_B) = 0 \quad \Longrightarrow \quad 8V_A - 7V_B = 0
 \]
 
-Multiply the second equation by \(20\):
+Multipliziere die zweite Gleichung mit \(20\):
 \[
 2(V_B - V_A) + (V_B - 60) = 0 \quad \Longrightarrow \quad -2V_A + 3V_B = 60
 \]
 
-Substitute into each other:
+Einsetzen ineinander:
 \[
 -2\left(\frac{7}{8}V_B\right) + 3V_B = 60
 \]
@@ -239,12 +239,12 @@ Substitute into each other:
 V_A = \frac{7}{8}V_B = \frac{7}{8} \cdot 48 = 42~\text{V} = v_1
 \]
 
-Finally, let \( V_D \) be the trivial node (just one input and one output) voltage between the top of \( C_2 \) and the \( 50\:\Omega \) resistor.
+Schließlich sei \( V_D \) die triviale Knotenspannung (nur ein Eingang und ein Ausgang) zwischen der Oberseite von \( C_2 \) und dem \( 50\:\Omega \)-Widerstand.
 \[
-\text{KCL at node } D: \quad \frac{V_D - V_B}{50} + I_{C_2} = 0 
+\text{KCL am Knoten } D: \quad \frac{V_D - V_B}{50} + I_{C_2} = 0 
 \]
 \[
-I_{C_2} = 0 \; (\text{DC steady state}) 
+I_{C_2} = 0 \; (\text{Gleichstrombetrieb}) 
 \;\Rightarrow\; \frac{V_D - V_B}{50} = 0 
 \;\Rightarrow\; V_D = V_B
 \;\Rightarrow\; v_2 = V_B
@@ -257,28 +257,28 @@ I_{C_2} = 0 \; (\text{DC steady state})
 \fi
 
 % ----- Exercise 4 -----
-\begin{exercise}[Plate Capacitor]
-We want to design a capacitor with capacitance $C=1\,\mu\mathrm{F}$. Compute the length required for rectangular plates of $2\,\mathrm{cm}$ width if the dielectric is polyester ($\varepsilon_r = 3.4$) of $15\,\mu\mathrm{m}$ thickness.
+\begin{exercise}[Plattenkondensator]
+Wir möchten einen Kondensator mit der Kapazität $C=1\,\mu\mathrm{F}$ entwerfen. Berechne die erforderliche Länge für rechteckige Platten mit einer Breite von $2\,\mathrm{cm}$, wenn das Dielektrikum Polyester ($\varepsilon_r = 3.4$) mit einer Dicke von $15\,\mu\mathrm{m}$ ist.
 \end{exercise}
 
 \ifshowsolutions
 \begin{solution}
-For a parallel-plate capacitor
+Für einen Plattenkondensator gilt
 \[
 C = \varepsilon_0 \varepsilon_r \frac{A}{d},
 \]
-where \(A\) is the plate area and \(\varepsilon_0 = 8.85\times 10^{-12}\,\mathrm{F/m}\) is the vacuum permittivity. For rectangular plates \(A = wL\). Solving for \(L\) gives
+wobei \(A\) die Plattenfläche und \(\varepsilon_0 = 8.85\times 10^{-12}\,\mathrm{F/m}\) die Vakuumpermittivität ist. Für rechteckige Platten gilt \(A = wL\). Lösen nach \(L\) ergibt
 \[
 L = \frac{C\,d}{\varepsilon_0 \varepsilon_r w} = \frac{1\times 10^{-6} \cdot 15\times 10^{-6}}{8.85\times 10^{-12} \cdot 3.4 \cdot 0.02}\,\mathrm{m} = 24.93\,\mathrm{m}.
 \]
 
-Remarks: This large length is a consequence of the relatively small plate width and the modest relative permittivity; achieving $1\,\mu\mathrm{F}$ with a simple parallel-plate geometry and a thin polyester dielectric requires a very large plate area. Practical capacitors obtain large capacitances by using multiple layers, rolled foils, much higher-permittivity dielectrics, or much smaller effective separations (thin films, electrolytic constructions, etc.).
+Anmerkungen: Diese große Länge ist eine Folge der relativ kleinen Plattenbreite und der bescheidenen relativen Permittivität; um $1\,\mu\mathrm{F}$ mit einer einfachen Plattengeometrie und einem dünnen Polyesterdielektrikum zu erreichen, ist eine sehr große Plattenfläche erforderlich. Praktische Kondensatoren erzielen große Kapazitäten durch die Verwendung mehrerer Schichten, aufgerollter Folien, Dielektrika mit viel höherer Permittivität oder viel kleinerer effektiver Abstände (Dünnfilme, elektrolytische Konstruktionen usw.).
 \end{solution}
 \fi
 
 % ----- Exercise 5 -----
-\begin{exercise}[Time-Dependent Capacitor Voltage and Current]
-If $v(0) = 0$, find $v(t)$, $i_1(t)$, and $i_2(t)$ in the circuit below.
+\begin{exercise}[Zeitabhängige Kondensatorspannungen und -ströme]
+Falls $v(0) = 0$ ist, bestimme $v(t)$, $i_1(t)$ und $i_2(t)$ im untenstehenden Schaltbild.
 
 \includegraphics[width=0.7\textwidth]{figures/capacitor_VI.png}
 \end{exercise}
@@ -288,15 +288,15 @@ If $v(0) = 0$, find $v(t)$, $i_1(t)$, and $i_2(t)$ in the circuit below.
 \[
 i = C \frac{dv}{dt} \Rightarrow v = \frac{\int i\ dt}{C}
 \]
-Here,
+Hier gilt,
 \[
 v(t) = \frac{\int i_s\ dt}{C_{eq}},
 \]
-with the equivalent capacitance
+mit der äquivalenten Kapazität
 \[
 C_{eq} = 6\,\mu\mathrm{F} + 4\,\mu\mathrm{F} = 10\,\mu\mathrm{F}.
 \]
-For $0 < t < 1\,\mathrm{s}$:
+Für $0 < t < 1\,\mathrm{s}$:
 \[
 v(t) = \frac{\int 30 t\ dt\,\mathrm{mA} \cdot \mathrm{s}}{10\,\mu\mathrm{F}} = \frac{15 t^2 + \text{const}}{10}\,\mathrm{kV}
 \]
@@ -309,7 +309,7 @@ v(0) = 0
 \[
 \Rightarrow v(t) = 1.5 t^2\,\mathrm{kV}
 \]
-For $1 < t < 3\,\mathrm{s}$:
+Für $1 < t < 3\,\mathrm{s}$:
 \[
 v(t) = \frac{\int 30\ dt}{10}\,\mathrm{kV} = \frac{30 t + \text{const}}{10}\,\mathrm{kV}
 \]
@@ -322,7 +322,7 @@ v(1\,\mathrm{s}) = 1.5 \cdot 1^2\,\mathrm{kV} = 1.5\,\mathrm{kV}
 \[
 \Rightarrow v(t) = (3 t - 1.5)\,\mathrm{kV}
 \]
-For $3 < t < 5\,\mathrm{s}$:
+Für $3 < t < 5\,\mathrm{s}$:
 \[
 v(t) = \frac{\int (\frac{30}{2} t - 75)\ dt}{10}\,\mathrm{kV} = \frac{7.5 t^2 - 75 t  + \text{const}}{10}\,\mathrm{kV}
 \]
@@ -335,25 +335,25 @@ v(3\,\mathrm{s}) = [1.5 t^2]_0^1\,\mathrm{kV} + [3 t - 1.5]_1^3\,\mathrm{kV} = (
 \[
 \Rightarrow v(t) = (0.75 t^2 - 7.5 t + 23.25)\,\mathrm{kV}
 \]
-The currents through each capacitor are:
+Die Ströme durch jeden Kondensator sind:
 \[
 i_1 = C_1 \frac{dv}{dt}; \qquad i_2 = C_2 \frac{dv}{dt}
 \]
-For $0 < t < 1\,\mathrm{s}$:
+Für $0 < t < 1\,\mathrm{s}$:
 \[
 i_1 = 6\,\mu\mathrm{F} \cdot 3 t\,\mathrm{kV/s} = 18 t\,\mathrm{mA}
 \]
 \[
 i_2 = 4\,\mu\mathrm{F} \cdot 3 t\,\mathrm{kV/s} = 12 t\,\mathrm{mA}
 \]
-For $1 < t < 3\,\mathrm{s}$:
+Für $1 < t < 3\,\mathrm{s}$:
 \[
 i_1 = 6\,\mu\mathrm{F} \cdot 3\,\mathrm{kV/s} = 18\,\mathrm{mA}
 \]
 \[
 i_2 = 4\,\mu\mathrm{F} \cdot 3\,\mathrm{kV/s} = 12\,\mathrm{mA}
 \]
-For $3 < t < 5\,\mathrm{s}$:
+Für $3 < t < 5\,\mathrm{s}$:
 \[
 i_1 = 6\,\mu\mathrm{F} \cdot (1.5 t - 7.5)\,\mathrm{kV/s} = (9 t - 45)\,\mathrm{mA}
 \]
@@ -364,40 +364,40 @@ i_2 = 4\,\mu\mathrm{F} \cdot (1.5 t - 7.5)\,\mathrm{kV/s} = (6 t - 30)\,\mathrm{
 \fi
 
 % ----- Exercise 6 -----
-\begin{exercise}[Energy of Capacitors]
-Two capacitors ($25\,\mu\mathrm{F}$ and $75\,\mu\mathrm{F}$) are connected to a $100\,\mathrm{V}$ source. Find the energy stored in each capacitor if they are connected in:
+\begin{exercise}[Energie von Kondensatoren]
+Zwei Kondensatoren ($25\,\mu\mathrm{F}$ und $75\,\mu\mathrm{F}$) sind an eine $100\,\mathrm{V}$-Quelle angeschlossen. Bestimme die in jedem Kondensator gespeicherte Energie, wenn sie folgendermaßen verbunden sind:
 \begin{enumerate}[label=\alph*)]
     \item parallel
-    \item series
+    \item seriell
 \end{enumerate}
 \end{exercise}
 
 \ifshowsolutions
 \begin{solution}
 \begin{enumerate}[label=\alph*)]
-\item The equivalent capacitance for parallel connection is
+\item Die äquivalente Kapazität für Parallelschaltung ist
 \[
 C_{eq} = C_1 + C_2 = 25\,\mu\mathrm{F} + 75\,\mu\mathrm{F} = 100\,\mu\mathrm{F}.
 \]
-The energy stored in each capacitor is
+Die in jedem Kondensator gespeicherte Energie ist
 \[
 E_1 = \frac{1}{2} \cdot C_1 \cdot V^2 = \frac{1}{2} \cdot 25 \times 10^{-6}\,\mathrm{F} \cdot (100\,\mathrm{V})^2 = 125\,\mathrm{mJ},
 \]
 \[
 E_2 = \frac{1}{2} \cdot C_2 \cdot V^2 = \frac{1}{2} \cdot 75 \times 10^{-6}\,\mathrm{F} \cdot (100\,\mathrm{V})^2 = 375\,\mathrm{mJ}.
 \]
-\item The equivalent capacitance for series connection is
+\item Die äquivalente Kapazität für Serienschaltung ist
 \[
 C_{eq} = \frac{C_1 \cdot C_2}{C_1 + C_2} = \frac{25\,\mu\mathrm{F} \cdot 75\,\mu\mathrm{F}}{25\,\mu\mathrm{F} + 75\,\mu\mathrm{F}} = 18.75\,\mu\mathrm{F}.
 \]
-The voltage across each capacitor is
+Die Spannung über jedem Kondensator ist
 \[
 V_1 = \frac{Q}{C_1} = \frac{C_{eq} \cdot V}{C_1} = \frac{18.75\,\mu\mathrm{F} \cdot 100\,\mathrm{V}}{25\,\mu\mathrm{F}} = 75\,\mathrm{V},
 \]
 \[
 V_2 = \frac{Q}{C_2} = \frac{C_{eq} \cdot V}{C_2} = \frac{18.75\,\mu\mathrm{F} \cdot 100\,\mathrm{V}}{75\,\mu\mathrm{F}} = 25\,\mathrm{V}.
 \]
-The energy stored in each capacitor is
+Die in jedem Kondensator gespeicherte Energie ist
 \[E_1 = \frac{1}{2} \cdot C_1 \cdot V_1^2 = \frac{1}{2} \cdot 25 \times 10^{-6}\,\mathrm{F} \cdot (75\,\mathrm{V})^2 = 70.31\,\mathrm{mJ},\]
 \[E_2 = \frac{1}{2} \cdot C_2 \cdot V_2^2 = \frac{1}{2} \cdot 75 \times 10^{-6}\,\mathrm{F} \cdot (25\,\mathrm{V})^2 = 23.44\,\mathrm{mJ}.\]
 \end{enumerate}
@@ -405,8 +405,8 @@ The energy stored in each capacitor is
 \fi
 
 % ----- Exercise 7 -----
-\begin{exercise}[Series and Parallel Capacitors]
-Determine the equivalent capacitance at terminals a-b of the circuit below.
+\begin{exercise}[Serielle und Parallele Kondensatoren]
+Bestimme die äquivalente Kapazität an den Klemmen a-b des untenstehenden Schaltbildes.
 
 \includegraphics[width=0.7\textwidth]{figures/capacitors_circuit.png}
 \end{exercise}
