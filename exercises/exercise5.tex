@@ -58,13 +58,343 @@
 \vspace{1cm}
 
 % ----- Exercise 1 -----
-\begin{exercise}[...]
-...
+\begin{exercise}[Magnetic Force]
+In a straight, current-carrying section of a conductor there is a current element
+\[
+I \vec{l}
+\]
+with
+\[
+I = 2.7~\text{A}, \quad \vec{l} = (3.0\,\hat{x} + 4.0\,\hat{y})~\text{cm}.
+\]
+It is surrounded by a uniform magnetic field
+\[
+\vec{B} = 1.3\,\hat{x}~\text{T}.
+\]
+Calculate the force acting on the section of the conductor.
 \end{exercise}
 
 \ifshowsolutions
 \begin{solution}
-...
+Magnetic force:
+\[
+\vec{F} = I (\vec{l} \times \vec{B})
+\]
+
+Compute the cross product:
+\[
+\begin{aligned}
+(\vec{l} \times \vec{B})_x &= l_y B_z - l_z B_y = 0.04 \cdot 0 - 0 \cdot 0 = 0,\\[4pt]
+(\vec{l} \times \vec{B})_y &= l_z B_x - l_x B_z = 0 \cdot 1.3 - 0.03 \cdot 0 = 0,\\[4pt]
+(\vec{l} \times \vec{B})_z &= l_x B_y - l_y B_x = 0.03 \cdot 0 - 0.04 \cdot 1.3 = -0.052.
+\end{aligned}
+\]
+
+\[
+\Rightarrow \quad \vec{l} \times \vec{B} = -0.052\,\hat{z}~\text{m·T}
+\]
+
+Therefore:
+\[
+\vec{F} = 2.7~\text{A} \cdot (-0.052)\,\hat{z}~\text{m·T} = -0.14\,\hat{z}~\text{N}
+\]
+\end{solution}
+\fi
+
+% ----- Exercise 2 -----
+\begin{exercise}[Lorentz Force]
+A velocity selector operates with a magnetic field of \( B = 0.28\,\text{T} \) perpendicular to an electric field of \( E = 0.46\,\text{MV/m} \). How fast must a particle move in order to pass through the selector without deflection?
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+For no deflection, the electric and magnetic forces must balance:
+\[
+qE = qvB
+\]
+
+\[
+\Rightarrow v = \frac{E}{B} = \frac{0.46 \times 10^{6}\,\text{V/m}}{0.28\,\text{T}} = 1.64 \times 10^{6}\,\text{m/s}
+\]
+\end{solution}
+\fi
+
+% ----- Exercise 3 -----
+\begin{exercise}[Ampère's Law]
+Through a long, straight, thin-walled hollow cylinder with radius $r$, a current $I$ flows parallel to its longitudinal axis. Describe the magnetic fields (in terms of magnitude and direction) inside and outside the hollow cylinder.
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+Inside the hollow cylinder ($r_{\text{inside}} < r$):
+
+Since the cylinder is thin-walled and the current flows only on the surface, by Ampère's law, the magnetic field inside the cylinder is zero:
+\[
+\vec{B}_{\text{inside}} = 0
+\]
+
+\bigskip
+
+Outside the hollow cylinder ($r_{\text{outside}} > r$):
+
+For points outside the cylinder, the magnetic field can be calculated using Ampère's law. Choosing an Amperian loop of radius $r_{\text{outside}}$ concentric with the cylinder, the magnitude of the magnetic field is:
+\[
+B_{\text{outside}} = \frac{\mu_0 I}{2 \pi r_{\text{outside}}},
+\]
+where $\mu_0$ is the permeability of free space.
+
+The direction of the magnetic field follows the right-hand rule: if the fingers of your right hand curl around the cylinder in the direction of current, the thumb points along the axis of the current, and the magnetic field circulates around the cylinder tangentially to the loop.
+\end{solution}
+\fi
+
+% ----- Exercise 4 -----
+\begin{exercise}[Faraday's Law: Moving Conductor]
+A rectangular conducting loop has width $l=0.2\,\text{m}$ (the side that crosses the field boundary) and height $h=0.1\,\text{m}$. The loop lies initially entirely inside a region of uniform magnetic field $B$ directed \emph{into} the page, with magnitude $B=0.8\,\text{T}$. The loop is pulled to the right with constant speed $v=0.5\,\frac{\text{m}}{\text{s}}$, so that it leaves the magnetic region.
+\begin{enumerate}[label=\alph*)]
+  \item Calculate the magnitude of the induced voltage in the loop while it is partially leaving the magnetic region.
+  \item State the direction of the induced current (clockwise or counterclockwise) as seen by the observer, and justify using Lenz's law.
+\end{enumerate}
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+Magnetic flux through the portion of the loop inside the field is $\Phi=B\,A_{\rm in}$. As the loop leaves, $A_{\rm in}$ decreases, so $d\Phi/dt<0$. Faraday's law gives
+\[
+V = -\frac{d\Phi}{dt}\,,
+\]
+and for the straight side moving at speed $v$ the magnitude of the induced voltage is
+\[
+|V| = B \cdot l \cdot v\,.
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Magnitude:
+\[
+|V| = B \cdot l \cdot v = 0.8\,\text{T} \cdot 0.2\,\text{m} \cdot 0.5\,\frac{\text{m}}{\text{s}} = 0.08\,\text{V}
+\]
+
+\item Direction:
+The magnetic flux (into the page) is decreasing as the loop leaves. By Lenz's law the induced current will produce a magnetic field that tries to maintain the lost flux — i.e., it will produce a magnetic field \emph{into} the page. Using the right-hand rule (curl the fingers in the direction of current; thumb gives the magnetic field), a magnetic field into the page corresponds to a clockwise current as seen by the observer. Thus the induced current is clockwise.
+\end{enumerate}
+\end{solution}
+\fi
+
+% ----- Exercise 5 -----
+\begin{exercise}[Faraday's Law: Time-varying Field]
+A circular conducting loop of radius $r=5\,\text{cm}$ lies in a region where the magnetic field perpendicular to the loop is increasing in time according to
+\[
+B(t) = 0.012\,t\,\text{T}\quad\text{with }t\text{ in seconds.}
+\]
+The loop resistance is $R = 2\,\Omega$.  
+
+\begin{enumerate}[label=\alph*)]
+  \item Find the magnitude of the induced voltage at $t=4\,\text{s}$.
+  \item Find the induced current magnitude at that time and specify its sense (clockwise or counterclockwise) if $B$ points \emph{out} of the page.
+\end{enumerate}
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+Magnetic flux through the loop is $\Phi(t)=B(t) \cdot \pi r^{2}$. Faraday's law gives the induced voltage magnitude
+\[
+|V| = \left|\frac{d\Phi}{dt}\right| = \pi r^{2} \cdot \left|\frac{dB}{dt}\right|.
+\]
+Here $dB/dt$ is constant because $B(t) = 0.012\,t\,\text{T}$.
+
+\begin{enumerate}[label=\alph*)]
+\item Magnitude: Radius $r=0.05\,\text{m}$ and $dB/dt=0.012\ \mathrm{T/s}$. Thus
+\[
+|V|=\pi \cdot 0.05^2 \cdot 0.012\,\mathrm{V} \approx 9.42\times10^{-5}\,\mathrm{V}.
+\]
+
+\item Induced current and direction: According to Ohm's law
+\[
+I = |V|/R = \frac{9.42 \times 10^-5}{2}\,\mathrm{A} \approx 4.71 \times 10^{-5}\,\mathrm{A}.
+\]
+Direction: since $B$ is increasing \emph{out} of the page, the induced magnetic field must oppose the increase and therefore be \emph{into} the page. A magnetic field into the page corresponds to a \textbf{clockwise} induced current (viewed by the observer).
+\end{enumerate}
+\end{solution}
+\fi
+
+% ----- Exercise 6 -----
+\begin{exercise}[Time-Dependent Inductor Voltage and Current]
+If the voltage waveform below is applied to a $10\text{-mH}$ inductor, find the inductor current $i(t)$ for $0 < t < 2$ seconds. Assume $i(0) = 0$.
+
+\includegraphics[width=0.5\textwidth]{figures/inductor_VI.png}
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+For an inductor:
+\[
+v(t) = L \frac{di(t)}{dt}
+\]
+
+$0 < t < 1\,\text{s}$ (Ramp up $0$ → $5\,\text{V}$):
+
+\[
+v(t) = 5 t\,\mathrm{V} \quad \Rightarrow \quad \frac{di}{dt} = \frac{5 t\,\mathrm{V}}{0.01\,\mathrm{H}} = 500 t\,\mathrm{A/s}
+\]
+
+Integrating:
+\[
+i(t) = \int 500 t\,\mathrm{A/s} \, dt = (250 t^2 + C)\,\mathrm{A}
+\]
+
+Since $i(0) = 0$, $C=0$:
+\[
+\boxed{i(t) = 250 t^2\,\mathrm{A}, \quad 0 < t < 1}
+\]
+
+\bigskip
+
+$t = 1\,\text{s}$ (instantaneous drop $5$ → $-5\,\text{V}$):
+
+An ideal inductor cannot change current instantaneously. Therefore, the inductor current is continuous at $t=1$:
+\[
+i(1^-) = i(1^+) = 250\,\text{A}
+\]
+
+The instantaneous voltage jump produces a finite slope change in $di/dt$, but $i(t)$ itself is continuous.
+
+\bigskip
+
+$1 < t < 2\,\text{s}$ (ramp from $-5$ → $0\,\text{V}$):
+
+Voltage is now
+\[
+v(t) = -5\,\text{V} + 5 (t-1)\,\text{V} = (5 t - 10)\,\text{V}, \quad 1 < t < 2.
+\]
+
+Then
+\[
+\frac{di}{dt} = \frac{(5 t - 10)\,\text{V}}{0.01,\mathrm{H}} = (500 t - 1000)\,\mathrm{A/s}.
+\]
+
+Integrate:
+\[
+i(t) = \int (500 t - 1000)\,\mathrm{A/s} dt = (250 t^2 - 1000 t + C)\,\mathrm{A}
+\]
+
+Use continuity at $t = 1$: $i(1) = 250\,\mathrm{A}$
+\[
+250\,\mathrm{A} = (250(1)^2 - 1000(1) + C)\,\mathrm{A} \implies C = 1000
+\]
+
+So:
+\[
+\boxed{i(t) = (250 t^2 - 1000 t + 1000)\,\mathrm{A}, \quad 1 < t < 2}
+\]
+\end{solution}
+\fi
+
+% ----- Exercise 7 -----
+\begin{exercise}[Coil]
+A cylindrical coil with a length of $2.7 \,\mathrm{m}$, a radius of $0.85 \,\mathrm{cm}$, and 600 turns carries a current of $2.5 \,\mathrm{A}$. Calculate $B$ inside the coil, far from its ends.
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+The magnetic field inside a long solenoid (far from its ends) is given by
+\[
+B = \mu_0 \, n \, I,
+\]
+where $n$ is the number of turns per unit length:
+\[
+n = \frac{N}{l} = \frac{600}{2.7 \,\mathrm{m}} \approx 222.22 \,\mathrm{turns/m}
+\]
+
+With the permeability of free space
+\[
+\mu_0 = 4\pi \cdot 10^{-7} \,\mathrm{H/m},
+\]
+the magnetic field is:
+\[
+B = (4 \pi \cdot 10^{-7}) \cdot 222.22 \cdot 2.5 \,\mathrm{T} = 6.98 \cdot 10^{-4} \,\mathrm{T} \approx 0.7 \,\mathrm{mT}
+\]
+\end{solution}
+\fi
+
+% ----- Exercise 8 -----
+\begin{exercise}[Energy of Inductors]
+The current in an 80-mH inductor increases from 0 to 60 mA (steady state). How much energy is stored in the inductor?
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+The energy stored in an inductor is given by
+\[
+W = \frac{1}{2} L I^2 = \frac{1}{2} (0.08) (0.06)^2~\text{J} = 144~\mu\text{J}
+\]
+\end{solution}
+\fi
+
+% ----- Exercise 9 -----
+\begin{exercise}[Inductor and Capacitor under DC]
+For the circuit below, calculate the value of $R$ that will make the energy stored in the capacitor the same as that stored in the inductor under DC condtitions.
+
+\includegraphics[width=0.7\textwidth]{figures/inductor_capacitor_circuit.png}
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+Under steady-state DC, the capacitor is an open circuit and the inductor is a short circuit. Call the top node voltage \(V\). The \(2\text{-}\Omega\) resistor and \(R\) both go to ground, so
+\[
+\frac{V}{R} + \frac{V}{2\,\Omega} = 5\,\mathrm{A} \quad \Rightarrow \quad V = \frac{10R}{R+2}.
+\]
+
+The inductor DC current is the current through \(R\):
+\[
+I_L = \frac{V}{R} = \frac{10}{R + 2}
+\]
+
+Equate stored energies:
+\[
+\frac{1}{2} C V^2 = \frac{1}{2} L I_L^2
+\]
+
+Substituting \(V\) and \(I_L\) gives
+\[
+C \left( \frac{10 R}{R + 2} \right)^2 = L \left( \frac{10}{R + 2} \right)^2 \quad \Rightarrow \quad C R^2 = L,
+\]
+
+and therefore
+
+\[
+R = \sqrt{\frac{L}{C}} = \sqrt{\frac{4 \times 10^{-3}}{160 \times 10^{-6}}}\,\Omega = 5\,\Omega.
+\]
+\end{solution}
+\fi
+
+% ----- Exercise 10 -----
+\begin{exercise}[Series and Parallel Inductors]
+Determine $L_{\text{eq}}$ at terminals a-b of the circuit below.
+
+\includegraphics[width=0.7\textwidth]{figures/inductors_circuit.png}
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+Step 1: Parallel combination of the three inductances with $60~\text{mH}$, $20~\text{mH}$, $30~\text{mH}$:
+\[
+\frac{1}{L_{\text{p}}} = \frac{1}{60~\text{mH}} + \frac{1}{20~\text{mH}} + \frac{1}{30~\text{mH}} = \frac{1}{10}~\frac{1}{\text{mH}}
+\]
+\[
+\Rightarrow L_{\text{p}} = 10~\text{mH}
+\]
+
+Step 2: Series combination with the inductance of $25~\text{mH}$:
+\[
+L_{\text{s}} = L_{\text{p}} + 25~\text{mH} = 10~\text{mH} + 25~\text{mH} = 35~\text{mH}
+\]
+
+Step 3: Parallel combination with the inductance of $10~\text{mH}$:
+\[
+\frac{1}{L_{\text{eq}}} = \frac{1}{L_{\text{s}}} + \frac{1}{10~\text{mH}} = \frac{1}{35~\text{mH}} + \frac{1}{10~\text{mH}} = \frac{9}{70}~\frac{1}{\text{mH}}
+\]
+\[
+\Rightarrow L_{\text{eq}} \approx 7.78~\text{mH}
+\]
 \end{solution}
 \fi
 
