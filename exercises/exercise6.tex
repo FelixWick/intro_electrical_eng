@@ -50,14 +50,191 @@
 % ----- Header Box -----
 \begin{tcolorbox}[enhanced, breakable, colback=gray!10!white,
   colframe=gray!70!black, fonttitle=\bfseries\large,
-  title={Exercise Sheet \#6}: AC 1: Phasor Domain, sharp corners, width=\textwidth]
+  title={Exercise Sheet \#6}: Transformer and Transients, sharp corners, width=\textwidth]
 \begin{center}
-  Discussion: Dec 1, 2025
+  Discussion: Nov 24, 2025
 \end{center}
 \end{tcolorbox}
 \vspace{1cm}
 
 % ----- Exercise 1 -----
+\begin{exercise}[Ideal Transformer]
+A 480-V to 2400-V step-up ideal transformer delivers 50 kW to a resistive load. Calculate:
+\begin{enumerate}[label=\alph*)]
+  \item the turns ratio
+  \item the primary current
+  \item the secondary current
+\end{enumerate}
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+\begin{enumerate}[label=\alph*)]
+\item Turns ratio (primary to secondary):
+\[
+\alpha = \frac{V_P}{V_S} = \frac{480\,\text{V}}{2400\,\text{V}} = 0.2
+\]
+\item Primary current:
+\[
+I_P = \frac{P}{V_P} = \frac{50000\,\text{W}}{480\,\text{V}} \approx 104.17\,\text{A}
+\]
+\item Secondary current:
+\[
+I_S = \frac{P}{V_S} = \frac{50000\,\text{W}}{2400\,\text{V}} \approx 20.83\,\text{A}
+\]
+Check:
+\[
+\frac{I_S}{I_P} \approx 0.2
+\]
+\end{enumerate}
+
+\textbf{Remark:}
+For AC, one would simply consider RMS values.
+\end{solution}
+\fi
+
+% ----- Exercise 2 -----
+\begin{exercise}[Mutual Inductance]
+For the three coupled coils below, calculate the total inductance.
+
+\includegraphics[width=0.7\textwidth]{figures/mutual_inductance.png}
+
+\textbf{Background:}
+The polarity of the mutual voltage is defined by the orientation or particular way in which the two coils are physically wound. It can be determined by applying Lenz’s law in conjunction with the right-hand rule. In circuit diagrams, the polarity is often shown by the dot convention: A dot is placed in the circuit at one end of each of the two magnetically coupled coils to indicate the direction of the magnetic flux if current enters that dotted terminal of the coil. The convention then reads: If a current enters the dotted terminal of one coil, the reference polarity of the mutual voltage in the second coil is positive at the dotted terminal of the second coil.
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+\[
+\text{Given: } 
+\begin{cases}
+L_1 = 12~\text{H},\\
+L_2 = 16~\text{H},\\
+L_3 = 20~\text{H},\\
+M_{12} = 8~\text{H},\\
+M_{23} = 10~\text{H},\\
+M_{13} = 4~\text{H}.
+\end{cases}
+\]
+
+The total inductance of a system of magnetically coupled coils connected in series depends not only on the self-inductances of the coils, but also on the mutual inductances between them.  
+
+When two coils are connected such that the magnetic flux produced by one \emph{aids} the flux in the other, the mutual inductance contributes \emph{positively}. If the fluxes \emph{oppose} each other, the mutual inductance contributes \emph{negatively}.
+
+In the given circuit:
+\begin{enumerate}
+  \item The dots indicate the polarity of the induced voltage in each coil.
+  \item The connection pattern shows that:
+  \begin{enumerate}
+    \item \( M_{12} \) and \( M_{23} \) are \emph{opposing} (the current enters the dotted terminal of one coil and leaves the dotted terminal of the other).
+    \item \( M_{13} \) is \emph{aiding} (the current enters both dotted terminals).
+  \end{enumerate}
+\end{enumerate}
+
+For three series-connected coupled coils, the equivalent inductance is given by:
+\[
+L_{\text{eq}} = L_1 + L_2 + L_3 + 2(\pm M_{12} \pm M_{23} \pm M_{13}),
+\]
+where the signs depend on whether the mutual coupling is aiding or opposing.
+
+From the polarity information in the diagram, we have:
+\[
+L_{\text{eq}} = L_1 + L_2 + L_3 + 2(M_{13} - M_{12} - M_{23}) = (12 + 16 + 20 + 2(4 - 8 - 10))~\text{H} = 20~\text{H}
+\]
+
+\includegraphics[width=0.7\textwidth]{figures/mutual_inductance_polarity.png}
+\end{solution}
+\fi
+
+% ----- Exercise 3 -----
+\begin{exercise}[RC-Discharge]
+In the circuit shown below, for \(t>0\)
+\[
+v(t) = 56e^{-200t}\,\text{V},\qquad i(t) = 8e^{-200t}\,\text{mA}.
+\]
+\begin{enumerate}[label=\alph*)]
+  \item Find the values of \(R\) and \(C\).
+  \item Calculate the time constant \(\tau\).
+  \item Determine the time required for the voltage to decay to half its initial value at \(t=0\).
+\end{enumerate}
+
+\includegraphics[width=0.5\textwidth]{figures/transients1.png}
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+\begin{enumerate}[label=\alph*)]
+\item For a single series \(R\!-\!C\) discharge, the capacitor voltage has the form
+\[
+v(t) = V_0 e^{-t/(RC)}.
+\]
+Comparing \(v(t)=56e^{-200t}\) with \(V_0 e^{-t/(RC)}\) gives
+\[
+\frac{1}{RC} = 200 \quad\Longrightarrow\quad RC = 5\,\text{ms}.
+\]
+
+The capacitor current is related to the capacitor voltage by
+\[
+i(t) = C \frac{dv(t)}{dt}.
+\]
+Differentiate \(v(t)\):
+\[
+\frac{dv}{dt} = -200 \cdot 56 e^{-200t}\,\text{V/s} = -11200 e^{-200t}\,\text{V/s}.
+\]
+Hence
+\[
+C=\frac{i(t)}{dv/dt} = \frac{0.008 e^{-200t}}{-11200 e^{-200t}}.
+\]
+Taking the positive magnitude,
+\[
+C = \frac{0.008}{11200}\,\text{F} \approx 714.3\,\text{nF}.
+\]
+
+\[
+R = \frac{RC}{C} = \frac{0.005}{714.3 \times 10^{-9}}\,\Omega = 7\,\text{k}\Omega
+\]
+(Alternatively, \(R = v(t)/i(t) = 56/0.008\,\Omega = 7\,\text{k}\Omega\).)
+
+\item The time constant is
+\[
+\tau = RC = 5\,\text{ms}.
+\]
+
+\item We require \(v(t_{1/2}) = \tfrac{1}{2}V_0\). For \(v(t) = V_0 e^{-t/\tau}\),
+\[
+\frac{1}{2} = e^{-t_{1/2}/\tau}\quad\Longrightarrow\quad t_{1/2} = \tau \ln 2.
+\]
+Thus
+\[
+t_{1/2} = (0.005 \cdot \ln 2)\,\text{s} \approx 3.466\,\text{ms}.
+\]
+\end{enumerate}
+\end{solution}
+\fi
+
+% ----- Exercise 4 -----
+\begin{exercise}[...]
+...
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+...
+\end{solution}
+\fi
+
+% ----- Exercise 5 -----
+\begin{exercise}[...]
+...
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+...
+\end{solution}
+\fi
+
+% ----- Exercise 6 -----
 \begin{exercise}[...]
 ...
 \end{exercise}
