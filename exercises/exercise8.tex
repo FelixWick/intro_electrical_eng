@@ -58,13 +58,105 @@
 \vspace{1cm}
 
 % ----- Exercise 1 -----
-\begin{exercise}[...]
-...
+\begin{exercise}[AC Circuit Analysis]
+Find $v(t)$ in the $RLC$ circuit below.
+
+\includegraphics[width=0.7\textwidth]{figures/ACcircuit1.png}
 \end{exercise}
 
 \ifshowsolutions
 \begin{solution}
-...
+We are given the time-domain source
+\[
+v_s(t) = 10\cos t\,\text{V}.
+\]
+In complex (exponential) representation we write this as the real part of a complex exponential:
+\[
+v_s(t) = Re(\underline{\hat{v}}_s e^{j\omega t}),\qquad \underline{\hat{v}}_s = 10,\ \omega=1\ \text{rad/s},
+\]
+so \(v_s(t)=Re(10 e^{j t})\).
+
+At \(\omega=1\),
+\[
+\underline{Z}_{R_1} = 1,\qquad \underline{Z}_{R_2} = 1,\qquad \underline{Z}_L = j\omega L = j,\qquad \underline{Z}_C = \frac{1}{j\omega C} = -j.
+\]
+
+The series \(R_2\!-\!L\) branch impedance is
+\[
+\underline{Z}_{RL}=1+j.
+\]
+
+The parallel combination of \(\underline{Z}_{RL}\) and \(\underline{Z}_C\) has admittance
+\[
+\underline{Y}_{p} = \frac{1}{\underline{Z}_{RL}} + \frac{1}{\underline{Z}_C} = \frac{1}{1+j} + \frac{1}{-j}.
+\]
+Compute each term explicitly:
+\[
+\frac{1}{1+j} = \frac{1-j}{(1+j)(1-j)} = \frac{1-j}{2} = \tfrac12 - \tfrac12 j,
+\qquad
+\frac{1}{-j} = j.
+\]
+Thus
+\[
+\underline{Y}_p = \left(\tfrac12 - \tfrac12 j\right) + j = \tfrac12 + \tfrac12 j.
+\]
+Therefore the equivalent impedance of the parallel network is
+\[
+\underline{Z}_p = \frac{1}{\underline{Y}_p} = \frac{1}{\tfrac12 + \tfrac12 j} = \frac{\tfrac12 - \tfrac12 j}{(\tfrac12)^2 + (\tfrac12)^2} = 1-j.
+\]
+
+The total series impedance seen by the source is
+\[
+\underline{Z}_{\text{tot}} = \underline{Z}_{R_1} + \underline{Z}_p = 1+(1-j) = 2-j.
+\]
+
+Now form the complex current \(\underline{\hat{i}}\) (the complex amplitude multiplying \(e^{j t}\)) by dividing the complex source amplitude by the complex impedance:
+\[
+\underline{\hat{i}} = \frac{\underline{\hat{v}}_s}{\underline{Z}_{\text{tot}}} = \frac{10}{2-j}.
+\]
+Perform the algebraic division by multiplying numerator and denominator by the conjugate:
+\[
+\underline{\hat{i}} = 10\frac{2+j}{(2-j)(2+j)} = 10\frac{2+j}{5} = 4+2j.
+\]
+Thus the complex current amplitude is \(\underline{\hat{i}} = 4+2j\). (Its magnitude is \(|\underline{\hat{i}}| = \sqrt{4^2+2^2} \approx 4.472\) and its angle \(\arg(\underline{\hat{i}}) = \arctan(2/4) = 26.57^\circ\), if one prefers polar form.)
+
+The complex voltage across the parallel network (and thus across the capacitor) is
+\[
+\underline{\hat{v}}_p = \underline{\hat{i}}\,\underline{Z}_p = (4+2j)(1-j).
+\]
+Multiply out:
+\[
+\underline{\hat{v}}_p = 4(1-j)+2j(1-j) = 4-4j+2j-2j^2 = 4-2j+2 = 6-2j.
+\]
+So the complex amplitude of the capacitor voltage is \(\underline{\hat{v}}_p = 6-2j\).
+
+We may express this two ways:
+
+\textbf{(a) Time-domain real part of the exponential:}
+\[
+v(t) = Re(\underline{\hat{v}}_p e^{j t}) = Re((6-2j)e^{j t}).
+\]
+Expanding \((6-2j)e^{jt} = (6-2j)(\cos t + j\sin t)\) and taking the real part gives
+\[
+v(t) = 6\cos t + 2\sin t.
+\]
+
+\textbf{(b) Amplitude–phase form:} compute magnitude and angle of \(\underline{\hat{v}}_p\):
+\[
+|\underline{\hat{v}}_p| = \sqrt{6^2+(-2)^2} \approx 6.325,
+\]
+\[
+\arg(\underline{\hat{v}}_p) = \arctan\!\bigg(\frac{-2}{6}\bigg) \approx -18.43^\circ.
+\]
+Thus
+\[
+\underline{\hat{v}}_p = 6.325\angle(-18.43^\circ),
+\]
+and therefore
+\[
+v(t) = 6.325\cos\big(t-18.43^\circ\big)\,\text{V},
+\]
+which is algebraically equivalent to \(v(t) = 6\cos t+2\sin t\).
 \end{solution}
 \fi
 
