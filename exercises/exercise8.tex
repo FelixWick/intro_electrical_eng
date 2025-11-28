@@ -162,12 +162,52 @@ which is algebraically equivalent to \(v(t) = 6\cos t+2\sin t\).
 
 % ----- Exercise 2 -----
 \begin{exercise}[...]
-...
+Determine the value of $i_s(t)$ in the circuit below.
+
+\includegraphics[width=0.7\textwidth]{figures/ACcircuit2.png}
 \end{exercise}
 
 \ifshowsolutions
 \begin{solution}
-...
+\[
+\omega = 2000\;\text{rad/s}
+\]
+
+\[
+\underline{Z}_C = \frac{1}{j \omega C} = \frac{-j}{2000 \cdot 50 \times 10^{-6}}\,\Omega = -j 10\,\Omega
+\]
+
+\[
+\underline{Z}_{RL} = 20 + j \omega L = (20 + j 2000 \cdot 2 \times 10^{-3})\,\Omega = (20 + j 4)\,\Omega
+\]
+
+\[
+\underline{Y}_p = \frac{1}{\underline{Z}_C} + \frac{1}{Z_{RL}} = j 0.1 + \frac{1}{20 + j 4} = j 0.1 + \frac{20 - j 4}{416} = \left(\frac{20}{416} + j \frac{37.6}{416}\right)\,\text{S}
+\]
+
+\[
+\underline{Z}_p = \frac{1}{\underline{Y}_p} = \left(\frac{\frac{20}{416} - j \frac{37.6}{416}}{(\frac{20}{416})^2 + (\frac{37.6}{416})^2}\right)\,\Omega = (4.58716 - j 8.62385)\,\Omega
+\]
+
+\[
+\underline{Z}_{\text{tot}} = \underline{Z}_{R_2} + Z_p = 2\,\Omega + (4.58716 - j8.62385)\,\Omega = (6.58716 - j 8.62385)\,\Omega
+\]
+
+\[
+\underline{\hat{i}}_s = \frac{\underline{\hat{v}}_s}{\underline{Z}_{\text{tot}}} = \frac{5}{6.58716 - j 8.62385}\,\text{A} = (0.27714 + j 0.36949)\,\text{A}
+\]
+
+\[
+\hat{i}_s = \sqrt{(0.27714)^2 + (0.36949)^2}\,\text{A} = 0.460753\,\text{A}
+\]
+
+\[
+\varphi_{i_s} = \tan^{-1}\!\left(\frac{0.36949}{0.27714}\right) = 52.6263^\circ
+\]
+
+\[
+i_s(t) = 460.7 \cos\!\left(2000t + 52.63^\circ\right)\,\text{mA}
+\]
 \end{solution}
 \fi
 
@@ -205,28 +245,6 @@ which is algebraically equivalent to \(v(t) = 6\cos t+2\sin t\).
 \fi
 
 % ----- Exercise 6 -----
-\begin{exercise}[...]
-...
-\end{exercise}
-
-\ifshowsolutions
-\begin{solution}
-...
-\end{solution}
-\fi
-
-% ----- Exercise 7 -----
-\begin{exercise}[...]
-...
-\end{exercise}
-
-\ifshowsolutions
-\begin{solution}
-...
-\end{solution}
-\fi
-
-% ----- Exercise 8 -----
 \begin{exercise}[...]
 ...
 \end{exercise}
