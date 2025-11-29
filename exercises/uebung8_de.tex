@@ -18,8 +18,8 @@
 \setlength{\headheight}{14pt}  % fancyhdr warning verhindern
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{Introduction to Electrical Engineering}
-\rhead{Winter Term 2025}
+\lhead{Einführung in die Elektrotechnik}
+\rhead{Wintersemester 2025}
 \cfoot{\thepage}
 
 % ---------- Exercise Environment ----------
@@ -29,7 +29,7 @@
    \begin{tcolorbox}[enhanced, breakable, width=\textwidth,
      colback=blue!5!white,colframe=blue!60!black,
      fonttitle=\bfseries\large,
-     title=Exercise~\theexercise:~#1]}
+     title=Aufgabe~\theexercise:~#1]}
   {\end{tcolorbox}}
 
 % ---------- Solution Environment ----------
@@ -41,7 +41,7 @@
      \begin{tcolorbox}[enhanced, breakable, width=\textwidth,
        colback=green!5!white,colframe=green!50!black,
        fonttitle=\bfseries\large,
-       title=Solution]}
+       title=Lösung]}
   {\end{tcolorbox}\fi}
 
 % ---------- Document ----------
@@ -50,119 +50,119 @@
 % ----- Header Box -----
 \begin{tcolorbox}[enhanced, breakable, colback=gray!10!white,
   colframe=gray!70!black, fonttitle=\bfseries\large,
-  title={Exercise Sheet \#8}: AC Circuits, sharp corners, width=\textwidth]
+  title={Aufgabenblatt \#8}: Wechselstromschaltungen, sharp corners, width=\textwidth]
 \begin{center}
-  Discussion: Dec 8, 2025
+  Besprechung: 08.12.2025
 \end{center}
 \end{tcolorbox}
 \vspace{1cm}
 
 % ----- Exercise 1 -----
-\begin{exercise}[$RLC$ Circuit]
-Find $v(t)$ in the circuit below.
+\begin{exercise}[$RLC$ Stromkreis]
+Bestimme $v(t)$ in der untenstehenden Schaltung.
 
 \includegraphics[width=0.7\textwidth]{figures/ACcircuit1.png}
 \end{exercise}
 
 \ifshowsolutions
 \begin{solution}
-We are given the time-domain source
+Gegeben ist die zeitabhängige Spannungsquelle
 \[
 v_s(t) = 10\cos t\,\text{V}.
 \]
-In complex (exponential) representation we write this as the real part of a complex exponential:
+In komplexer (exponentieller) Darstellung schreiben wir dies als Realteil einer komplexen Exponentialfunktion:
 \[
 v_s(t) = Re(\underline{\hat{v}}_s e^{j\omega t}),\qquad \underline{\hat{v}}_s = 10,\ \omega=1\ \text{rad/s},
 \]
-so \(v_s(t)=Re(10 e^{j t})\).
+also \(v_s(t)=Re(10 e^{j t})\).
 
-At \(\omega=1\),
+Für \(\omega=1\),
 \[
 \underline{Z}_{R_1} = 1,\qquad \underline{Z}_{R_2} = 1,\qquad \underline{Z}_L = j\omega L = j,\qquad \underline{Z}_C = \frac{1}{j\omega C} = -j.
 \]
 
-The series \(R_2\!-\!L\) branch impedance is
+Die Reihenschaltung von \(R_2\) und \(L\) hat die Impedanz
 \[
 \underline{Z}_{RL}=1+j.
 \]
 
-The parallel combination of \(\underline{Z}_{RL}\) and \(\underline{Z}_C\) has admittance
+Die Parallelschaltung von \(\underline{Z}_{RL}\) und \(\underline{Z}_C\) hat die Admittanz
 \[
 \underline{Y}_{p} = \frac{1}{\underline{Z}_{RL}} + \frac{1}{\underline{Z}_C} = \frac{1}{1+j} + \frac{1}{-j}.
 \]
-Compute each term explicitly:
+Berechnung der einzelnen Terme:
 \[
 \frac{1}{1+j} = \frac{1-j}{(1+j)(1-j)} = \frac{1-j}{2} = \tfrac12 - \tfrac12 j,
 \qquad
 \frac{1}{-j} = j.
 \]
-Thus
+Somit ist
 \[
 \underline{Y}_p = \left(\tfrac12 - \tfrac12 j\right) + j = \tfrac12 + \tfrac12 j.
 \]
-Therefore the equivalent impedance of the parallel network is
+Demnach ist die äquivalente Impedanz des Parallelnetzwerks
 \[
 \underline{Z}_p = \frac{1}{\underline{Y}_p} = \frac{1}{\tfrac12 + \tfrac12 j} = \frac{\tfrac12 - \tfrac12 j}{(\tfrac12)^2 + (\tfrac12)^2} = 1-j.
 \]
 
-The total series impedance seen by the source is
+Die gesamte Serienimpedanz, die die Quelle sieht, ist
 \[
 \underline{Z}_{\text{tot}} = \underline{Z}_{R_1} + \underline{Z}_p = 1+(1-j) = 2-j.
 \]
 
-Now form the complex current \(\underline{\hat{i}}\) (the complex amplitude multiplying \(e^{j t}\)) by dividing the complex source amplitude by the complex impedance:
+Nun bilden wir den komplexen Strom \(\underline{\hat{i}}\) (die komplexe Amplitude, die mit \(e^{j t}\) multipliziert wird) durch Division der komplexen Quellamplitude durch die komplexe Impedanz:
 \[
 \underline{\hat{i}} = \frac{\underline{\hat{v}}_s}{\underline{Z}_{\text{tot}}} = \frac{10}{2-j}.
 \]
-Perform the algebraic division by multiplying numerator and denominator by the conjugate:
+Ausführen der Division durch Multiplikation von Zähler und Nenner mit dem konjugierten Wert des Nenners:
 \[
 \underline{\hat{i}} = 10\frac{2+j}{(2-j)(2+j)} = 10\frac{2+j}{5} = 4+2j.
 \]
-Thus the complex current amplitude is \(\underline{\hat{i}} = 4+2j\). (Its magnitude is \(|\underline{\hat{i}}| = \sqrt{4^2+2^2} \approx 4.472\) and its angle \(\arg(\underline{\hat{i}}) = \arctan(2/4) = 26.57^\circ\), if one prefers polar form.)
+Demnach ist der komplexe Strom \(\underline{\hat{i}} = 4+2j\). (Der Betrag des Stromes ist \(|\underline{\hat{i}}| = \sqrt{4^2+2^2} \approx 4.472\) und sein Winkel \(\arg(\underline{\hat{i}}) = \arctan(2/4) = 26.57^\circ\), falls man Polardarstellung bevorzugt.)
 
-The complex voltage across the parallel network (and thus across the capacitor) is
+Die komplexe Spannung über dem Parallelnetzwerk (und damit über dem Kondensator) ist
 \[
 \underline{\hat{v}}_p = \underline{\hat{i}}\,\underline{Z}_p = (4+2j)(1-j).
 \]
-Multiply out:
+Ausmultiplizieren:
 \[
 \underline{\hat{v}}_p = 4(1-j)+2j(1-j) = 4-4j+2j-2j^2 = 4-2j+2 = 6-2j.
 \]
-So the complex amplitude of the capacitor voltage is \(\underline{\hat{v}}_p = 6-2j\).
+Die komplexe Spannung über dem Kondensator ist also \(\underline{\hat{v}}_p = 6-2j\).
 
-We may express this two ways:
+Wir können dies auf zwei Arten ausdrücken:
 
-\textbf{(a) Time-domain real part of the exponential:}
+\textbf{(a) Realteil der Exponentialfunktion im Zeitbereich:}
 \[
 v(t) = Re(\underline{\hat{v}}_p e^{j t}) = Re((6-2j)e^{j t}).
 \]
-Expanding \((6-2j)e^{jt} = (6-2j)(\cos t + j\sin t)\) and taking the real part gives
+Ausschreiben von \((6-2j)(\cos t + j\sin t)\) und Bestimmen des Realteils ergibt
 \[
 v(t) = 6\cos t + 2\sin t.
 \]
 
-\textbf{(b) Amplitude–phase form:} compute magnitude and angle of \(\underline{\hat{v}}_p\):
+\textbf{(b) Amplitude-Phasen-Form:} Berechnung von Betrag und Winkel von \(\underline{\hat{v}}_p\):
 \[
 |\underline{\hat{v}}_p| = \sqrt{6^2+(-2)^2} \approx 6.325,
 \]
 \[
 \arg(\underline{\hat{v}}_p) = \arctan\!\bigg(\frac{-2}{6}\bigg) \approx -18.43^\circ.
 \]
-Thus
+Somit ist
 \[
 \underline{\hat{v}}_p = 6.325\angle(-18.43^\circ),
 \]
-and therefore
+und demnach
 \[
 v(t) = 6.325\cos\big(t-18.43^\circ\big)\,\text{V},
 \]
-which is algebraically equivalent to \(v(t) = 6\cos t+2\sin t\).
+was algebraisch äquivalent zu \(v(t) = 6\cos t + 2\sin t\) ist.
 \end{solution}
 \fi
 
 % ----- Exercise 2 -----
-\begin{exercise}[Phase-shifted Source Current]
-Determine the value of $i_s(t)$ in the circuit below.
+\begin{exercise}[Phasenverschobener Quellenstrom]
+Bestimme den Quellenstrom $i_s(t)$ in der untenstehenden Schaltung.
 
 \includegraphics[width=0.7\textwidth]{figures/ACcircuit2.png}
 \end{exercise}
@@ -212,8 +212,8 @@ i_s(t) = 460.7 \cos\!\left(2000t + 52.63^\circ\right)\,\text{mA}
 \fi
 
 % ----- Exercise 3 -----
-\begin{exercise}[Equivalent Impedance]
-Find $\underline{Z}_{eq}$ in the circuit below.
+\begin{exercise}[Äquivalenzimpedanz]
+Bestimme die Äquivalenzimpedanz $\underline{Z}_{eq}$ in der untenstehenden Schaltung.
 
 \includegraphics[width=0.7\textwidth]{figures/ACcircuit3.png}
 \end{exercise}
@@ -234,11 +234,11 @@ Find $\underline{Z}_{eq}$ in the circuit below.
 \fi
 
 % ----- Exercise 4 -----
-\begin{exercise}[Stepwise Voltage Division]
+\begin{exercise}[Schrittweise Spannungsteilung]
 \begin{enumerate}[label=\alph*)]
-  \item Calculate the phase shift of the circuit below.
-  \item State whether the phase shift is leading or lagging (output with respect to input).
-  \item Determine the magnitude of the output when the input is $120\,\text{V}$.
+  \item Berechne die Phasenverschiebung der untenstehenden Schaltung.
+  \item Gib an ob die Phasenverschiebung vor- oder nachlaufend ist (Ausgang bezogen auf Eingang).
+  \item Bestimme die Amplitude des Ausgangs, wenn der Eingang \(120\,\text{V}\) beträgt.
 \end{enumerate}
 
 \includegraphics[width=0.7\textwidth]{figures/ACcircuit4.png}
@@ -247,15 +247,15 @@ Find $\underline{Z}_{eq}$ in the circuit below.
 \ifshowsolutions
 \begin{solution}
 \begin{enumerate}[label=\alph*)]
-\item We take the input \(\underline{v}_i\) as the reference phasor (angle \(0^\circ\)) and denote the node voltages by \(\underline{v_1}, \underline{v}_2, \underline{v}_3\) (with \(\underline{v}_3 = \underline{v}_o\)).
+\item Wir nehmen die Eingangsspannung \(\underline{v}_i\) als Referenzphasor (Winkel \(0^\circ\)) und bezeichnen die Knotenspannungen mit \(\underline{v_1}, \underline{v_2}, \underline{v_3}\) (wobei \(\underline{v}_3 = \underline{v}_o\)).
 
-Step 1: Relation between $\underline{v}_3$ and $\underline{v}_2$
+Schritt 1: Relation zwischen \(\underline{v}_3\) und \(\underline{v}_2\)
 
-Node 3 is a simple divider between the series resistor \(R_3\) and the inductor \(\underline{Z}_3\):
+Knoten 3 ist ein einfacher Spannungsteiler zwischen dem Serienwiderstand \(R_3\) und der Induktivität \(\underline{Z}_3\):
 \[
 \underline{v}_3 = \underline{v}_2 \cdot \frac{\underline{Z}_3}{R_3 + \underline{Z}_3}.
 \]
-With \(R_3 = 30,\; \underline{Z}_3 = j60\):
+Mit \(R_3 = 30,\; \underline{Z}_3 = j60\):
 \[
 \frac{\underline{v}_3}{\underline{v}_2} = \frac{j60}{30 + j60} = \frac{1}{1 - j 0.5} = 0.8 + 0.4\,j
 \]
@@ -263,13 +263,13 @@ With \(R_3 = 30,\; \underline{Z}_3 = j60\):
 = \sqrt{0.8^2 + 0.4^2} \cdot \exp\!\left(j \arctan\!\left(\frac{0.4}{0.8}\right)\right) = 0.894427 \cdot \exp(j 26.565^\circ).
 \]
 
-Step 2: Equivalent impedance seen from node 2
+Schritt 2: Äquivalenzimpedanz gesehen von Knoten 2
 
-Node 2 sees \(\underline{Z}_2\) in parallel with the series path \(R_3 + \underline{Z}_3\):
+Knoten 2 sieht \(\underline{Z}_2\) parallel zur Reihenschaltung von \(R_3\) und \(\underline{Z}_3\):
 \[
 \underline{Z}_{\text{eq2}} = \frac{\underline{Z}_2 (R_3 + \underline{Z}_3)}{\underline{Z}_2 + (R_3 + \underline{Z}_3)}.
 \]
-With \(\underline{Z}_2 = j30\):
+Mit \(\underline{Z}_2 = j30\):
 \[
 R_3 + \underline{Z}_3 = 30 + j60,
 \]
@@ -277,7 +277,7 @@ R_3 + \underline{Z}_3 = 30 + j60,
 \underline{Z}_{\text{eq2}} = \frac{j30 (30 + j60)}{j30 + (30 + j60)} = \frac{j900 - 1800}{30 + j90} = \frac{27000 + j189000}{9000} = 3 + j21.
 \]
 
-Now apply the divider between \(R_2\) and \(\underline{Z}_{\text{eq2}}\):
+Nun wenden wir den Teiler zwischen \(R_2\) und \(\underline{Z}_{\text{eq2}}\) an:
 \[
 \underline{v}_2 = \underline{v}_1 \cdot \frac{\underline{Z}_{\text{eq2}}}{R_2 + \underline{Z}_{\text{eq2}}}.
 \]
@@ -288,9 +288,9 @@ Now apply the divider between \(R_2\) and \(\underline{Z}_{\text{eq2}}\):
 = \frac{\sqrt{57^2 + 84^2}}{229} \cdot \exp\!\left(j \arctan\!\left(\frac{84}{57}\right)\right) = 0.443291 \cdot \exp\!\left(j 55.840^\circ\right).
 \]
 
-Step 3: Equivalent impedance seen from node 1
+Schritt 3: Äquivalenzimpedanz gesehen von Knoten 1
 
-Node 1 sees \(\underline{Z}_1\) in parallel with the series path \(R_2 + \underline{Z}_{\text{eq2}}\):
+Knoten 1 sieht \(\underline{Z}_1\) parallel zur Reihenschaltung von \(R_2\) und \(\underline{Z}_{\text{eq2}}\):
 \[
 \underline{Z}_{\text{eq1}} = \frac{\underline{Z}_1 (R_2 + \underline{Z}_{\text{eq2}})}{\underline{Z}_1 + (R_2 + \underline{Z}_{\text{eq2}})}
 \]
@@ -304,7 +304,7 @@ R_2 + \underline{Z}_{\text{eq2}} = 40 + 3 + j21 = 43 + j21,
 \[
 \underline{Z}_1 + (R_2 + \underline{Z}_{\text{eq2}}) = j10 + (43 + j21) = 43 + j31
 \]
-Thus
+Somit ist
 \[
 \underline{Z}_{\text{eq1}} = \frac{-210 + j430}{43 + j31} = \frac{(-210 + j430)(43 - j31)}{43^2 + 31^2} = \frac{4300 + j25000}{2810}
 \]
@@ -312,7 +312,7 @@ Thus
 = \sqrt(4300^2 + 25000^2) \cdot \exp\!\left(j \arctan\!\left(25000/4300\right)\right) \cdot \frac{1}{2810} = 9.027439 \cdot \exp\!\left(j 80.241^\circ\right).
 \]
 
-Then the divider between \(R_1\) and \(\underline{Z}_{\text{eq1}}\) gives:
+Dann gilt für den Teiler zwischen \(R_1\) und \(\underline{Z}_{\text{eq1}}\):
 \[
 \underline{v}_1 = \underline{v}_i \cdot \frac{\underline{Z}_{\text{eq1}}}{R_1 + \underline{Z}_{\text{eq1}}}.
 \]
@@ -326,9 +326,9 @@ R_1 + \underline{Z}_{\text{eq1}} = 20 + \frac{4300 + j25000}{2810} = \frac{20 \c
 \frac{\underline{v}_1}{\underline{v}_i} = \frac{9.027439}{23.296022} \cdot \exp\!\left(j (80.241^\circ - 22.452^\circ)\right) = 0.387510 \cdot \exp\!\left(j 57.789^\circ\right)
 \]
 
-Step 4: Combine the three ratios
+Schritt 4: Kombination der drei Verhältnisse
 
-Output relative to input:
+Ausgang relativ zum Eingang:
 \[
 \frac{\underline{v}_o}{\underline{v}_i} = \frac{\underline{v}_3}{\underline{v}_i} = \frac{\underline{v}_3}{\underline{v}_2} \cdot\frac{\underline{v}_2}{\underline{v}_1} \cdot\frac{\underline{v}_1}{\underline{v}_i}
 \]
@@ -342,9 +342,9 @@ Output relative to input:
 \Rightarrow \varphi = 140.2^\circ
 \]
 
-\item Since the phase shift is positive (\(+140.2^\circ\)), the output phasor **leads** the input phasor.
+\item Da die Phasenverschiebung positiv ist (\(+140.2^\circ\)), läuft der Ausgangsphasor dem Eingangsphasor **vor**.
 
-\item Magnitude of the output when \(V_i = 120\,\text{V}\):
+\item Größe des Ausgangs für \(V_i = 120\,\text{V}\):
 \[
 V_o = 0.153644 \cdot 120\,\text{V} \approx 18.44\,\text{V}
 \]
@@ -353,8 +353,8 @@ V_o = 0.153644 \cdot 120\,\text{V} \approx 18.44\,\text{V}
 \fi
 
 % ----- Exercise 5 -----
-\begin{exercise}[Nodal Analysis]
-Determine $i$ in the circuit below.
+\begin{exercise}[Knotenpotentialsanalyse]
+Bestime den Strom $i$ in der untenstehenden Schaltung.
 
 \includegraphics[width=0.7\textwidth]{figures/ACnodal.png}
 \end{exercise}
@@ -364,16 +364,16 @@ Determine $i$ in the circuit below.
 \[
 v_s(t) = 2\cos(10t)\quad\Rightarrow\quad \omega=10
 \]
-Capacitor and inductor admittances (1\,F and 1\,H):
+Kondensator- und Induktivitätsadmittanzen (1\,F und 1\,H):
 \[
 \underline{Y}_C = j\omega C = j10,\qquad \underline{Y}_L = \frac{1}{j\omega L} = -\frac{j}{10} = -j0.1,
 \]
-and the parallel resistor gives \(R = 1\). Thus the total admittance of the parallel block is
+und der Parallelwiderstand liefert \(R = 1\). Somit ist die Gesamtadmittanz des Parallelnetzwerks
 \[
 \underline{Y} = R + \underline{Y}_C + \underline{Y}_L = 1 + j10 - j0.1 = 1 + j9.9.
 \]
 
-KCL at the node (current through series \(1\Omega\) equals current into the parallel block):
+KCL an dem Knoten (Strom durch die Reihenschaltung \(1\Omega\) ist gleich dem Strom in das Parallelnetzwerk):
 \[
 \frac{\hat{v}_s - \underline{\hat{v}}}{1} = \underline{\hat{v}}\;\underline{Y}
 \quad\Longrightarrow\quad
@@ -381,17 +381,17 @@ KCL at the node (current through series \(1\Omega\) equals current into the para
 \quad\Longrightarrow\quad
 \underline{\hat{v}} = \frac{\hat{v}_s}{1 + \underline{Y}}.
 \]
-The source current \( \underline{\hat{i}}\) (which is \(i\) in time domain) is the current through the series \(1\Omega\):
+Der Quellstrom \( \underline{\hat{i}}\) (welcher im Zeitbereich \(i\) ist) ist der Strom durch den Serienwiderstand \(1\Omega\):
 \[
 \underline{\hat{i}} = \frac{\hat{v}_s - \underline{\hat{v}}}{1} = \hat{v}_s \frac{\underline{Y}}{1 + \underline{Y}}
 \]
 
-Substitute \(\underline{Y} = 1 + j9.9\):
+Einsetzen von \(\underline{Y} = 1 + j9.9\):
 \[
 \underline{\hat{i}} = 2 \cdot \frac{1 + j9.9}{2 + j9.9} = \frac{200.02 + j19.8}{102.01} \approx (1.9608 + j0.1941)\,\text{A}
 \]
 
-Magnitude, phase and back to the time domain (cosine reference):
+Amplitude, Phase und Rücktransformation in den Zeitbereich (Kosinus-Referenz):
 \[
 i(t) = 1.9704\cos\big(10t + 5.655^\circ\big)\,\text{A}
 \]
