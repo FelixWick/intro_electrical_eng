@@ -391,49 +391,61 @@ For the entire circuit below, calculate:
 
 \ifshowsolutions
 \begin{solution}
+Two parallel branches after the 2\(\Omega\) resistor:
 \[
-Z_1 = 10 - j5,\qquad Z_2 = 8 + j6.
+\underline{Z}_1 = 10 - j5,\qquad \underline{Z}_2 = 8 + j6.
 \]
 
-Parallel of the two branches:
+Total impedance (including the 2\(\Omega\) resistor in series):
 \[
-Z_P = \left(\frac{1}{Z_1}+\frac{1}{Z_2}\right)^{-1} = \Big(\frac{1}{10-j5}+\frac{1}{8+j6}\Big)^{-1} = 6.1538461538 + j\,0.7692307692\ \Omega.
+\underline{Z} = 2 + \left(\frac{1}{\underline{Z}_1} + \frac{1}{\underline{Z}_2}\right)^{-1} = 2 + \Big(\frac{1}{10-j5} + \frac{1}{8+j6}\Big)^{-1}
 \]
-
-Total series impedance (including the 2\(\Omega\) resistor):
 \[
-Z_{T} = 2+Z_P = 8.1538461538 + j\,0.7692307692\ \Omega.
+= 2 + \Big(\frac{10+j5}{100+25} + \frac{8-j6}{64+36}\Big)^{-1} = 2 + \Big(0.08 + j0.04 + 0.08 - j\,0.06\Big)^{-1}
+\]
+\[
+= 2 + \frac{0.16 + j\,0.02}{0.16^2 + 0.02^2} = 2 + \frac{0.16 + j\,0.02}{0.026} = \frac{0.212 + j\,0.02}{0.026}\,\Omega
+\]
+\[
+Z = \frac{\sqrt(0.212^2 + 0.02^2)}{0.026} \approx 8.1901\,\Omega
+\]
+\[
+\varphi = \arctan\!\frac{0.02}{0.212} = 5.39^\circ
 \]
 
 Source current (phasor):
 \[
-I_s=\dfrac{V_s}{Z_T} =\dfrac{16\angle 45^\circ}{8.1538461538 + j\,0.7692307692} \approx 1.505034617 + j\,1.245545890\ \text{A}.
+\underline{i}_s = \frac{\underline{v}_s}{\underline{Z}} = \frac{16}{8.1901} \cdot e^{j\,(45^\circ - 5.39^\circ)} = 1.9536 \cdot e^{j\,39.61^\circ} = (1.5051 + j\,1.2455)\,\text{A}
+\]
+
+\[
+\underline{v}_s = 16 \cdot e^{j\,45^\circ} = (11.3137 + j\,11.3137)\,\text{V}
 \]
 
 \begin{enumerate}[label=\alph*)]
-\item Complex power delivered by the source (using \(S=V_s I_s^*\)):
+\item Complex power delivered by the source:
 \[
-S_s = V_s I_s^* = 31.12 + j\,2.932\ \text{VA}.
+\underline{S} = \underline{v}_s \underline{i}_s^* = (31.12 + j\,2.94)\,\text{VA}.
 \]
 
-\item Average (real) power delivered by source:
+\item Active power delivered by source:
 \[
-P = \Re\{S_s\}=31.12\,\text{W}
+P = \Re\{\underline{S}\} = 31.12\,\text{W}
 \]
 
 \item Reactive power:
 \[
-Q=\Im\{S_s\}=2.932\ \text{VAR}
+Q = \Im\{\underline{S}\} = 2.94\,\text{VAR}
 \]
 
 \item Apparent power:
 \[
-|S_s|=\sqrt{P^2+Q^2}=31.26\ \text{VA}.
+S = \sqrt{P^2 + Q^2} = 31.26\,\text{VA}.
 \]
 
 \item Power factor (scalar) and type:
 \[
-\text{pf}=\dfrac{P}{|S_s|}=\dfrac{31.12}{31.26}\approx 0.9956.
+\text{pf}=\dfrac{P}{S} = \dfrac{31.12}{31.26} \approx 0.9956.
 \]
 Since \(Q>0\) the net load is inductive, so the power factor is \emph{lagging}.
 \end{enumerate}
