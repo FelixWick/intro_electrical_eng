@@ -105,277 +105,6 @@ The **average power** is the DC term:
 \fi
 
 % ----- Exercise 2 -----
-\begin{exercise}[Maximum Average Power]
-Calculate the value of $Z_L$ in the circuit below in order for $Z_L$ to receive maximum average power. What is the maximum average power received by $Z_L$?
-
-\includegraphics[width=0.7\textwidth]{figures/max_avg_power.png}
-\end{exercise}
-
-\ifshowsolutions
-\begin{solution}
-Idea:
-For a network seen by a load \(Z_L\), the maximum average power is delivered to \(Z_L\) when
-\[
-Z_L = Z_{th}^*,
-\]
-where \(Z_{th}\) is the Thevenin equivalent impedance seen by the load (with independent sources turned off). The maximum average power is then
-\[
-P_{\max}=\frac{|V_{th}|^2}{8\,\Re\{Z_{th}\}},
-\]
-where \(V_{th}\) is the open-circuit (Thevenin) voltage across the load terminals.
-
-Thevenin impedance \(Z_{th}\):
-Turn off the independent current source (an ideal current source \(\to\) open circuit). Then the two series branch impedances between the left and right load terminals are
-\[
-Z_{\text{top}} = (-j10)+30 = 30 - j10,
-\qquad
-Z_{\text{bottom}} = 40 + j20.
-\]
-These two series branches are in parallel, so
-\[
-Z_{th} = Z_{\text{top}}\parallel Z_{\text{bottom}}
-= \frac{(30-j10)(40+j20)}{(30-j10)+(40+j20)}.
-\]
-Compute numerator and denominator:
-\[
-(30-j10)(40+j20)=1400 + j200,\qquad (30-j10)+(40+j20)=70+j10.
-\]
-Thus
-\[
-Z_{th}=\frac{1400+j200}{70+j10}.
-\]
-Multiply numerator and denominator by the conjugate \(70-j10\):
-\[
-Z_{th}=\frac{(1400+j200)(70-j10)}{70^2+10^2}
-=\frac{100000}{5000}=20\ \Omega.
-\]
-So the Thevenin impedance is purely real:
-\[
-\boxed{Z_{th}=20\ \Omega.}
-\]
-
-Therefore the load for conjugate matching is
-\[
-\boxed{Z_L^{\text{opt}}=Z_{th}^*=20\ \Omega\ (\text{purely real}).}
-\]
-
-Thevenin voltage \(V_{th}\) (open-circuit voltage across the load):
-With the load open, the circuit reduces to two series branches from top node \(T\) to bottom node \(B\):
-\[
-\text{Left branch: }Z_{L\,\text{total}} = (-j10)+40 = 40-j10,
-\qquad
-\text{Right branch: }Z_{R\,\text{total}} = 30 + j20.
-\]
-The independent current source is \(I_s=5\angle 90^\circ\ \mathrm{A}=j5\ \mathrm{A}\) (upwards from bottom to top). The equivalent impedance between top and bottom is
-\[
-Z_{\mathrm{eq}} = (40-j10)\parallel(30+j20).
-\]
-(Compute numerically)
-\[
-Z_{\mathrm{eq}} = 20.6 + j4.2\ \Omega.
-\]
-Hence the voltage between top and bottom (taking bottom as reference) is
-\[
-V_T = I_s\,Z_{\mathrm{eq}} = j5(20.6+j4.2) = -21 + j103\ \text{V}.
-\]
-
-Call the midpoint voltages (open-circuit) \(V_L\) (left mid) and \(V_R\) (right mid) measured with respect to bottom:
-\[
-I_{\text{left}}=\frac{V_T}{40-j10},\quad
-I_{\text{right}}=\frac{V_T}{30+j20}.
-\]
-The mid-node voltages (voltage across the lower element in each branch) are
-\[
-V_L = I_{\text{left}}\cdot 40,\qquad V_R = I_{\text{right}}\cdot (j20).
-\]
-Carrying out the complex arithmetic (shown below):
-\[
-V_L = -44 + j92\ \text{V},\qquad V_R = -54 + j22\ \text{V}.
-\]
-Thus the open-circuit (Thevenin) voltage across the load terminals (left minus right) is
-\[
-V_{th}=V_L - V_R = ( -44 + j92) - ( -54 + j22) = 10 + j70\ \text{V}.
-\]
-In polar form
-\[
-|V_{th}|=\sqrt{10^2+70^2}=\sqrt{5000}=70.7107\ \text{V},\qquad
-\angle V_{th}=\arctan\!\frac{70}{10}\approx 81.87^\circ.
-\]
-So
-\[
-\boxed{V_{th}=10 + j70\ \text{V} = 70.71\angle 81.87^\circ\ \text{V}.}
-\]
-
-Maximum average power:
-With \(Z_L=Z_{th}^*=20\ \Omega\) and \(\Re\{Z_{th}\}=20\,\Omega\),
-\[
-P_{\max}=\frac{|V_{th}|^2}{8\,\Re\{Z_{th}\}}
-=\frac{(70.71)^2}{8\cdot 20}
-=\frac{5000}{160}=31.25\ \text{W}.
-\]
-\end{solution}
-\fi
-
-% ----- Exercise 3 -----
-\begin{exercise}[Reactive Power Compensation]
-An AC motor with impedance $Z_L = 4.2 + j\,3.6\,\Omega$ is supplied by a 220-V, 60-Hz source.
-\begin{enumerate}[label=\alph*)]
-  \item Find pf, P, and Q.
-  \item Determine the capacitor required to be connected in parallel with the motor so that the power factor is corrected to unity.
-\end{enumerate}
-\end{exercise}
-
-\ifshowsolutions
-\begin{solution}
-\begin{enumerate}[label=\alph*)]
-\item Power factor, real power \(P\), and reactive power \(Q\):
-
-The magnitude and angle of the load impedance are
-\[
-|Z_L|=\sqrt{R^2+X^2}=\sqrt{4.2^2+3.6^2}=\sqrt{30.6}=5.531726674\ \Omega,
-\]
-\[
-\theta=\angle Z_L=\arctan\!\frac{X}{R}=\arctan\!\frac{3.6}{4.2}=0.708626272\ \text{rad}=40.61^\circ.
-\]
-
-The RMS current is
-\[
-I_{\mathrm{rms}}=\frac{V_{\mathrm{rms}}}{|Z_L|}=\frac{220}{5.531726674}=39.77058393\ \mathrm{A}.
-\]
-
-The power factor (PF) is the cosine of the impedance angle (lagging because \(X>0\)):
-\[
-\mathrm{pf}=\cos\theta = \cos(0.708626272) = 0.7592\quad\text{(lagging)}.
-\]
-
-Compute complex power using \(S=V_{\mathrm{rms}}^2/(R-jX)^*\) equivalently
-\[
-S=\frac{V_{\mathrm{rms}}^2}{Z_L^*}=\frac{V_{\mathrm{rms}}^2(R+jX)}{R^2+X^2}
-\]
-so the real and reactive powers are
-\[
-P=\frac{V_{\mathrm{rms}}^2 R}{R^2+X^2},\qquad
-Q=\frac{V_{\mathrm{rms}}^2 X}{R^2+X^2}.
-\]
-
-Numerically,
-\[
-R^2+X^2 = 4.2^2+3.6^2 = 30.6,
-\]
-\[
-P = \frac{220^2\cdot 4.2}{30.6} \approx 6.643\,\mathrm{kW},
-\]
-\[
-Q = \frac{220^2\cdot 3.6}{30.6} \approx 5.695\,\mathrm{kVAR}.
-\]
-
-\item Capacitor required in parallel to correct PF to unity:
-
-To correct the power factor to unity we must supply capacitive reactive power \(Q_C\) that cancels the motor's inductive reactive power \(Q\). For a capacitor connected in parallel across the same RMS voltage \(V_{\mathrm{rms}}\),
-\[
-|Q_C| = V_{\mathrm{rms}}^2 \,\omega C,\qquad \omega=2\pi f.
-\]
-We need \( |Q_C| = Q \), hence
-\[
-C=\frac{Q}{V_{\mathrm{rms}}^2\omega}.
-\]
-
-\[
-\omega=2\pi f = 2\pi\cdot 60 = 120\pi\ \mathrm{rad/s}\approx 376.9911184\,\mathrm{rad/s}
-\]
-
-\[
-C=\frac{5694.1176471}{220^2\cdot 376.9911184} = 312\,\mu\mathrm{F}
-\]
-\end{enumerate}
-\end{solution}
-\fi
-
-% ----- Exercise 4 -----
-\begin{exercise}[RMS Values and Average Power]
-The voltage across a load and the current through it are given by
-$v(t)=20+60\cos(100t)\ \text{V},\qquad i(t)=1-0.5\sin(100t)\ \text{A}$.
-Find:
-\begin{enumerate}[label=\alph*)]
-  \item the RMS values of the voltage and of the current
-  \item the average power dissipated in the load
-\end{enumerate}
-\end{exercise}
-
-\ifshowsolutions
-\begin{solution}
-\begin{enumerate}[label=\alph*)]
-\item For a signal composed of a constant (DC) term plus a single sinusoid,
-\[
-x(t)=X_{\mathrm{DC}}+X_m\cos(\omega t+\phi),
-\]
-the mean square (time average of \(x^2(t)\)) over one period is
-\[
-\overline{x^2(t)}=X_{\mathrm{DC}}^2+\frac{X_m^2}{2},
-\]
-because the cross term between DC and the sinusoid averages to zero and the sinusoid contributes \(X_m^2/2\). Thus the RMS value is \(\,X_{\mathrm{rms}}=\sqrt{X_{\mathrm{DC}}^2+\dfrac{X_m^2}{2}}\,.\)
-
-Apply this to the voltage:
-\[
-V_{\mathrm{DC}}=20,\qquad V_m=60
-\]
-Hence
-\[
-V_{\mathrm{rms}} = \sqrt{20^2+\frac{60^2}{2}} = \sqrt{400+\frac{3600}{2}} = \sqrt{400+1800} = \sqrt{2200} = 10\sqrt{22}\ \text{V}.
-\]
-Numerically,
-\[
-V_{\mathrm{rms}}\approx 10\sqrt{22}\approx 46.9\ \text{V}.
-\]
-
-Apply the same formula to the current. Write the current as
-\[
-i(t)=I_{\mathrm{DC}}+I_m\cos(100t+\phi_i).
-\]
-Here \(I_{\mathrm{DC}}=1\). The AC term is \(-0.5\sin(100t)\), which has amplitude \(I_m=0.5\). (The sign and phase do not affect the RMS magnitude.) Thus
-\[
-I_{\mathrm{rms}} = \sqrt{1^2+\frac{(0.5)^2}{2}} = \sqrt{1+\frac{0.25}{2}} = \sqrt{1+0.125} = \sqrt{1.125} = \sqrt{\frac{9}{8}} = \frac{3}{2\sqrt{2}} = \frac{3\sqrt{2}}{4}\ \text{A}.
-\]
-Numerically,
-\[
-I_{\mathrm{rms}}\approx \sqrt{1.125}\approx 1.061\ \text{A}.
-\]
-
-\item The instantaneous power is
-\[
-p(t)=v(t)i(t)=(20+60\cos 100t)\bigl(1-0.5\sin 100t\bigr).
-\]
-Expand:
-\[
-p(t) = 20 \cdot 1 + 20 \cdot (-0.5\sin100t) + 60\cos100t \cdot 1 +60\cos100t \cdot (-0.5\sin100t).
-\]
-So
-\[
-p(t) = 20 -10\sin100t +60\cos100t -30\cos100t\sin100t.
-\]
-The average power \(P\) is the time average of \(p(t)\) over one period. Every pure sinusoid (or product of sinusoids of the same frequency that reduces to a sinusoid at twice the frequency) has zero average. Thus the
-time average of \(-10\sin100t\), of \(60\cos100t\), and of \(-30\cos100t\sin100t\) is zero. Therefore only the DC term remains:
-\[
-P = \overline{p(t)} = 20\ \text{W}.
-\]
-
-Alternatively, using the decomposition into DC and sinusoidal parts:
-\[
-P = V_{\mathrm{DC}}I_{\mathrm{DC}}+\frac{1}{2}V_mI_m\cos\varphi,
-\]
-where \(\varphi\) is the phase difference between the voltage and current sinusoids. Here \(V_{\mathrm{DC}}I_{\mathrm{DC}}=20\cdot 1=20\) and the sinusoidal part has
-\[
-V_m=60,\qquad I_m=0.5.
-\]
-Voltage sinusoid: \(60\cos(100t)\) (phase \(0\)). Current sinusoid: \(-0.5\sin(100t)=0.5\cos(100t+\tfrac{\pi}{2})\) (phase \(+\tfrac{\pi}{2}\)). Thus \(\varphi=0-(+\tfrac{\pi}{2})=-\tfrac{\pi}{2}\) and \(\cos\varphi=\cos(-\tfrac{\pi}{2})=0\). Hence the sinusoidal contribution is zero and
-\[
-P=20\ \text{W}.
-\]
-\end{enumerate}
-\end{solution}
-\fi
-
-% ----- Exercise 5 -----
 \begin{exercise}[Complex Power Calculation]
 For the entire circuit below, calculate:
 \begin{enumerate}[label=\alph*)]
@@ -415,27 +144,26 @@ Z = \frac{\sqrt(0.212^2 + 0.02^2)}{0.026} \approx 8.1901\,\Omega
 
 Source current (phasor):
 \[
-\underline{i}_s = \frac{\underline{v}_s}{\underline{Z}} = \frac{16}{8.1901} \cdot e^{j\,(45^\circ - 5.39^\circ)} = 1.9536 \cdot e^{j\,39.61^\circ} = (1.5051 + j\,1.2455)\,\text{A}
-\]
-
-\[
 \underline{v}_s = 16 \cdot e^{j\,45^\circ} = (11.3137 + j\,11.3137)\,\text{V}
+\]
+\[
+\underline{i}_s = \frac{\underline{v}_s}{\underline{Z}} = \frac{16}{8.1901} \cdot e^{j\,(45^\circ - 5.39^\circ)} = 1.9536 \cdot e^{j\,39.61^\circ} = (1.5051 + j\,1.2455)\,\text{A}
 \]
 
 \begin{enumerate}[label=\alph*)]
 \item Complex power delivered by the source:
 \[
-\underline{S} = \underline{v}_s \underline{i}_s^* = (31.12 + j\,2.94)\,\text{VA}.
+\underline{S} = \underline{v}_s \underline{i}_s^* = (11.3137 + j\,11.3137)\,\text{V} \cdot (1.5051 - j\,1.2455)\,\text{A} = (31.12 + j\,2.94)\,\text{VA}.
 \]
 
 \item Active power delivered by source:
 \[
-P = \Re\{\underline{S}\} = 31.12\,\text{W}
+P = \text{Re}(\underline{S}) = 31.12\,\text{W}
 \]
 
 \item Reactive power:
 \[
-Q = \Im\{\underline{S}\} = 2.94\,\text{VAR}
+Q = \text{Im}(\underline{S}) = 2.94\,\text{VAR}
 \]
 
 \item Apparent power:
@@ -445,14 +173,146 @@ S = \sqrt{P^2 + Q^2} = 31.26\,\text{VA}.
 
 \item Power factor (scalar) and type:
 \[
-\text{pf}=\dfrac{P}{S} = \dfrac{31.12}{31.26} \approx 0.9956.
+\cos \varphi = \dfrac{P}{S} = \dfrac{31.12}{31.26} \approx 0.9956.
 \]
 Since \(Q>0\) the net load is inductive, so the power factor is \emph{lagging}.
 \end{enumerate}
 \end{solution}
 \fi
 
-% ----- Exercise 6 -----
+% ----- Exercise 3 -----
+\begin{exercise}[RMS Values and Average Power]
+The voltage across a load and the current through it are given by
+$v(t)=20+60\cos(100t)\,\text{V}$ and $i(t)=1-0.5\sin(100t)\,\text{A}$.
+Find:
+\begin{enumerate}[label=\alph*)]
+  \item the RMS values of the voltage and of the current
+  \item the average power dissipated in the load
+\end{enumerate}
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+\begin{enumerate}[label=\alph*)]
+\item For a signal composed of a constant (DC) term plus a single sinusoid,
+\[
+x(t) = X_{\mathrm{DC}} + \hat{x} \cos(\omega t+\phi),
+\]
+the mean square (time average of \(x^2(t)\)) over one period is
+\[
+\overline{x^2(t)} = X_{\mathrm{DC}}^2 + \frac{\hat{x}^2}{2},
+\]
+because the cross term between DC and the sinusoid averages to zero and the sinusoid contributes \(\hat{x}^2/2\). Thus the RMS value is
+\[
+X = \sqrt{X_{\mathrm{DC}}^2 + \dfrac{\hat{x}^2}{2}}.
+\]
+
+Apply this to the voltage:
+\[
+V_{\mathrm{DC}} = 20,\qquad \hat{v} = 60
+\]
+Hence
+\[
+V = \sqrt{20^2 + \frac{60^2}{2}} = \sqrt{2200} = 10\sqrt{22} \approx 46.9\,\text{V}.
+\]
+
+Apply the same formula to the current. Write the current as
+\[
+i(t) = I_{\mathrm{DC}} + \hat{i} \cos(100t + \phi_i).
+\]
+Here \(I_{\mathrm{DC}} = 1\). The AC term is \(-0.5 \sin(100t)\), which has amplitude \(\hat{i} = 0.5\). (The sign and phase do not affect the RMS magnitude.) Thus
+\[
+I = \sqrt{1^2 + \frac{(0.5)^2}{2}} = \sqrt{1.125} \approx 1.061\,\text{A}.
+\]
+
+\item The instantaneous power is
+\[
+p(t) = v(t) i(t) = (20 + 60 \cos(100t))\bigl(1 - 0.5 \sin(100t)\bigr).
+\]
+Expand:
+\[
+p(t) = 20 \cdot 1 + 20 \cdot (-0.5 \sin(100t)) + 60 \cos(100t) \cdot 1 + 60 \cos(100t) \cdot (-0.5 \sin(100t)).
+\]
+So
+\[
+p(t) = 20 - 10 \sin(100t) + 60 \cos(100t) - 30 \cos(100t) \sin(100t).
+\]
+The average power \(P\) is the time average of \(p(t)\) over one period. Every pure sinusoid (or product of sinusoids of the same frequency that reduces to a sinusoid at twice the frequency) has zero average. Thus the time average of \(-10 \sin(100t)\), of \(60 \cos(100t)\), and of \(-30 \cos(100t) \sin(100t)\) is zero. Therefore only the DC term remains:
+\[
+P = \overline{p(t)} = 20\,\text{W}.
+\]
+
+Alternatively, using the decomposition into DC and sinusoidal parts:
+\[
+P = V_{\mathrm{DC}}I_{\mathrm{DC}} + \frac{1}{2} \hat{v} \hat{i} \cos\varphi,
+\]
+where \(\varphi\) is the phase difference between the voltage and current sinusoids. Here \(V_{\mathrm{DC}} I_{\mathrm{DC}} = 20 \cdot 1\) and the sinusoidal part has
+\[
+\hat{v} = 60,\qquad \hat{i} = 0.5.
+\]
+Voltage sinusoid: \(60 \cos(100t)\) (phase \(0\)). Current sinusoid: \(-0.5 \sin(100t) = 0.5 \cos(100t + \tfrac{\pi}{2})\) (phase \(+\tfrac{\pi}{2}\)). Thus \(\varphi = 0 - (+\tfrac{\pi}{2}) = -\tfrac{\pi}{2}\) and \(\cos\varphi = \cos(-\tfrac{\pi}{2}) = 0\). Hence the sinusoidal contribution is zero and
+\[
+P = 20\,\text{W}.
+\]
+\end{enumerate}
+\end{solution}
+\fi
+
+% ----- Exercise 4 -----
+\begin{exercise}[Reactive Power Compensation]
+An AC motor with impedance $\underline{Z} = 4.2 + j\,3.6\,\Omega$ is supplied by a 220-V, 60-Hz source.
+\begin{enumerate}[label=\alph*)]
+  \item Find the power factor, the real power P, and the reactive power Q.
+  \item Determine the capacitor required to be connected in parallel with the motor so that the power factor is corrected to unity.
+\end{enumerate}
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+\begin{enumerate}[label=\alph*)]
+\item The magnitude and angle of the load impedance are
+\[
+|\underline{Z}| = \sqrt{R^2 + X^2} = \sqrt{4.2^2 + 3.6^2} \approx 5.532\,\Omega,
+\]
+\[
+\varphi = \arctan\!\frac{X}{R} = \arctan\!\frac{3.6}{4.2} \approx 0.709\,\text{rad} \approx 40.6^\circ.
+\]
+
+The RMS current is
+\[
+I = \frac{V}{|\underline{Z}|} = \frac{220}{5.532} \approx 39.77\,\mathrm{A}.
+\]
+
+The power factor (PF) is the cosine of the impedance angle (lagging because \(X>0\)):
+\[
+\cos \varphi \approx 0.76\quad\text{(lagging)}.
+\]
+
+Compute complex power using \(S = V^2/(R - jX)^*\) equivalently
+\[
+S = \frac{V^2}{\underline{Z}^*} = \frac{V^2(R + jX)}{R^2 + X^2}
+\]
+so the real and reactive powers are
+\[
+P = \frac{V^2 R}{R^2 + X^2} \approx 6.643\,\mathrm{kW},
+\]
+\[
+Q = \frac{V^2 X}{R^2 + X^2} \approx 5.694\,\mathrm{kVAR}.
+\]
+
+\item To correct the power factor to unity we must supply capacitive reactive power \(Q_C\) that cancels the motor's inductive reactive power \(Q\). For a capacitor connected in parallel across the same RMS voltage \(V\),
+\[
+|Q_C| = V^2 \,\omega C,\qquad \omega = 2\pi f.
+\]
+We need \( |Q_C| = Q \), hence
+\[
+C = \frac{Q}{V^2 \omega} = \frac{5694}{220^2 \cdot 2\pi \cdot 60} \approx 312\,\mu\mathrm{F}.
+\]
+\end{enumerate}
+\end{solution}
+\fi
+
+% ----- Exercise 5 -----
 \begin{exercise}[Series Resonance]
 A series $RLC$ network has $R = 2\,\text{k}\Omega$, $L = 40\,\text{mH}$, and $C = 1\,\mu\text{F}$. Calculate the impedance at resonance and at one-fourth, one-half, twice, and four times the resonant frequency.
 \end{exercise}
@@ -510,7 +370,7 @@ $4$ & $20000$ & $800$ & $50$ & $2 + j0.75$ & $2.136$ & $+20.6^\circ$ \\
 \end{solution}
 \fi
 
-% ----- Exercise 7 -----
+% ----- Exercise 6 -----
 \begin{exercise}[Parallel Resonance]
 Rework Exercise 6 if the elements are connected in parallel.
 \end{exercise}
