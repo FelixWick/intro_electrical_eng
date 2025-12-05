@@ -18,8 +18,8 @@
 \setlength{\headheight}{14pt}  % fancyhdr warning verhindern
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{Introduction to Electrical Engineering}
-\rhead{Winter Term 2025}
+\lhead{Einführung in die Elektrotechnik}
+\rhead{Wintersemester 2025}
 \cfoot{\thepage}
 
 % ---------- Exercise Environment ----------
@@ -29,7 +29,7 @@
    \begin{tcolorbox}[enhanced, breakable, width=\textwidth,
      colback=blue!5!white,colframe=blue!60!black,
      fonttitle=\bfseries\large,
-     title=Exercise~\theexercise:~#1]}
+     title=Aufgabe~\theexercise:~#1]}
   {\end{tcolorbox}}
 
 % ---------- Solution Environment ----------
@@ -41,7 +41,7 @@
      \begin{tcolorbox}[enhanced, breakable, width=\textwidth,
        colback=green!5!white,colframe=green!50!black,
        fonttitle=\bfseries\large,
-       title=Solution]}
+       title=Lösung]}
   {\end{tcolorbox}\fi}
 
 % ---------- Document ----------
@@ -50,21 +50,21 @@
 % ----- Header Box -----
 \begin{tcolorbox}[enhanced, breakable, colback=gray!10!white,
   colframe=gray!70!black, fonttitle=\bfseries\large,
-  title={Exercise Sheet \#8}: AC Power and Resonances, sharp corners, width=\textwidth]
+  title={Aufgabenblatt \#8}: AC Power and Resonances, sharp corners, width=\textwidth]
 \begin{center}
-  Discussion: Dec 15, 2025
+  Besprechung: 15.12.2025
 \end{center}
 \end{tcolorbox}
 \vspace{1cm}
 
 % ----- Exercise 1 -----
-\begin{exercise}[Instantaneous and Average Power]
-If $v(t)=160\cos(50t)\,\text{V}$ and $i(t)=-33\sin(50t-30^\circ)\,\text{A}$, calculate the instantaneous power and the average power.
+\begin{exercise}[Momentan- und Durchschnittsleistung]
+Gegeben sind $v(t)=160\cos(50t)\,\text{V}$ und $i(t)=-33\sin(50t-30^\circ)\,\text{A}$. Berechne die momentane Leistung und die Durchschnittsleistung.
 \end{exercise}
 
 \ifshowsolutions
 \begin{solution}
-First rewrite the current using
+Zunächst wird der Strom umgeschrieben mit der Identität
 \[
 \sin x = \cos(x-90^\circ):
 \]
@@ -72,32 +72,32 @@ First rewrite the current using
 i(t)=-33\cos\!\big[(50t-30^\circ)-90^\circ\big] = -33\cos(50t-120^\circ).
 \]
 
-The instantaneous power is
+Die Momentanleistung ist
 \[
 p(t) = v(t)i(t) =160\cos(50t)\,\big[-33\cos(50t-120^\circ)\big] = -5280\cos(50t)\cos(50t-120^\circ).
 \]
 
-Use the identity
+Benutzung der Identität
 \[
 \cos A \cos B = \tfrac12\left[\cos(A-B)+\cos(A+B)\right].
 \]
 
-Let \(A = 50t\), \(B = 50t-120^\circ\):
+Mit \(A = 50t\), \(B = 50t-120^\circ\):
 \[
 p(t) = -5280 \cdot \tfrac12\left[\cos\big(120^\circ\big)+\cos\big(100t-120^\circ\big)\right] = -2640\left[\cos 120^\circ + \cos(100t-120^\circ)\right].
 \]
 
-Since \(\cos 120^\circ = -\tfrac12\),
+Da \(\cos 120^\circ = -\tfrac12\),
 \[
 p(t) = -2640\left[-\tfrac12 + \cos(100t -120^\circ)\right] = 1320 - 2640\cos(100t-120^\circ).
 \]
 
-Thus the **instantaneous power** is
+Somit gilt für die **Momentanleistung**:
 \[
 \boxed{p(t)=1320 + 2640\cos(100t+60^\circ)\ \text{W}}.
 \]
 
-The **average power** is the DC term:
+Die **Durchschnittsleistung** ist der DC-Anteil:
 \[
 \boxed{\overline{P} = 1320\ \text{W}}.
 \]
@@ -105,14 +105,14 @@ The **average power** is the DC term:
 \fi
 
 % ----- Exercise 2 -----
-\begin{exercise}[Complex Power Calculation]
-For the entire circuit below, calculate:
+\begin{exercise}[Komplexe Leistungsberechnung]
+Für den gesamten unten abgebildeten Schaltkreis berechne:
 \begin{enumerate}[label=\alph*)]
-  \item the complex power
-  \item the average power delivered by the source
-  \item the reactive power
-  \item the apparent power
-  \item the power factor
+  \item die komplexe Leistung
+  \item die durchschnittliche Leistung (Wirkleistung), die von der Quelle geliefert wird
+  \item die Blindleistung
+  \item die Scheinleistung
+  \item den Leistungsfaktor
 \end{enumerate}
 
 \includegraphics[width=0.7\textwidth]{figures/complex_power.png}
@@ -120,12 +120,12 @@ For the entire circuit below, calculate:
 
 \ifshowsolutions
 \begin{solution}
-Two parallel branches after the 2\(\Omega\) resistor:
+Zwei parallele Zweige nach dem 2\(\Omega\) Widerstand:
 \[
 \underline{Z}_1 = 10 - j5,\qquad \underline{Z}_2 = 8 + j6.
 \]
 
-Total impedance (including the 2\(\Omega\) resistor in series):
+Gesamtimpedanz (inklusive des 2\(\Omega\) Widerstands in Serie):
 \[
 \underline{Z} = 2 + \left(\frac{1}{\underline{Z}_1} + \frac{1}{\underline{Z}_2}\right)^{-1} = 2 + \Big(\frac{1}{10-j5} + \frac{1}{8+j6}\Big)^{-1}
 \]
@@ -142,7 +142,7 @@ Z = \frac{\sqrt(0.212^2 + 0.02^2)}{0.026} \approx 8.1901\,\Omega
 \varphi = \arctan\!\frac{0.02}{0.212} = 5.39^\circ
 \]
 
-Source current (phasor):
+Quellstrom (Phasor):
 \[
 \underline{v}_s = 16 \cdot e^{j\,45^\circ} = (11.3137 + j\,11.3137)\,\text{V}
 \]
@@ -151,105 +151,105 @@ Source current (phasor):
 \]
 
 \begin{enumerate}[label=\alph*)]
-\item Complex power delivered by the source:
+\item Komplexe Leistung der Quelle:
 \[
 \underline{S} = \underline{v}_s \underline{i}_s^* = (11.3137 + j\,11.3137)\,\text{V} \cdot (1.5051 - j\,1.2455)\,\text{A} = (31.12 + j\,2.94)\,\text{VA}.
 \]
 
-\item Active power delivered by source:
+\item Wirkleistung der Quelle:
 \[
 P = \text{Re}(\underline{S}) = 31.12\,\text{W}
 \]
 
-\item Reactive power:
+\item Blindleistung:
 \[
 Q = \text{Im}(\underline{S}) = 2.94\,\text{VAR}
 \]
 
-\item Apparent power:
+\item Scheinleistung:
 \[
 S = \sqrt{P^2 + Q^2} = 31.26\,\text{VA}.
 \]
 
-\item Power factor (scalar) and type:
+\item Leistungsfaktor (Skalar) und Typ:
 \[
 \cos \varphi = \dfrac{P}{S} = \dfrac{31.12}{31.26} \approx 0.9956.
 \]
-Since \(Q>0\) the net load is inductive, so the power factor is \emph{lagging}.
+Da \(Q>0\) ist die Last induktiv, also \emph{nachlaufend}.
 \end{enumerate}
 \end{solution}
 \fi
 
 % ----- Exercise 3 -----
-\begin{exercise}[RMS Values and Average Power]
-The voltage across a load and the current through it are given by
+\begin{exercise}[Effektivwerte und Durchschnittsleistung]
+Die Spannung über einer Last und der Strom durch sie sind gegeben durch
 $v(t)=20+60\cos(100t)\,\text{V}$ and $i(t)=1-0.5\sin(100t)\,\text{A}$.
-Find:
+Bestimme:
 \begin{enumerate}[label=\alph*)]
-  \item the RMS values of the voltage and of the current
-  \item the average power dissipated in the load
+  \item die Effektivwerte der Spannung und des Stroms
+  \item die durchschnittliche Leistung, die in der Last umgesetzt wird
 \end{enumerate}
 \end{exercise}
 
 \ifshowsolutions
 \begin{solution}
 \begin{enumerate}[label=\alph*)]
-\item For a signal composed of a constant (DC) term plus a single sinusoid,
+\item Für ein Signal, das aus einem konstanten (DC) Anteil und einer einzelnen Sinuswelle besteht,
 \[
 x(t) = X_{\mathrm{DC}} + \hat{x} \cos(\omega t+\phi),
 \]
-the mean square (time average of \(x^2(t)\)) over one period is
+ist das mittlere Quadrat (Zeitmittelwert von \(x^2(t)\)) über eine Periode
 \[
 \overline{x^2(t)} = X_{\mathrm{DC}}^2 + \frac{\hat{x}^2}{2},
 \]
-because the cross term between DC and the sinusoid averages to zero and the sinusoid contributes \(\hat{x}^2/2\). Thus the RMS value is
+weil der Kreuzterm zwischen DC- und Sinusanteil zu null gemittelt wird und der Sinusanteil \(\hat{x}^2/2\) beiträgt. Der Effektivwert ist somit
 \[
 X = \sqrt{X_{\mathrm{DC}}^2 + \dfrac{\hat{x}^2}{2}}.
 \]
 
-Apply this to the voltage:
+Anwenden auf die Spannung:
 \[
 V_{\mathrm{DC}} = 20,\qquad \hat{v} = 60
 \]
-Hence
+Somit gilt
 \[
 V = \sqrt{20^2 + \frac{60^2}{2}} = \sqrt{2200} = 10\sqrt{22} \approx 46.9\,\text{V}.
 \]
 
-Apply the same formula to the current. Write the current as
+Anwenden der gleichen Formel auf den Strom ergibt
 \[
-i(t) = I_{\mathrm{DC}} + \hat{i} \cos(100t + \phi_i).
+i(t) = I_{\mathrm{DC}} + \hat{i} \cos(100t + \phi_i),
 \]
-Here \(I_{\mathrm{DC}} = 1\). The AC term is \(-0.5 \sin(100t)\), which has amplitude \(\hat{i} = 0.5\). (The sign and phase do not affect the RMS magnitude.) Thus
+wobei \(I_{\mathrm{DC}} = 1\). Der Wechselstromanteil ist \(-0.5 \sin(100t)\) mit Amplitude \(\hat{i} = 0.5\). (Das Vorzeichen und die Phase beeinflussen den Effektivwert nicht.) Somit gilt
 \[
 I = \sqrt{1^2 + \frac{(0.5)^2}{2}} = \sqrt{1.125} \approx 1.061\,\text{A}.
 \]
 
-\item The instantaneous power is
+\item Die Momentanleistung beiträgt
 \[
 p(t) = v(t) i(t) = (20 + 60 \cos(100t))\bigl(1 - 0.5 \sin(100t)\bigr).
 \]
-Expand:
+Ausmultiplizieren ergibt:
 \[
 p(t) = 20 \cdot 1 + 20 \cdot (-0.5 \sin(100t)) + 60 \cos(100t) \cdot 1 + 60 \cos(100t) \cdot (-0.5 \sin(100t))
 \]
 \[
 = 20 - 10 \sin(100t) + 60 \cos(100t) - 30 \cos(100t) \sin(100t)
 \]
-The average power \(P\) is the time average of \(p(t)\) over one period. Every pure sinusoid (or product of sinusoids of the same frequency that reduces to a sinusoid at twice the frequency) has zero average. Thus the time average of \(-10 \sin(100t)\), of \(60 \cos(100t)\), and of \(-30 \cos(100t) \sin(100t)\) is zero. Therefore only the DC term remains:
+Die Durchschnittsleistung ist der zeitliche Mittelwert von \(p(t)\) über eine Periode. Jeder reine Sinus (oder das Produkt von Sinusfunktionen gleicher Frequenz, das zu einem Sinus mit doppelter Frequenz reduziert wird) hat einen Mittelwert von null. Somit ist der zeitliche Mittelwert von \(-10 \sin(100t)\), von \(60 \cos(100t)\) und von \(-30 \cos(100t) \sin(100t)\) jeweils null. Daher bleibt nur der DC-Anteil übrig:
 \[
 P = \overline{p(t)} = 20\,\text{W}
 \]
 
-Alternatively, using the decomposition into DC and sinusoidal parts:
+Alternativ kann man die Durchschnittsleistung auch mit der Zerlegung in DC- und Sinusanteile berechnen:
 \[
 P = V_{\mathrm{DC}}I_{\mathrm{DC}} + \frac{1}{2} \hat{v} \hat{i} \cos\varphi,
 \]
-where \(\varphi\) is the phase difference between the voltage and current sinusoids. Here \(V_{\mathrm{DC}} I_{\mathrm{DC}} = 20 \cdot 1\) and the sinusoidal part has
+wobei \(\varphi\) der Phasenunterschied zwischen Spannungs- und Stromsinus ist. Hier ist \(V_{\mathrm{DC}} I_{\mathrm{DC}} = 20 \cdot 1\) und der sinusförmige Anteil hat
 \[
 \hat{v} = 60,\qquad \hat{i} = 0.5.
 \]
-Voltage sinusoid: \(60 \cos(100t)\) (phase \(0\)). Current sinusoid: \(-0.5 \sin(100t) = 0.5 \cos(100t + \tfrac{\pi}{2})\) (phase \(+\tfrac{\pi}{2}\)). Thus \(\varphi = 0 - (+\tfrac{\pi}{2}) = -\tfrac{\pi}{2}\) and \(\cos\varphi = \cos(-\tfrac{\pi}{2}) = 0\). Hence the sinusoidal contribution is zero and
+Spannung: \(60 \cos(100t)\) (phase \(0\)). Strom: \(-0.5 \sin(100t) = 0.5 \cos(100t + \tfrac{\pi}{2})\) (Phase \(+\tfrac{\pi}{2}\)). Somit gilt \(\varphi = 0 - (+\tfrac{\pi}{2}) = -\tfrac{\pi}{2}\) und \(\cos\varphi = \cos(-\tfrac{\pi}{2}) = 0\). Demnach ist der sinusförmige Beitrag null und
 \[
 P = 20\,\text{W}.
 \]
@@ -258,18 +258,18 @@ P = 20\,\text{W}.
 \fi
 
 % ----- Exercise 4 -----
-\begin{exercise}[Reactive Power Compensation]
-An AC motor with impedance $\underline{Z} = 4.2 + j\,3.6\,\Omega$ is supplied by a 220-V, 60-Hz source.
+\begin{exercise}[Blindleistungskompensation]  
+Ein Gleichstrommotor mit der Impedanz $\underline{Z} = 4.2 + j\,3.6\,\Omega$ wird von einer 220-V, 60-Hz Quelle gespeist.
 \begin{enumerate}[label=\alph*)]
-  \item Find the power factor, the real power P, and the reactive power Q.
-  \item Determine the capacitor required to be connected in parallel with the motor so that the power factor is corrected to unity.
+  \item Bestimme den Leistungsfaktor, die Wirkleistung P und die Blindleistung Q.
+  \item Berechne die Kapazität des Kondensators, der parallel zum Motor geschaltet werden muss, damit der Leistungsfaktor auf Eins korrigiert wird.
 \end{enumerate}
 \end{exercise}
 
 \ifshowsolutions
 \begin{solution}
 \begin{enumerate}[label=\alph*)]
-\item The magnitude and angle of the load impedance are
+\item Die Größe und der Winkel der Lastimpedanz sind
 \[
 |\underline{Z}| = \sqrt{R^2 + X^2} = \sqrt{4.2^2 + 3.6^2} \approx 5.532\,\Omega,
 \]
@@ -277,22 +277,22 @@ An AC motor with impedance $\underline{Z} = 4.2 + j\,3.6\,\Omega$ is supplied by
 \varphi = \arctan\!\frac{X}{R} = \arctan\!\frac{3.6}{4.2} \approx 0.709\,\text{rad} \approx 40.6^\circ.
 \]
 
-The RMS current is
+Der Effektivwert des Stroms ist
 \[
 I = \frac{V}{|\underline{Z}|} = \frac{220}{5.532} \approx 39.77\,\mathrm{A}.
 \]
 
-The power factor (PF) is the cosine of the impedance angle (lagging because \(X>0\)):
+Der Leistungsfaktor ist der Kosinus des Impedanzwinkels (nachlaufend, da \(X>0\)):
 \[
 \cos \varphi \approx 0.76\quad\text{(lagging)}.
 \]
 
-Compute the complex power:
+Berechne die komplexe Leistung:
 \[
 \underline{S} = \frac{V^2}{\underline{Z}^*} = V^2/(R - jX)^* = \frac{V^2(R + jX)}{R^2 + X^2}
 \]
 
-So the real and reactive powers are
+Damit sind Wirk- und Blindleistung
 \[
 P = \frac{V^2 R}{R^2 + X^2} \approx 6.643\,\mathrm{kW},
 \]
@@ -300,12 +300,12 @@ P = \frac{V^2 R}{R^2 + X^2} \approx 6.643\,\mathrm{kW},
 Q = \frac{V^2 X}{R^2 + X^2} \approx 5.694\,\mathrm{kVAR}.
 \]
 
-\item To correct the power factor to unity we must supply capacitive reactive power \(Q_C\) that cancels the motor's inductive reactive power \(Q\). For a capacitor connected in parallel across the same RMS voltage \(V\),
+\item Um den Leistungsfaktor auf Eins zu korrigieren, muss eine kapazitive Blindleistung \(Q_C\) bereitgestellt werden, die die induktive Blindleistung \(Q\) des Motors aufhebt. Für einen Kondensator, der parallel über die gleiche Effektivspannung \(V\) geschaltet ist, gilt
 \[
 |Q_C| = V^2 \,\omega C,\qquad \omega = 2\pi f.
 \]
 
-We need \( |Q_C| = Q \), hence
+Wir brauchen \( |Q_C| = Q \), also
 \[
 C = \frac{Q}{V^2 \omega} = \frac{5694}{220^2 \cdot 2\pi \cdot 60} \approx 312\,\mu\mathrm{F}.
 \]
@@ -314,31 +314,31 @@ C = \frac{Q}{V^2 \omega} = \frac{5694}{220^2 \cdot 2\pi \cdot 60} \approx 312\,\
 \fi
 
 % ----- Exercise 5 -----
-\begin{exercise}[Series Resonance]
-A series $RLC$ network has $R = 2\,\text{k}\Omega$, $L = 40\,\text{mH}$, and $C = 1\,\mu\text{F}$. Calculate the impedance at resonance and at one-fourth, one-half, twice, and four times the resonant frequency.
+\begin{exercise}[Serienschwingkreis]
+Eine serielle RLC-Schaltung hat $R = \SI{2}{\kilo\ohm}$, $L = \SI{40}{\milli\henry}$ und $C = \SI{1}{\micro\farad}$. Berechne die Impedanz bei Resonanz und bei einem Viertel, der Hälfte, dem Doppelten und dem Vierfachen der Resonanzfrequenz.
 \end{exercise}
 
 \ifshowsolutions
 \begin{solution}
-For s series RLC network with
+Für eine serielle RLC-Schaltung mit
 \[
 R=\SI{2}{\kilo\ohm},\qquad L=\SI{40}{\milli\henry},\qquad C=\SI{1}{\micro\farad}
 \]
-the series impedance is
+ist die Serienimpedanz
 \[
 \underline{Z}(j\omega)=R+j\bigl(\omega L-\tfrac{1}{\omega C}\bigr).
 \]
 
-Resonance occurs when the net reactance is zero:
+Resonanz tritt auf, wenn die Netto-Reaktanz null ist:
 \[
 \omega_0=\frac{1}{\sqrt{LC}}
 \]
-Substitute the values:
+Einsetzen der Werte ergibt:
 \[
 \omega_0=\frac{1}{\sqrt{(40\times10^{-3})(1\times10^{-6})}}=\SI{5000}{\radian\per\second}
 \]
 
-For a given angular frequency \(\omega\),
+Für eine gegebene Kreisfrequenz \(\omega\) gilt:
 \[
 X_L=\omega L,\qquad X_C=\frac{1}{\omega C},\qquad X=X_L-X_C,
 \]
@@ -346,7 +346,7 @@ X_L=\omega L,\qquad X_C=\frac{1}{\omega C},\qquad X=X_L-X_C,
 \underline{Z} = R + jX,\qquad |\underline{Z}| = \sqrt{R^2 + X^2},\qquad \varphi = \arctan\!\frac{X}{R}.
 \]
 
-We evaluate at \(\omega = k\omega_0\) for \(k=\tfrac14,\tfrac12,1,2,4\).
+Wir berechnen für \(\omega = k\omega_0\) mit \(k=\tfrac14,\tfrac12,1,2,4\).
 
 \bigskip
 \begin{tabular}{@{}lcccccc@{}}
@@ -364,52 +364,52 @@ $4$ & $20000$ & $800$ & $50$ & $2 + j0.75$ & $2.136$ & $+20.6^\circ$ \\
 \bigskip
 \noindent Observations:
 \begin{itemize}
-  \item At resonance ($k=1$) the inductive and capacitive reactances cancel, leaving purely resistive impedance \(Z=R=\SI{2000}{\ohm}\).
-  \item The network is capacitive ($X<0$) for frequencies below resonance and inductive ($X>0$) for frequencies above resonance.
-  \item The magnitudes at pairs \(k=\tfrac14\) and \(k=4\) are equal (symmetry), and likewise for \(k=\tfrac12\) and \(k=2\).
+  \item Bei Resonanz ($\omega=\omega_0$) heben sich die induktive und kapazitive Reaktanz auf, so dass eine rein ohmsche Impedanz \(Z=R=\SI{2000}{\ohm}\) verbleibt.
+  \item Für Frequenzen unterhalb der Resonanz ($k<1$) ist die Netzreaktanz kapazitiv ($X<0$), für Frequenzen oberhalb der Resonanz ($k>1$) ist sie induktiv ($X>0$).
+  \item Die Impedanzen treten in konjugierten Paaren für reziproke Frequenzverhältnisse auf (z.B. für \(k=\tfrac14\) und \(k=4\); \(k=\tfrac12\) und \(k=2\)).
 \end{itemize}
 \end{solution}
 \fi
 
 % ----- Exercise 6 -----
-\begin{exercise}[Parallel Resonance]
-Rework Exercise 6 if the elements are connected in parallel.
+\begin{exercise}[Parallelschwingkreis]
+Bearbeite Aufgabe 6 erneut, wenn die Elemente parallel geschaltet sind.
 \end{exercise}
 
 \ifshowsolutions
 \begin{solution}
-For the parallel connection the total admittance is
+Für die Parallelschaltung ist die Gesamtadmittanz
 \[
 \underline{Y}(j\omega) = \underbrace{\frac{1}{R}}_{G} + j\Bigl(\underbrace{\omega C}_{B_C} + \underbrace{\Bigl(-\frac{1}{\omega L}\Bigr)}_{B_L}\Bigr) = G + jB(\omega).
 \]
-The impedance is the reciprocal of the admittance:
+Die Impedanz ist der Kehrwert der Admittanz:
 \[
 \underline{Z}(\omega) = \frac{1}{\underline{Y}(\omega)} = \frac{1}{G+jB} = \frac{G-jB}{G^2+B^2}
 \]
-Its magnitude and phase are
+Ihre Größe und Phase sind
 \[
 |\underline{Z}|=\frac{1}{\sqrt{G^2+B^2}},\qquad \varphi = \operatorname{atan2}\bigl(\Im\{Z\},\Re\{Z\}\bigr) = \arctan\!\frac{-B}{G}.
 \]
 
-Parallel resonance (net susceptance zero) occurs at the same angular frequency as series resonance:
+Parallelresonanz (Netto-Suszeptanz null) tritt bei der gleichen Kreisfrequenz wie Serienresonanz auf:
 \[
 B(\omega_0) = 0 \quad\Rightarrow\quad \omega_0 = \frac{1}{\sqrt{LC}}
 \]
-With the given values
+Mit den gegebenen Werten
 \[
 \omega_0 = \frac{1}{\sqrt{(40\times10^{-3})(1\times10^{-6})}} = \SI{5000}{\radian\per\second}.
 \]
-Also
+Demnach ist die Leitfähigkeit
 \[
 G = \frac{1}{R} = \frac{1}{2000} = \SI{5e-4}{\siemens}.
 \]
 
-At resonance $B(\omega_0)=0$, so
+Bei Resonanz ist $B(\omega_0)=0$, und somit
 \[
 Y(\omega_0) = G \qquad\Rightarrow\qquad Z(\omega_0) = \frac{1}{G} = R = \SI{2000}{\ohm}.
 \]
 
-We compute for each ratio \(k\):
+Wir berechnen für jedes Verhältnis \(k\):
 \[
 \omega = k\omega_0,\qquad B = \omega C-\frac{1}{\omega L},\qquad \underline{Z} = \frac{G-jB}{G^2+B^2}
 \]
@@ -428,12 +428,12 @@ $4$ & $20000$ & $20$ & $1.25$ & $1.42 - j\,53.30$ & $53$ & $-88.5^\circ$ \\
 \end{tabular}
 
 \bigskip
-\noindent Notes on the results:
+\noindent Bemerkungen zu den Ergebnissen:
 \begin{itemize}
-  \item At resonance the susceptances of the inductor and capacitor cancel and the parallel branch behaves as a pure conductance $G$, giving $Z(\omega_0)=R$.
-  \item For frequencies below resonance ($k<1$) the net susceptance $B$ is negative (inductive behavior), producing an impedance with a large positive imaginary part (inductive reactance).
-  \item For frequencies above resonance ($k>1$) $B$ is positive (capacitive behavior), producing impedance with a large negative imaginary part (capacitive reactance).
-  \item The impedances occur in conjugate pairs for reciprocal frequency ratios (e.g. $k=0.25$ and $k=4$; $k=0.5$ and $k=2$).
+  \item Bei Resonanz ($\omega=\omega_0$) heben sich die Suszeptanzen des Induktors und Kondensators auf, und der Parallelschaltzweig verhält sich als reine Leitfähigkeit \(G\), so dass \(Z(\omega_0)=R\) gilt.
+  \item Für Frequenzen unterhalb der Resonanz ($k<1$) ist die Netto-Suszeptanz \(B\) negativ (induktives Verhalten), was eine Impedanz mit großem positivem Imaginärteil (induktive Reaktanz) ergibt.
+  \item Für Frequenzen oberhalb der Resonanz ($k>1$) ist \(B\) positiv (kapazitives Verhalten), was eine Impedanz mit großem negativem Imaginärteil (kapazitive Reaktanz) ergibt.
+  \item Die Impedanzen treten in konjugierten Paaren für reziproke Frequenzverhältnisse auf (z.B. für \(k=\tfrac14\) und \(k=4\); \(k=\tfrac12\) und \(k=2\)).
 \end{itemize}
 \end{solution}
 \fi
