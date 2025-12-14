@@ -431,7 +431,7 @@ U_C = V_1 - 0 = 13.33\,\text{V}
 i_C = C \frac{du_C}{dt} = 0
 \]
 \[
-E = \frac{1}{2} C U_C^2 \approx 8.9\,\text{mJ}
+W = \frac{1}{2} C U_C^2 \approx 8.9\,\text{mJ}
 \]
 \fi
 
@@ -476,22 +476,22 @@ Determine:
 \ifshowsolutions
 Solution:
 \[
-Z_R = R
+\underline{Z}_R = R
 \]
 \[
-Z_L = j \omega L = j \cdot 1000 \cdot 0.05 = j50\,\Omega
+\underline{Z}_L = j \omega L = j \cdot 1000 \cdot 0.05 = j50\,\Omega
 \]
 \[
-Z_C = \frac{1}{j \omega C} = \frac{1}{j \cdot 1000 \cdot 100 \cdot 10^{-6}} = -j10\,\Omega
+\underline{Z}_C = \frac{1}{j \omega C} = \frac{1}{j \cdot 1000 \cdot 100 \cdot 10^{-6}} = -j10\,\Omega
 \]
 \[
-Z_{LC} = \left( \frac{1}{Z_L} + \frac{1}{Z_C} \right)^{-1} = \frac{1}{j0.08} = -j12.5\,\Omega
+\underline{Z}_{LC} = \left( \frac{1}{Z_L} + \frac{1}{Z_C} \right)^{-1} = \frac{1}{j0.08} = -j12.5\,\Omega
 \]
 \[
-Z = R_1 + Z_{LC} + R_2 = (30 - j12.5)\,\Omega
+\underline{Z} = R_1 + Z_{LC} + R_2 = (30 - j12.5)\,\Omega
 \]
 \[
-|Z_\text{ges}| = \sqrt{30^2 + 12.5^2} \approx 32.5\,\Omega
+|\underline{Z}| = \sqrt{30^2 + 12.5^2} \approx 32.5\,\Omega
 \]
 \[
 \varphi = \arctan\left(\frac{-12.5}{30}\right) \approx -22.6^\circ
@@ -532,7 +532,7 @@ Solution:
 X_L = \omega L = 31.4\,\Omega
 \]
 \[
-Z = 20 + j31.4 \Rightarrow |Z| = 37.3\,\Omega
+\underline{Z} = 20 + j31.4 \Rightarrow |Z| = 37.3\,\Omega
 \]
 \[
 I = \frac{230}{37.3} = 6.17\,\text{A}
@@ -550,5 +550,45 @@ P = U I \cos\varphi = 766\,\text{W}
 Q = U I \sin\varphi = 1180\,\text{var}
 \]
 \fi
+
+\newpage
+
+\section*{Formula Sheet}
+
+\subsection*{Capacitor}
+
+\[
+i_C(t) = C \frac{du_C(t)}{dt}
+\]
+
+\[
+W = \frac{1}{2} C U^2
+\]
+
+\subsection*{AC}
+
+\[
+\omega = 2 \pi f
+\]
+
+\[
+\underline{Z}_L = j \omega L
+\]
+
+\[
+\underline{Z}_C = \frac{1}{j \omega C}
+\]
+
+\[
+\underline{Z} = R + jX
+\]
+
+\[
+P = U I \cos \varphi
+\]
+
+\[
+Q = U I \sin \varphi
+\]
 
 \end{document}
