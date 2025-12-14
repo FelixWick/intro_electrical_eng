@@ -1,0 +1,555 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\geometry{left=25mm,right=25mm,top=25mm,bottom=25mm}
+\usepackage{parskip}
+
+\usepackage{tikz}
+\usetikzlibrary{circuits.ee.IEC, positioning}
+
+\newif\ifshowsolutions
+\showsolutionstrue  % comment to hide solutions
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries Einführung in die Elektrotechnik \\[6pt] Testklausur}\\[12pt]
+  {\large Besprechung: 12.01.2026}\\[6pt]
+  \rule{\textwidth}{0.4pt}
+\end{center}
+
+\section{Verständnis: Multiple Choice}
+
+Kreuze jeweils eine Antwort pro Frage an.
+
+\vspace{8pt}
+
+\subsection*{Grundlagen}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=8pt]
+
+  \item Die Driftbewegung von Elektronen in einem Leiter entsteht hauptsächlich durch:
+    \begin{itemize}[label=$\square$]
+      \item[A)] Temperaturgradienten
+      \item[B)] Magnetfelder
+      \item[C)] das elektrische Feld
+      \item[D)] mechanische Einwirkung
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: C
+\fi
+
+  \item Bei einem metallischen Leiter führt eine Temperaturerhöhung üblicherweise zu:
+    \begin{itemize}[label=$\square$]
+      \item[A)] abnehmendem Widerstand
+      \item[B)] plötzlichem Isolationsverhalten
+      \item[C)] unverändertem Widerstand
+      \item[D)] steigendem Widerstand
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: D
+\fi
+
+\end{enumerate}
+
+\subsection*{Gleichstrom}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, resume, leftmargin=*, itemsep=8pt]
+
+  \item Die Knotenregel (erste Kirchhoffsche Regel) besagt:
+    \begin{itemize}[label=$\square$]
+      \item[A)] Die Summe der Spannungen in einer Masche ist Null.
+      \item[B)] Die Summe der Ströme in einem Knoten ist Null.
+      \item[C)] Die Summe der Widerstände in einem Knoten ist konstant.
+      \item[D)] Leistung wird in einem Knoten gespeichert.
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: B
+\fi
+
+  \item Eine ideale Spannungsquelle hat charakteristisch:
+    \begin{itemize}[label=$\square$]
+      \item[A)] festen Spannungswert unabhängig vom Strom
+      \item[B)] festen Stromwert unabhängig von der Last
+      \item[C)] unendlichen Innenwiderstand
+      \item[D)] keinen Einfluss auf angeschlossene Schaltungen
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: A
+\fi
+
+  \item Das Knotenpotentialverfahren arbeitet primär mit:
+    \begin{itemize}[label=$\square$]
+      \item[A)] Maschenströmen
+      \item[B)] Knotenspannungen
+      \item[C)] Ersatzquellen
+      \item[D)] Frequenzanalysen
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: B
+\fi
+
+  \item Für maximale Leistungsübertragung von einer Quelle an eine ohmsche Last muss gelten:
+    \begin{itemize}[label=$\square$]
+      \item[A)] Lastwiderstand $\gg$ Quellenwiderstand
+      \item[B)] Lastwiderstand $\ll$ Quellenwiderstand
+      \item[C)] Lastwiderstand gleich Quelleninnenwiderstand
+      \item[D)] Lastwiderstand = 0
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: C
+\fi
+
+  \item Ein Amperemeter wird üblicherweise:
+    \begin{itemize}[label=$\square$]
+      \item[A)] parallel zur Messgröße geschaltet
+      \item[B)] in Reihe zur Messgröße geschaltet
+      \item[C)] ohne Innenwiderstand betrieben
+      \item[D)] nur bei Wechselstrom eingesetzt
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: B
+\fi
+
+\end{enumerate}
+
+\subsection*{Felder \& Bauelemente}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, resume, leftmargin=*, itemsep=8pt]
+
+  \item Ein Kondensator speichert primär:
+    \begin{itemize}[label=$\square$]
+      \item[A)] magnetische Energie
+      \item[B)] mechanische Energie
+      \item[C)] thermische Energie
+      \item[D)] elektrische Energie
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: D
+\fi
+
+  \item Bei konstanter Gleichspannung verhält sich ein Kondensator (auf lange Sicht) wie:
+    \begin{itemize}[label=$\square$]
+      \item[A)] Kurzschluss
+      \item[B)] Unterbrechung (kein Stromfluss)
+      \item[C)] Widerstand mit fixem Wert
+      \item[D)] Spannungsquelle
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: B
+\fi
+
+  \item Magnetfelder entstehen insbesondere durch:
+    \begin{itemize}[label=$\square$]
+      \item[A)] ruhende Ladungen
+      \item[B)] bewegte Ladungen bzw. Strom
+      \item[C)] Temperaturänderungen
+      \item[D)] Lichtstrahlung
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: B
+\fi
+
+  \item Elektrische Induktion tritt auf, wenn:
+    \begin{itemize}[label=$\square$]
+      \item[A)] die Spannung konstant bleibt
+      \item[B)] die Leiterlänge konstant bleibt
+      \item[C)] der magnetische Fluss durch eine Fläche sich ändert
+      \item[D)] keine Ladungen vorhanden sind
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: C
+\fi
+
+  \item Eine Spule (Induktivität) wirkt gegen schnelle Stromänderungen, weil sie:
+    \begin{itemize}[label=$\square$]
+      \item[A)] elektrische Energie speichert
+      \item[B)] magnetische Energie speichert
+      \item[C)] Wärme erzeugt
+      \item[D)] Ladungen neutralisiert
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: B
+\fi
+
+  \item Ein idealer Transformator kann:
+    \begin{itemize}[label=$\square$]
+      \item[A)] Gleichspannung in höhere Gleichspannung umwandeln
+      \item[B)] Wechselspannung in andere Wechselspannung (andere Amplitude) umwandeln
+      \item[C)] die Frequenz einer Wechselspannung dauerhaft ändern
+      \item[D)] Energie erzeugen
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: B
+\fi
+
+  \item Ein transienter Vorgang in einem elektrischen Netzwerk bedeutet:
+    \begin{itemize}[label=$\square$]
+      \item[A)] sofortige, sprungartige Änderung ohne zeitliche Entwicklung
+      \item[B)] zeitlich veränderlicher Einschwingvorgang bis zum stationären Zustand
+      \item[C)] permanenter Zustand ohne Änderung
+      \item[D)] rein mathematische Betrachtung ohne physikalische Bedeutung
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: B
+\fi
+
+\end{enumerate}
+
+\subsection*{Wechselstrom}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, resume, leftmargin=*, itemsep=8pt]
+
+  \item Ein Phasor (Zeiger) stellt dar:
+    \begin{itemize}[label=$\square$]
+      \item[A)] die komplette zeitliche Kurve eines Signals
+      \item[B)] nur Gleichstromgrößen
+      \item[C)] ausschließlich den Realteil einer Größe
+      \item[D)] eine komplexe Amplitude (Betrag und Phase) bei fixer Frequenz
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: D
+\fi
+
+  \item Der Blindwiderstand eines Kondensators ist bei steigender Frequenz:
+    \begin{itemize}[label=$\square$]
+      \item[A)] größer
+      \item[B)] kleiner
+      \item[C)] unverändert
+      \item[D)] unvorhersehbar
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: B
+\fi
+
+  \item Blindleistung entsteht in einem Wechselstromkreis, wenn:
+    \begin{itemize}[label=$\square$]
+      \item[A)] Spannung und Strom phasenverschoben sind
+      \item[B)] Spannung und Strom exakt gleichphasig sind
+      \item[C)] keine Energie übertragen wird
+      \item[D)] nur Gleichstrom fließt
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: A
+\fi
+
+  \item Ein Hochpass-Filter lässt in erster Näherung durch:
+    \begin{itemize}[label=$\square$]
+      \item[A)] niedrige Frequenzen
+      \item[B)] keine Signale
+      \item[C)] ausschließlich Gleichstrom
+      \item[D)] hohe Frequenzen
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: D
+\fi
+
+  \item Resonanz in einem Schwingkreis bedeutet typischerweise:
+    \begin{itemize}[label=$\square$]
+      \item[A)] minimale Impedanz bzw. maximaler Strom (bei Serie)
+      \item[B)] maximale Dämpfung
+      \item[C)] kein Einfluss der Last
+      \item[D)] sofortige Abklingzeit
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: A
+\fi
+
+  \item Ein symmetrisches Drehstromsystem hat als praktischen Vorteil:
+    \begin{itemize}[label=$\square$]
+      \item[A)] geringere Frequenz
+      \item[B)] dass nur zwei Leiter benötigt werden
+      \item[C)] die Erzeugung eines rotierenden Magnetfelds (z.\,B. für Motoren)
+      \item[D)] kein Ausgleichsstrom möglich
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: C
+\fi
+
+\end{enumerate}
+
+\newpage
+
+\section{Gleichstromnetzwerke}
+
+\subsection{Ersatzwiderstand}
+
+Gegeben ist folgendes Widerstandsnetzwerk mit $R_1 = 10\,\Omega$, $R_2 = 20\,\Omega$, $R_3 = 30\,\Omega$, $R_4 = 15\,\Omega$:
+
+\begin{center}
+\begin{tikzpicture}[circuit ee IEC, scale=1]
+  \draw
+  (0,0) to[resistor={info={$R_1$}}] (2,0)
+        to[resistor={info={$R_3$}}] (4,0)
+        -- (4,-2)
+  (0,-2) to[resistor={info={$R_2$}}] (2,-2)
+        -- (4,-2)
+  (0,0) -- (0,-2)
+  (4,0) to[resistor={info={$R_4$}}] (6,0)
+        -- (6,-2) -- (4,-2);
+\end{tikzpicture}
+\end{center}
+
+Berechnen Sie den Ersatzwiderstand des Netzwerks.
+
+\ifshowsolutions
+Lösung:
+\[
+R_{12} = \frac{R_1 R_2}{R_1 + R_2} = \frac{10 \cdot 20}{30} = 6.67\,\Omega
+\]
+\[
+R_{123} = 6.67 + 30 = 36.67\,\Omega
+\]
+\[
+R = \frac{36.67 \cdot 15}{36.67 + 15} \approx 10.7\,\Omega
+\]
+
+\subsection{Netzwerkanalyse}
+
+Gegeben ist folgendes Netzwerk mit $R_1 = 6\,\Omega$, $R_2 = 12\,\Omega$, $R_3 = 4\,\Omega$ und einer Spannungsquelle von $24\,V$:
+
+\begin{center}
+\begin{tikzpicture}[circuit ee IEC]
+  \draw
+  (0,0) to[voltage source={info={$U$}}] (0,3)
+        to[resistor={info={$R_1$}}] (3,3)
+        -- (3,1.5)
+  (3,1.5) to[resistor={info'={$R_2$}}] (6,1.5)
+        -- (6,0)
+  (3,1.5) to[resistor={info={$R_3$}}] (6,3)
+        -- (6,0) -- (0,0);
+\end{tikzpicture}
+\end{center}
+
+Berechnen Sie
+
+\begin{enumerate}
+  \item den Gesamtstrom der Quelle.
+  \item die Teilströme durch $R_2$ und $R_3$.
+  \item die Leistung an $R_3$.
+\end{enumerate}
+
+\ifshowsolutions
+Lösung:
+\[
+R_{23} = \frac{12 \cdot 4}{16} = 3\,\Omega
+\]
+\[
+R = 6 + 3 = 9\,\Omega
+\]
+\[
+I = \frac{24}{9} = 2.67\,\text{A}
+\]
+\[
+U_{23} = I \cdot 3 = 8\,\text{V}
+\]
+\[
+I_2 = \frac{8}{12} = 0.67\,\text{A}, \quad I_3 = \frac{8}{4} = 2\,\text{A}
+\]
+\[
+P_3 = I_3^2 R_3 = 16\,\text{W}
+\]
+\fi
+
+\subsection{Knotenpotentialverfahren}
+
+Gegeben ist folgendes Gleichstromnetzwerk mit Spannungsquelle $U = 20\,\mathrm{V}$, $R_1 = 5\,\Omega$, $R_2 = 10\,\Omega$, $C = 100\,\mu\mathrm{F}$:
+
+\begin{center}
+\begin{tikzpicture}[circuit ee IEC, scale=1]
+  \draw
+  % Spannungsquelle
+  (0,0) to[voltage source={info={$U$}}] (0,4)
+
+  % R1
+  (0,4) to[resistor={info'={$R_1$}}] (4,4)
+
+  % Knoten
+  (4,4) node[circle,fill,inner sep=2pt] {}
+
+  % R2
+  (4,4) to[resistor={info'={$R_2$}}] (8,4)
+        -- (8,0)
+
+  % Kondensator
+  (4,4) to[capacitor={info'={$C$}}] (4,0)
+
+  % Masse
+  (0,0) -- (8,0);
+\end{tikzpicture}
+\end{center}
+
+Der untere Leiter ist als Bezugspotential (Masse) gewählt und es wird der stationäre Zustand ($t \rightarrow \infty$) betrachtet.
+
+Bestimmen Sie
+
+\begin{enumerate}
+  \item das Potential am eingezeichneten Knoten,
+  \item die Spannung am Kondensator,
+  \item den Strom durch den Kondensator,
+  \item die im Kondensator gespeicherte Energie.
+\end{enumerate}
+
+\ifshowsolutions
+Lösung:
+\[
+\frac{V_1 - 20}{R_1} + \frac{V_1 - 0}{R_2} = 0
+\]
+\[
+2(V_1 - 20) + V_1 = 0
+\]
+\[
+V_1 = \frac{40}{3} \approx 13.33\,\text{V}
+\]
+\[
+U_C = V_1 - 0 = 13.33\,\text{V}
+\]
+\[
+i_C = C \frac{du_C}{dt} = 0
+\]
+\[
+E = \frac{1}{2} C U_C^2 \approx 8.9\,\text{mJ}
+\]
+\fi
+
+\newpage
+
+\section{Wechselstromnetzwerke}
+
+\subsection{Ersatzimpedanz}
+
+Gegeben ist folgendes Wechselstromnetzwerk mit $R_1 = 10\,\Omega$, $R_2 = 20\,\Omega$, $L = 50\,\mathrm{mH}$, $C = 100\,\mu\mathrm{F}$, $\omega = 1000\,\mathrm{rad/s}$:
+
+\begin{center}
+\begin{tikzpicture}[circuit ee IEC, scale=1]
+  \draw
+  % Eingang
+  (0,0) node[left]{A}
+  to[resistor={info'={$R_1$}}] (3,0)
+
+  % Parallelschaltung
+  (3,0) -- (3,2)
+  to[inductor={info'={$L$}}] (6,2)
+  -- (6,0)
+
+  (3,0) -- (3,-2)
+  to[capacitor={info'={$C$}}] (6,-2)
+  -- (6,0)
+
+  % R2
+  to[resistor={info'={$R_2$}}] (9,0)
+  node[right]{B};
+\end{tikzpicture}
+\end{center}
+
+Bestimmen Sie
+
+\begin{enumerate}
+  \item die komplexen Impedanzen der einzelnen Bauelemente,
+  \item die komplexe Ersatzimpedanz zwischen den Klemmen A und B,
+  \item Betrag und Phase der Ersatzimpedanz.
+\end{enumerate}
+
+\ifshowsolutions
+Lösung:
+\[
+Z_R = R
+\]
+\[
+Z_L = j \omega L = j \cdot 1000 \cdot 0.05 = j50\,\Omega
+\]
+\[
+Z_C = \frac{1}{j \omega C} = \frac{1}{j \cdot 1000 \cdot 100 \cdot 10^{-6}} = -j10\,\Omega
+\]
+\[
+Z_{LC} = \left( \frac{1}{Z_L} + \frac{1}{Z_C} \right)^{-1} = \frac{1}{j0.08} = -j12.5\,\Omega
+\]
+\[
+Z = R_1 + Z_{LC} + R_2 = (30 - j12.5)\,\Omega
+\]
+\[
+|Z_\text{ges}| = \sqrt{30^2 + 12.5^2} \approx 32.5\,\Omega
+\]
+\[
+\varphi = \arctan\left(\frac{-12.5}{30}\right) \approx -22.6^\circ
+\]
+\fi
+
+\subsection{Komplexe Netzwerkanalyse}
+
+Gegeben sei folgendes Netzwerk mit sinusförmiger Spannungsquelle $U = 230\,\mathrm{V}$, $f = 50\,\mathrm{Hz}$ und den Bauelementen $R = 20\,\Omega$, $L = 100\,\mathrm{mH}$:
+
+\begin{center}
+\begin{tikzpicture}[circuit ee IEC]
+  \draw
+  (0,0) to[voltage source={info={$U$}}] (0,3)
+        to[resistor={info={$R$}}] (3,3)
+        to[inductor={info={$L$}}] (6,3)
+        -- (6,0) -- (0,0);
+\end{tikzpicture}
+\end{center}
+
+Bestimmen Sie
+
+\begin{enumerate}
+  \item die komplexe Impedanz $Z$,
+  \item den Effektivstrom $I$,
+  \item die Phasenverschiebung zwischen Strom und Spannung,
+  \item den Leistungsfaktor $\cos\varphi$,
+  \item die Wirkleistung $P$,
+  \item die Blindleistung $Q$.
+\end{enumerate}
+
+\ifshowsolutions
+Lösung:
+\[
+\omega = 2\pi f = 314\,\text{rad/s}
+\]
+\[
+X_L = \omega L = 31.4\,\Omega
+\]
+\[
+Z = 20 + j31.4 \Rightarrow |Z| = 37.3\,\Omega
+\]
+\[
+I = \frac{230}{37.3} = 6.17\,\text{A}
+\]
+\[
+\varphi = \arctan\left(\frac{31.4}{20}\right) = 57.5^\circ
+\]
+\[
+\cos\varphi = 0.54
+\]
+\[
+P = U I \cos\varphi = 766\,\text{W}
+\]
+\[
+Q = U I \sin\varphi = 1180\,\text{var}
+\]
+\fi
+
+\end{document}
