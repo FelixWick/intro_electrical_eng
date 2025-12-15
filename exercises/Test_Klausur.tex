@@ -299,13 +299,16 @@ Berechnen Sie den Ersatzwiderstand des Netzwerks.
 \ifshowsolutions
 Lösung:
 \[
-R_{12} = \frac{R_1 R_2}{R_1 + R_2} = \frac{10 \cdot 20}{30} = 6.67\,\Omega
+R_{13} = R_1 + R_3 = 10 + 30 = 40\,\Omega
 \]
 \[
-R_{123} = 6.67 + 30 = 36.67\,\Omega
+\frac{1}{R_{123}} = \frac{1}{R_{13}} + \frac{1}{R_2} = \frac{1}{40} + \frac{1}{20} = \frac{3}{40}
 \]
 \[
-R = \frac{36.67 \cdot 15}{36.67 + 15} \approx 10.7\,\Omega
+R_{123} = \frac{40}{3} \approx 13,33\,\Omega
+\]
+\[
+R = R_{123} + R_4 = 13,33 + 15 = 28,33\,\Omega
 \]
 
 \subsection{Netzwerkanalyse}
