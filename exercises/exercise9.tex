@@ -50,7 +50,7 @@
 % ----- Header Box -----
 \begin{tcolorbox}[enhanced, breakable, colback=gray!10!white,
   colframe=gray!70!black, fonttitle=\bfseries\large,
-  title={Exercise Sheet \#8}: AC Power and Resonances, sharp corners, width=\textwidth]
+  title={Exercise Sheet \#9}: AC Power and Resonances, sharp corners, width=\textwidth]
 \begin{center}
   Discussion: Dec 15, 2025
 \end{center}
@@ -290,7 +290,7 @@ The power factor (PF) is the cosine of the impedance angle (lagging because \(X>
 
 Compute the complex power:
 \[
-\underline{S} = \frac{V^2}{\underline{Z}^*} = V^2/(R - jX)^* = \frac{V^2(R + jX)}{R^2 + X^2}
+\underline{S} = \underline{V} \underline{I}^* = \underline{V} \frac{\underline{V}^*}{\underline{Z}^*} = \frac{V^2}{\underline{Z}^*} = V^2/(R - jX)^* = \frac{V^2(R + jX)}{R^2 + X^2}
 \]
 
 So the real and reactive powers are
@@ -389,7 +389,7 @@ The impedance is the reciprocal of the admittance:
 \]
 Its magnitude and phase are
 \[
-|\underline{Z}|=\frac{1}{\sqrt{G^2+B^2}},\qquad \varphi = \operatorname{atan2}\bigl(\Im\{Z\},\Re\{Z\}\bigr) = \arctan\!\frac{-B}{G}.
+|\underline{Z}|=\frac{1}{\sqrt{G^2+B^2}},\qquad \varphi = \operatorname{atan2}\bigl(\text{Im}(\underline{Z}),\text{Re}(\underline{Z})\bigr) = \arctan\!\frac{-B}{G}.
 \]
 
 Parallel resonance (net susceptance zero) occurs at the same angular frequency as series resonance:
