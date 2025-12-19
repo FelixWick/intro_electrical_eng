@@ -162,12 +162,12 @@ Solution: B
 Solution: A
 \fi
 
-  \item An inductor opposes rapid changes in current because it:
+  \item Why can the current through an ideal inductor not change abruptly?
     \begin{itemize}[label=$\square$]
-      \item[A)] stores electric energy
-      \item[B)] stores magnetic energy
-      \item[C)] generates heat
-      \item[D)] neutralizes charges
+      \item[A)] Because the magnetic energy of the inductor would become infinite for a sudden change in current.
+      \item[B)] Because an abrupt change in current would require an infinite induced voltage.
+      \item[C)] Because magnetic fields cannot be established instantaneously.
+      \item[D)] Because the inductance depends on the current.
     \end{itemize}
 
 \ifshowsolutions
@@ -262,7 +262,7 @@ Solution: A
     \begin{itemize}[label=$\square$]
       \item[A)] lower frequency
       \item[B)] only two conductors are required
-      \item[C)] generation of a rotating magnetic field
+      \item[C)] generation of a rotating magnetic field in electric machines
       \item[D)] no balancing current possible
     \end{itemize}
 
@@ -278,19 +278,29 @@ Solution: C
 
 \subsection{Equivalent Resistance}
 
-Given the resistor network with $R_1 = 10\,\Omega$, $R_2 = 20\,\Omega$, $R_3 = 30\,\Omega$, $R_4 = 15\,\Omega$:
+Given the resistor network with $R_1 = 10\,\Omega$, $R_2 = 20\,\Omega$, $R_3 = 30\,\Omega$, $R_4 = 5\,\Omega$, $R_5 = 15\,\Omega$:
 
 \begin{center}
 \begin{tikzpicture}[circuit ee IEC, scale=1]
-  \draw
-  (0,0) to[resistor={info={$R_1$}}] (2,0)
-        to[resistor={info={$R_3$}}] (4,0)
-        -- (4,-2)
-  (0,-2) to[resistor={info={$R_2$}}] (2,-2)
-        -- (4,-2)
-  (0,0) -- (0,-2)
-  (4,0) to[resistor={info={$R_4$}}] (6,0)
-        -- (6,-2) -- (4,-2);
+% Left terminal A
+\draw (0,0) node[left]{A} -- (1,0);
+% R1 in series
+\draw (1,0) to[resistor={info=$R_1$}] (3,0);
+% Split node
+\draw (3,0) -- (4,0);
+\draw (4,0) -- (4,2);
+% Upper branch: R2 and R3 in series
+\draw (4,2) to[resistor={info=$R_2$}] (6,2)
+           to[resistor={info=$R_3$}] (8,2)
+           -- (8,0);
+% Lower branch: R4
+\draw (4,0) to[resistor={info=$R_4$}] (8,0);
+% Continue in series with R5
+\draw (8,0) -- (9,0)
+      to[resistor={info=$R_5$}] (11,0)
+      -- (12,0);
+% Right terminal B
+\draw (12,0) node[right]{B};
 \end{tikzpicture}
 \end{center}
 
@@ -299,17 +309,15 @@ Calculate the equivalent resistance of the network.
 \ifshowsolutions
 Solution:
 \[
-R_{13} = R_1 + R_3 = 10 + 30 = 40\,\Omega
+R_{23} = R_2 + R_3 = 20 + 30 = 50\,\Omega
 \]
 \[
-\frac{1}{R_{123}} = \frac{1}{R_{13}} + \frac{1}{R_2} = \frac{1}{40} + \frac{1}{20} = \frac{3}{40}
+\frac{1}{R_{234}} = \frac{1}{R_{23}} + \frac{1}{R_4} = \frac{1}{50} + \frac{1}{5} = \frac{11}{50}
 \]
 \[
-R_{123} = \frac{40}{3} \approx 13,33\,\Omega
+R = R_1 + R_{234} + R_5 = 10 + \frac{50}{11} + 15 = 29.55\,\Omega
 \]
-\[
-R = R_{123} + R_4 = 13,33 + 15 = 28,33\,\Omega
-\]
+\fi
 
 \subsection{Network Analysis}
 

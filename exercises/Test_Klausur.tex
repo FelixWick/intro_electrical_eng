@@ -162,12 +162,12 @@ Lösung: B
 Lösung: A
 \fi
 
-  \item Eine Spule (Induktivität) wirkt gegen schnelle Stromänderungen, weil sie:
+  \item Warum kann der Strom durch eine ideale Spule nicht sprunghaft geändert werden?
     \begin{itemize}[label=$\square$]
-      \item[A)] elektrische Energie speichert
-      \item[B)] magnetische Energie speichert
-      \item[C)] Wärme erzeugt
-      \item[D)] Ladungen neutralisiert
+      \item[A)] Weil die magnetische Energie der Spule bei einem Stromsprung unendlich groß wäre.
+      \item[B)] Weil eine sprunghafte Stromänderung eine unendliche induzierte Spannung erfordern würde.
+      \item[C)] Weil Magnetfelder nicht instantan aufgebaut werden können.
+      \item[D)] Weil die Induktivität vom Strom abhängt.
     \end{itemize}
 
 \ifshowsolutions
@@ -198,7 +198,7 @@ Lösung: B
 Lösung: B
 \fi
 
-  \item In welcher Situation ist die Phasordarstellung eines Stroms \emph{nicht} zulässig?
+  \item In welcher Situation ist die Zeigerdarstellung eines Stroms \emph{nicht} zulässig?
     \begin{itemize}[label=$\square$]
       \item[A)] bei einem sinusförmigen Strom mit konstanter Frequenz
       \item[B)] im stationären Zustand eines linearen Netzwerks
@@ -262,7 +262,7 @@ Lösung: A
     \begin{itemize}[label=$\square$]
       \item[A)] geringere Frequenz
       \item[B)] dass nur zwei Leiter benötigt werden
-      \item[C)] die Erzeugung eines rotierenden Magnetfelds
+      \item[C)] die Erzeugung eines rotierenden Magnetfelds in elektrischen Maschinen
       \item[D)] kein Ausgleichsstrom möglich
     \end{itemize}
 
@@ -278,19 +278,29 @@ Lösung: C
 
 \subsection{Ersatzwiderstand}
 
-Gegeben ist folgendes Widerstandsnetzwerk mit $R_1 = 10\,\Omega$, $R_2 = 20\,\Omega$, $R_3 = 30\,\Omega$, $R_4 = 15\,\Omega$:
+Gegeben ist folgendes Widerstandsnetzwerk mit $R_1 = 10\,\Omega$, $R_2 = 20\,\Omega$, $R_3 = 30\,\Omega$, $R_4 = 5\,\Omega$, $R_5 = 15\,\Omega$:
 
 \begin{center}
 \begin{tikzpicture}[circuit ee IEC, scale=1]
-  \draw
-  (0,0) to[resistor={info={$R_1$}}] (2,0)
-        to[resistor={info={$R_3$}}] (4,0)
-        -- (4,-2)
-  (0,-2) to[resistor={info={$R_2$}}] (2,-2)
-        -- (4,-2)
-  (0,0) -- (0,-2)
-  (4,0) to[resistor={info={$R_4$}}] (6,0)
-        -- (6,-2) -- (4,-2);
+% Left terminal A
+\draw (0,0) node[left]{A} -- (1,0);
+% R1 in series
+\draw (1,0) to[resistor={info=$R_1$}] (3,0);
+% Split node
+\draw (3,0) -- (4,0);
+\draw (4,0) -- (4,2);
+% Upper branch: R2 and R3 in series
+\draw (4,2) to[resistor={info=$R_2$}] (6,2)
+           to[resistor={info=$R_3$}] (8,2)
+           -- (8,0);
+% Lower branch: R4
+\draw (4,0) to[resistor={info=$R_4$}] (8,0);
+% Continue in series with R5
+\draw (8,0) -- (9,0)
+      to[resistor={info=$R_5$}] (11,0)
+      -- (12,0);
+% Right terminal B
+\draw (12,0) node[right]{B};
 \end{tikzpicture}
 \end{center}
 
@@ -299,17 +309,15 @@ Berechnen Sie den Ersatzwiderstand des Netzwerks.
 \ifshowsolutions
 Lösung:
 \[
-R_{13} = R_1 + R_3 = 10 + 30 = 40\,\Omega
+R_{23} = R_2 + R_3 = 20 + 30 = 50\,\Omega
 \]
 \[
-\frac{1}{R_{123}} = \frac{1}{R_{13}} + \frac{1}{R_2} = \frac{1}{40} + \frac{1}{20} = \frac{3}{40}
+\frac{1}{R_{234}} = \frac{1}{R_{23}} + \frac{1}{R_4} = \frac{1}{50} + \frac{1}{5} = \frac{11}{50}
 \]
 \[
-R_{123} = \frac{40}{3} \approx 13,33\,\Omega
+R = R_1 + R_{234} + R_5 = 10 + \frac{50}{11} + 15 = 29.55\,\Omega
 \]
-\[
-R = R_{123} + R_4 = 13,33 + 15 = 28,33\,\Omega
-\]
+\fi
 
 \subsection{Netzwerkanalyse}
 
