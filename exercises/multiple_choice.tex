@@ -1,0 +1,267 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\geometry{left=25mm,right=25mm,top=25mm,bottom=25mm}
+\usepackage{parskip}
+
+\usepackage{tikz}
+\usetikzlibrary{circuits.ee.IEC, positioning}
+
+\newif\ifshowsolutions
+\showsolutionstrue  % comment to hide solutions
+
+\begin{document}
+
+Select exactly one answer per question.
+
+\vspace{8pt}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=8pt]
+
+  \item Which quantity is decisive for the thermal load of a current-carrying conductor?
+    \begin{itemize}[label=$\square$]
+      \item[A)] the electric field strength
+      \item[B)] the electrical power
+      \item[C)] the electrical current density
+      \item[D)] the electrical resistance
+    \end{itemize}
+
+\ifshowsolutions
+Solution: C
+\fi
+
+  \item An ideal ohmic resistor is characterized by the fact that
+    \begin{itemize}[label=$\square$]
+      \item[A)] current and voltage are proportional to each other.
+      \item[B)] a phase shift occurs between current and voltage.
+      \item[C)] the resistance value is time-dependent.
+      \item[D)] electrical energy is periodically stored and released.
+    \end{itemize}
+
+\ifshowsolutions
+Solution: A
+\fi
+
+  \item Which statement describes the $I$–$V$ characteristic of an ideal current source?
+    \begin{itemize}[label=$\square$]
+      \item[A)] The voltage is proportional to the current.
+      \item[B)] The current is independent of the terminal voltage.
+      \item[C)] The characteristic passes through the origin.
+      \item[D)] The characteristic is frequency-dependent.
+    \end{itemize}
+
+\ifshowsolutions
+Solution: B
+\fi
+
+  \item Which statement about electrical power and energy is correct?
+    \begin{itemize}[label=$\square$]
+      \item[A)] Power and energy are independent of each other.
+      \item[B)] Energy is the time derivative of power.
+      \item[C)] With constant power, energy increases linearly with time.
+      \item[D)] Power and energy differ only by a constant factor.
+    \end{itemize}
+
+\ifshowsolutions
+Solution: C
+\fi
+
+  \item Kirchhoff’s voltage law is a consequence of:
+    \begin{itemize}[label=$\square$]
+      \item[A)] conservation of charge
+      \item[B)] conservation of momentum
+      \item[C)] conservation of temperature
+      \item[D)] conservation of energy
+    \end{itemize}
+
+\ifshowsolutions
+Solution: D
+\fi
+
+  \item A Y–$\Delta$ transformation is permissible in a DC network if
+    \begin{itemize}[label=$\square$]
+      \item[A)] all resistors have the same value.
+      \item[B)] the network is supplied by only one voltage source.
+      \item[C)] no power is dissipated in the network.
+      \item[D)] the current–voltage relationships at the external terminals remain unchanged.
+    \end{itemize}
+
+\ifshowsolutions
+Solution: D
+\fi
+
+  \item Ideally, a voltmeter has:
+    \begin{itemize}[label=$\square$]
+      \item[A)] a small internal resistance
+      \item[B)] a large internal resistance
+      \item[C)] no internal resistance
+      \item[D)] a frequency-dependent resistance
+    \end{itemize}
+
+\ifshowsolutions
+Solution: B
+\fi
+
+  \item Which statement correctly describes the efficiency of an electrical system?
+    \begin{itemize}[label=$\square$]
+      \item[A)] It is the ratio of output power to input power.
+      \item[B)] It is the ratio of reactive power to active power.
+      \item[C)] It is independent of the electrical losses in the system.
+      \item[D)] In AC operation, it can be greater than one.
+    \end{itemize}
+
+\ifshowsolutions
+Solution: A
+\fi
+
+  \item Which statement about electric and magnetic field lines is correct?
+    \begin{itemize}[label=$\square$]
+      \item[A)] Electric field lines are always closed.
+      \item[B)] Magnetic field lines are always closed.
+      \item[C)] Magnetic field lines end at magnetic charges.
+      \item[D)] Electric field lines exist only inside conductors.
+    \end{itemize}
+
+\ifshowsolutions
+Solution: B
+\fi
+
+  \item Which of the following quantities is a directly measurable physical field in macroscopic electrodynamics?
+    \begin{itemize}[label=$\square$]
+      \item[A)] electric displacement \(\mathbf{D}\)
+      \item[B)] magnetic field strength \(\mathbf{H}\)
+      \item[C)] magnetic flux density \(\mathbf{B}\)
+      \item[D)] electric polarization \(\mathbf{P}\)
+    \end{itemize}
+
+\ifshowsolutions
+Solution: C
+\fi
+
+  \item A time-varying magnetic field generates, according to Faraday’s law:
+    \begin{itemize}[label=$\square$]
+      \item[A)] an induced voltage
+      \item[B)] a constant current
+      \item[C)] heat
+      \item[D)] a mechanical force
+    \end{itemize}
+
+\ifshowsolutions
+Solution: A
+\fi
+
+  \item Why can the voltage across an ideal capacitor not change abruptly?
+    \begin{itemize}[label=$\square$]
+      \item[A)] Because the capacitor blocks direct current, rapid voltage changes are not possible.
+      \item[B)] An ideal capacitor fundamentally prevents any change in the stored energy.
+      \item[C)] An abrupt change in voltage would require an infinitely large current.
+      \item[D)] The voltage across a capacitor is limited from above by the capacitance.
+    \end{itemize}
+
+\ifshowsolutions
+Solution: C
+\fi
+
+  \item Under constant DC voltage, an ideal inductor in the steady state behaves like:
+    \begin{itemize}[label=$\square$]
+      \item[A)] an open circuit
+      \item[B)] a current source
+      \item[C)] a voltage source
+      \item[D)] a short circuit
+    \end{itemize}
+
+\ifshowsolutions
+Solution: D
+\fi
+
+  \item A capacitor is discharged through an ohmic resistor. Which statement correctly describes the discharge process?
+    \begin{itemize}[label=$\square$]
+      \item[A)] The voltage across the capacitor decreases exponentially, while the current increases exponentially.
+      \item[B)] The voltage across the capacitor increases exponentially, while the current decreases exponentially.
+      \item[C)] The voltage across the capacitor decreases exponentially, and the current also decreases exponentially.
+      \item[D)] The voltage across the capacitor increases exponentially, and the current also increases exponentially.
+    \end{itemize}
+
+\ifshowsolutions
+Solution: C
+\fi
+
+  \item Why is the RMS value typically specified for mains voltages?
+    \begin{itemize}[label=$\square$]
+      \item[A)] Because it is smaller than the peak value.
+      \item[B)] Because it describes the power effect of the voltage in ohmic loads.
+      \item[C)] Because it is independent of frequency.
+      \item[D)] Because it completely describes the time dependence of the voltage.
+    \end{itemize}
+
+\ifshowsolutions
+Solution: B
+\fi
+
+  \item For an ideal inductor in an AC circuit, the following applies:
+    \begin{itemize}[label=$\square$]
+      \item[A)] The current leads the voltage.
+      \item[B)] The current lags behind the voltage.
+      \item[C)] Current and voltage are phase-shifted by 45° relative to each other.
+      \item[D)] Current and voltage are in phase.
+    \end{itemize}
+
+\ifshowsolutions
+Solution: B
+\fi
+
+  \item What physical cause leads to the current leading the voltage in a capacitor?
+    \begin{itemize}[label=$\square$]
+      \item[A)] The voltage causes an immediate current flow through the dielectric.
+      \item[B)] The voltage is delayed by ohmic losses in the capacitor.
+      \item[C)] Magnetic effects determine the behavior of the capacitor.
+      \item[D)] The current charges the capacitor, causing the voltage to build up with a delay.
+    \end{itemize}
+
+\ifshowsolutions
+Solution: D
+\fi
+
+  \item What physical cause leads to the occurrence of reactive power in an AC circuit?
+    \begin{itemize}[label=$\square$]
+      \item[A)] Electrical energy is periodically stored in fields and released again.
+      \item[B)] Electrical energy is periodically stored in heat and released again.
+      \item[C)] Electrical energy is periodically returned to the source and stored.
+      \item[D)] Electrical energy is periodically transported in the conductor and delayed.
+    \end{itemize}
+
+\ifshowsolutions
+Solution: A
+\fi
+
+  \item What filter characteristic is exhibited by a parallel connection of an inductor and a capacitor when it is connected in series with a load?
+    \begin{itemize}[label=$\square$]
+      \item[A)] Low-pass
+      \item[B)] High-pass
+      \item[C)] Band-pass
+      \item[D)] Band-stop
+    \end{itemize}
+
+\ifshowsolutions
+Solution: D
+\fi
+
+  \item A symmetrical three-phase system:
+    \begin{itemize}[label=$\square$]
+      \item[A)] generates a rotating electric field
+      \item[B)] requires a neutral conductor only with an unbalanced load
+      \item[C)] operates with direct current
+      \item[D)] has no voltage between the line conductors
+    \end{itemize}
+
+\ifshowsolutions
+Solution: B
+\fi
+
+\end{enumerate}
+
+\end{document}

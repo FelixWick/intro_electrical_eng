@@ -1,0 +1,267 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\geometry{left=25mm,right=25mm,top=25mm,bottom=25mm}
+\usepackage{parskip}
+
+\usepackage{tikz}
+\usetikzlibrary{circuits.ee.IEC, positioning}
+
+\newif\ifshowsolutions
+\showsolutionstrue  % comment to hide solutions
+
+\begin{document}
+
+Kreuze jeweils eine Antwort pro Frage an.
+
+\vspace{8pt}
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=*, itemsep=8pt]
+
+  \item Welche Größe ist maßgeblich für die thermische Belastung eines stromdurchflossenen Leiters?
+    \begin{itemize}[label=$\square$]
+      \item[A)] die elektrische Feldstärke
+      \item[B)] die elektrische Leistung
+      \item[C)] die elektrische Stromdichte
+      \item[D)] der elektrische Widerstand
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: C
+\fi
+
+  \item Ein idealer ohmscher Widerstand ist dadurch gekennzeichnet, dass
+    \begin{itemize}[label=$\square$]
+      \item[A)] Strom und Spannung proportional zueinander sind.
+      \item[B)] eine Phasenverschiebung zwischen Strom und Spannung auftritt.
+      \item[C)] der Widerstandswert zeitabhängig ist.
+      \item[D)] elektrische Energie periodisch gespeichert und abgegeben wird.
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: A
+\fi
+
+  \item Welche Aussage beschreibt die $I$-$U$-Kennlinie einer idealen Stromquelle?
+    \begin{itemize}[label=$\square$]
+      \item[A)] Die Spannung ist proportional zum Strom.
+      \item[B)] Der Strom ist unabhängig von der Klemmenspannung.
+      \item[C)] Die Kennlinie verläuft durch den Ursprung.
+      \item[D)] Die Kennlinie ist frequenzabhängig.
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: B
+\fi
+
+  \item Welche Aussage über elektrische Leistung und Energie ist richtig?
+    \begin{itemize}[label=$\square$]
+      \item[A)] Leistung und Energie sind unabhängig voneinander.
+      \item[B)] Energie ist die zeitliche Ableitung der Leistung.
+      \item[C)] Bei konstanter Leistung wächst die Energie linear mit der Zeit.
+      \item[D)] Leistung und Energie unterscheiden sich nur durch einen konstanten Faktor.
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: C
+\fi
+
+  \item Die Maschenregel ist eine Konsequenz von:
+    \begin{itemize}[label=$\square$]
+      \item[A)] Ladungserhaltung
+      \item[B)] Impulserhaltung
+      \item[C)] Temperaturerhaltung
+      \item[D)] Energieerhaltung
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: D
+\fi
+
+  \item Eine Y–$\Delta$-Transformation ist in einem Gleichstromnetz zulässig, wenn
+    \begin{itemize}[label=$\square$]
+      \item[A)] alle Widerstände denselben Wert besitzen.
+      \item[B)] das Netzwerk nur von einer Spannungsquelle gespeist wird.
+      \item[C)] keine Leistung im Netzwerk umgesetzt wird.
+      \item[D)] die Strom-Spannungs-Beziehungen an den äußeren Klemmen unverändert bleiben.
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: D
+\fi
+
+  \item Ein Voltmeter besitzt idealerweise:
+    \begin{itemize}[label=$\square$]
+      \item[A)] kleinen Innenwiderstand
+      \item[B)] großen Innenwiderstand
+      \item[C)] keinen Innenwiderstand
+      \item[D)] frequenzabhängigen Widerstand
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: B
+\fi
+
+  \item Welche Aussage beschreibt den Wirkungsgrad eines elektrischen Systems korrekt?
+    \begin{itemize}[label=$\square$]
+      \item[A)] Er ist das Verhältnis von abgegebener zu aufgenommener Leistung.
+      \item[B)] Er ist das Verhältnis von Blindleistung zur Wirkleistung.
+      \item[C)] Er ist unabhängig von den elektrischen Verlusten im System.
+      \item[D)] Er kann im Wechselstrombetrieb größer als eins sein.
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: A
+\fi
+
+  \item Welche Aussage über elektrische und magnetische Feldlinien ist korrekt?
+    \begin{itemize}[label=$\square$]
+      \item[A)] Elektrische Feldlinien sind stets geschlossen.
+      \item[B)] Magnetische Feldlinien sind stets geschlossen.
+      \item[C)] Magnetische Feldlinien enden an magnetischen Ladungen.
+      \item[D)] Elektrische Feldlinien existieren nur im Leiter.
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: B
+\fi
+
+  \item Welche der folgenden Größen ist ein direkt messbares physikalisches Feld in der makroskopischen Elektrodynamik?
+    \begin{itemize}[label=$\square$]
+      \item[A)] elektrische Verschiebung \(\mathbf{D}\)
+      \item[B)] magnetische Feldstärke \(\mathbf{H}\)
+      \item[C)] magnetische Flussdichte \(\mathbf{B}\)
+      \item[D)] elektrische Polarisation \(\mathbf{P}\)
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: C
+\fi
+
+  \item Ein zeitlich veränderliches magnetisches Feld erzeugt gemäß Faradays Gesetz:
+    \begin{itemize}[label=$\square$]
+      \item[A)] eine induzierte Spannung
+      \item[B)] einen konstanten Strom
+      \item[C)] Wärme
+      \item[D)] eine mechanische Kraft
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: A
+\fi
+
+  \item Warum kann sich die Spannung an einem idealen Kondensator nicht sprunghaft ändern?
+    \begin{itemize}[label=$\square$]
+      \item[A)] Da der Kondensator Gleichstrom sperrt, sind schnelle Spannungsänderungen nicht möglich.
+      \item[B)] Der ideale Kondensator verhindert grundsätzlich jede Änderung der gespeicherten Energie.
+      \item[C)] Eine sprunghafte Spannungsänderung würde einen unendlich großen Strom erfordern.
+      \item[D)] Die Spannung an einem Kondensator ist durch die Kapazität nach oben begrenzt.
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: C
+\fi
+
+  \item Bei konstanter Gleichspannung verhält sich eine ideale Spule im stationären Zustand wie:
+    \begin{itemize}[label=$\square$]
+      \item[A)] Stromunterbrechung
+      \item[B)] Stromquelle
+      \item[C)] Spannungsquelle
+      \item[D)] Kurzschluss
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: D
+\fi
+
+  \item Ein Kondensator wird über einen ohmschen Widerstand entladen. Welche Aussage beschreibt den Entladevorgang korrekt?
+    \begin{itemize}[label=$\square$]
+      \item[A)] Die Spannung am Kondensator fällt exponentiell ab, der Strom nimmt exponentiell zu.
+      \item[B)] Die Spannung am Kondensator nimmt exponentiell zu, der Strom fällt exponentiell ab.
+      \item[C)] Die Spannung am Kondensator fällt exponentiell ab, der Strom fällt exponentiell ab.
+      \item[D)] Die Spannung am Kondensator nimmt exponentiell zu, der Strom nimmt exponentiell zu.
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: C
+\fi
+
+  \item Warum wird bei Netzspannungen üblicherweise der Effektivwert angegeben?
+    \begin{itemize}[label=$\square$]
+      \item[A)] Weil er kleiner ist als der Spitzenwert.
+      \item[B)] Weil er die Leistungswirkung der Spannung in ohmschen Lasten beschreibt.
+      \item[C)] Weil er unabhängig von der Frequenz ist.
+      \item[D)] Weil er den zeitlichen Verlauf der Spannung vollständig beschreibt.
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: B
+\fi
+
+  \item Bei einer idealen Spule im Wechselstromkreis gilt:
+    \begin{itemize}[label=$\square$]
+      \item[A)] Der Strom eilt der Spannung voraus
+      \item[B)] Der Strom hinkt der Spannung hinterher
+      \item[C)] Strom und Spannung sind um 45° gegeneinander verschoben
+      \item[D)] Strom und Spannung sind gleichphasig
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: B
+\fi
+
+  \item Welche physikalische Ursache führt dazu, dass bei einem Kondensator der Strom der Spannung vorausläuft?
+    \begin{itemize}[label=$\square$]
+      \item[A)] Die Spannung bewirkt einen sofortigen Stromfluss durch das Dielektrikum.
+      \item[B)] Die Spannung wird durch ohmsche Verluste im Kondensator verzögert.
+      \item[C)] Magnetische Effekte bestimmen das Verhalten des Kondensators.
+      \item[D)] Der Strom lädt den Kondensator, wodurch sich die Spannung verzögert aufbaut.
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: D
+\fi
+
+  \item Welche physikalische Ursache führt dazu, dass in einem Wechselstromkreis Blindleistung auftritt?
+    \begin{itemize}[label=$\square$]
+      \item[A)] Elektrische Energie wird periodisch in Feldern gespeichert und wieder abgegeben.
+      \item[B)] Elektrische Energie wird periodisch in Wärme gespeichert und wieder abgegeben.
+      \item[C)] Elektrische Energie wird periodisch an die Quelle zurückgeführt und gespeichert.
+      \item[D)] Elektrische Energie wird periodisch im Leiter transportiert und verzögert.
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: A
+\fi
+
+  \item Welche Filtercharakteristik zeigt eine Parallelschaltung aus Spule und Kondensator, wenn sie in Serie zu einer Last geschaltet wird?
+    \begin{itemize}[label=$\square$]
+      \item[A)] Tiefpass
+      \item[B)] Hochpass
+      \item[C)] Bandpass
+      \item[D)] Bandsperre
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: D
+\fi
+
+  \item Ein symmetrisches Drehstromsystem:
+    \begin{itemize}[label=$\square$]
+      \item[A)] erzeugt ein rotierendes elektrisches Feld
+      \item[B)] benötigt nur bei unsymmetrischer Last einen Neutralleiter
+      \item[C)] arbeitet mit Gleichstrom
+      \item[D)] hat keine Spannung zwischen den Außenleitern
+    \end{itemize}
+
+\ifshowsolutions
+Lösung: B
+\fi
+
+\end{enumerate}
+
+\end{document}
