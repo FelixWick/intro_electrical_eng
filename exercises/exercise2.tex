@@ -20,7 +20,6 @@
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{Introduction to Electrical Engineering}
-\rhead{Winter Term 2025}
 \cfoot{\thepage}
 
 % ---------- Exercise Environment ----------
@@ -51,31 +50,14 @@
 % ----- Header Box -----
 \begin{tcolorbox}[enhanced, breakable, colback=gray!10!white,
   colframe=gray!70!black, fonttitle=\bfseries\large,
-  title={Exercise Sheet \#2}: DC 1: Circuit Calculations, sharp corners, width=\textwidth]
+  title={Exercise Sheet \#2}, sharp corners, width=\textwidth]
 \begin{center}
-  Discussion: Oct 22, 2025
+  DC 1
 \end{center}
 \end{tcolorbox}
 \vspace{1cm}
 
 % ----- Exercise 1 -----
-\begin{exercise}[Topology]
-Find the number of nodes, branches, and loops.
-
-\includegraphics[width=0.5\textwidth]{figures/nodes.png}
-\end{exercise}
-
-\ifshowsolutions
-\begin{solution}
-There are $n = 9$ nodes, corresponding to the junctions.
-
-There are $b = 15$ branches, corresponding to the individual segments connecting two nodes.
-
-There are overall $l = 15$ geometric loops, i.e., closed paths. But only $m = b - n + 1 = 7$ of these closed paths are independent loops. One could choose the $7$ meshes (smallest possible loops, not enclosing any other loop) for an electrical network analysis, but other combinations are also possible.
-\end{solution}
-\fi
-
-% ----- Exercise 2 -----
 \begin{exercise}[KCL]
 Find  $i_1$, $i_2$, and $i_3$.
 
@@ -118,7 +100,7 @@ i_2 + i_3 - 4\, \mathrm{A} = 0
 \end{solution}
 \fi
 
-% ----- Exercise 3 -----
+% ----- Exercise 2 -----
 \begin{exercise}[KVL]
 Calculate  $V_1$ and $V_2$.
 
@@ -143,7 +125,7 @@ Calculate  $V_1$ and $V_2$.
 \end{solution}
 \fi
 
-% ----- Exercise 4 -----
+% ----- Exercise 3 -----
 \begin{exercise}[Series and Parallel Resistors]
 Calculate $I_0$.
 
@@ -166,7 +148,7 @@ I_o = \frac{10\, \mathrm{V}}{10\, \Omega} = 1\, \mathrm{A}
 \end{solution}
 \fi
 
-% ----- Exercise 5 -----
+% ----- Exercise 4 -----
 \begin{exercise}[Series vs. Parallel]
 Three light bulbs are connected in series to a $120\, \mathrm{V}$ source as shown below. Find the current $I$ through each of the bulbs. Each bulb is rated at $120\, \mathrm{V}$. How much power is each bulb absorbing? Do they generate much light?
 
@@ -223,8 +205,8 @@ Clearly these values are well below the rated powers of each light bulb, so we w
 \end{solution}
 \fi
 
-% ----- Exercise 6 -----
-\begin{exercise}[Equivalent Resistance]
+% ----- Exercise 5 -----
+\begin{exercise}[Equivalent Resistance 1]
 Calculate the equivalent resistance $R_{ab}$ across the terminals.
 
 \includegraphics[width=0.7\textwidth]{figures/equivalent_R_1.png}
@@ -245,6 +227,59 @@ R_{ab} = 10\, \Omega + 10\, \Omega = 20\, \Omega
 And finally we combine with the parallal resistor of $80\, \Omega$:
 \[
 R_{ab} = \frac{1}{\frac{1}{20\, \Omega} + \frac{1}{80\, \Omega}} = 16\, \Omega
+\]
+\end{solution}
+\fi
+
+% ----- Exercise 6 -----
+\begin{exercise}[Equivalent Resistance 2]
+Given the resistor network with $R_1 = 10\,\Omega$, $R_2 = 20\,\Omega$, $R_3 = 30\,\Omega$, $R_4 = 5\,\Omega$, $R_5 = 15\,\Omega$:
+
+\begin{center}
+\begin{circuitikz}[european, scale=1]
+
+% Left terminal A
+\draw (0,0) node[left]{A} -- (1,0);
+
+% R1 in series
+\draw (1,0) to[R=$R_1$] (3,0);
+
+% Split node
+\draw (3,0) -- (4,0);
+\draw (4,0) -- (4,2);
+
+% Upper branch: R2 and R3 in series
+\draw (4,2) to[R=$R_2$] (6,2)
+           to[R=$R_3$] (8,2)
+           -- (8,0);
+
+% Lower branch: R4
+\draw (4,0) to[R=$R_4$] (8,0);
+
+% Continue in series with R5
+\draw (8,0) -- (9,0)
+      to[R=$R_5$] (11,0)
+      -- (12,0);
+
+% Right terminal B
+\draw (12,0) node[right]{B};
+
+\end{circuitikz}
+\end{center}
+
+Calculate the equivalent resistance of the network between terminals A and B.
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+\[
+R_{23} = R_2 + R_3 = 20 + 30 = 50\,\Omega
+\]
+\[
+\frac{1}{R_{234}} = \frac{1}{R_{23}} + \frac{1}{R_4} = \frac{1}{50} + \frac{1}{5} = \frac{11}{50}\,\frac{1}{\Omega}
+\]
+\[
+R = R_1 + R_{234} + R_5 = 10 + \frac{50}{11} + 15 = 29.55\,\Omega
 \]
 \end{solution}
 \fi
@@ -303,68 +338,6 @@ i_5 = i_3 - i_4 = 48\, \mathrm{A} - 32\, \mathrm{A} = 16\, \mathrm{A}
 \fi
 
 % ----- Exercise 8 -----
-\begin{exercise}[Node Connection]
-Calculate $I_o$ and $V_o$.
-
-\includegraphics[width=0.7\textwidth]{figures/node_connection.png}
-\end{exercise}
-
-\ifshowsolutions
-\begin{solution}
-A node is a point where two or more circuit elements connect (electrically the same point). A branch is a path that connects two nodes and contains a circuit element (resistor, source, etc.).
-
-Here, there are three main nodes:
-\begin{itemize}
-  \item Top node: connected to the $+200\, \mathrm{V}$ source, top of the $70\, \Omega$ and $30\, \Omega$ resistors.
-  \item Bottom node: $0\, \mathrm{V}$ reference.
-  \item Middle node: connection between two branches. On the left, the branch formed by the $70\, \Omega$ and $20\, \Omega$. And on the right, the branch formed by the $30\, \Omega$ and $5\, \Omega$.
-\end{itemize}
-
-The middle horizontal wire (with $I_o$) is part of the middle node, but because there’s a potential difference between the left and right parts of that node before it’s connected, current flows through that connection — hence we analyze $I_o$ as if it’s a branch current.
-
-As the output voltage \(V_o\) is the voltage across the $5\, \Omega$ resistor, the output voltage equals the middle node voltage.
-
-\[
-\text{Currents from the top node to the middle node:}
-\]
-\[
-I_{70} = \frac{200\, \mathrm{V} - V_o}{70\, \Omega}, \qquad I_{30} = \frac{200\, \mathrm{V} - V_o}{30\, \Omega}
-\]
-
-\[
-\text{Currents from the middle node to the bottom node:}
-\]
-\[
-I_{20} = \frac{V_o}{20\, \Omega}, \qquad I_{5} = \frac{V_o}{5\, \Omega}
-\]
-
-Applying KCL at the middle node:
-\[
-\frac{200\, \mathrm{V} - V_o}{70\, \Omega} + \frac{200\, \mathrm{V} - V_o}{30\, \Omega} = \frac{V_o}{20\, \Omega} + \frac{V_o}{5\, \Omega}
-\]
-
-Simplify:
-\[
-\frac{200\, \mathrm{V} - V_o}{21\, \Omega} = \frac{V_o}{4\, \Omega}
-\]
-
-\[
-\Rightarrow 800\, \mathrm{V} - 4 \cdot V_o = 21 \cdot V_o
-\]
-
-\[
-\Rightarrow \boxed{V_o = 32~\text{V}}
-\]
-
-Now we use KCL to compute the current \( I_o \) (defined to the right):
-
-\[
-I_o = I_{70} - I_{20} = \frac{200\, \mathrm{V} - 32\, \mathrm{V}}{70\, \Omega} - \frac{32\, \mathrm{V}}{20\, \Omega} =\boxed{0.8\, \mathrm{A}}
-\]
-\end{solution}
-\fi
-
-% ----- Exercise 9 -----
 \begin{exercise}[Circuit Analysis]
 Calculate the equivalent resistance across the terminals.
 

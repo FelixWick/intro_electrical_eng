@@ -19,7 +19,6 @@
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{Introduction to Electrical Engineering}
-\rhead{Winter Term 2025}
 \cfoot{\thepage}
 
 % ---------- Exercise Environment ----------
@@ -50,9 +49,9 @@
 % ----- Header Box -----
 \begin{tcolorbox}[enhanced, breakable, colback=gray!10!white,
   colframe=gray!70!black, fonttitle=\bfseries\large,
-  title={Exercise Sheet \#1}: Basic Concepts, sharp corners, width=\textwidth]
+  title={Exercise Sheet \#1}, sharp corners, width=\textwidth]
 \begin{center}
-  Discussion: Oct 15, 2025
+  Basics
 \end{center}
 \end{tcolorbox}
 \vspace{1cm}
@@ -365,39 +364,6 @@ The filament of a light bulb has a much lower resistance when it is cold, typica
 R_{\text{cold}} \approx \frac{R_{\text{hot}}}{10} \sim 20\text{--}30 \,\Omega,
 \]
 depending on the material and temperature coefficient of resistance. This explains the large inrush current when the bulb is first switched on.
-\end{solution}
-\fi
-
-% ----- Exercise 8 -----
-\begin{exercise}[Particles]
-A particle accelerator produces a proton beam with a current of $3.5 \,\mu\mathrm{A}$. Each proton has an energy of $60 \,\mathrm{MeV}$. The protons strike a target in a vacuum chamber and come to rest in it, heating the target.
-\begin{enumerate}[label=\alph*)]
-    \item How many protons strike the target per second?
-    \item How much energy is deposited in the target per second?
-\end{enumerate}
-\end{exercise}
-
-\ifshowsolutions
-\begin{solution}
-The beam current is $I = 3.5 \,\mu\mathrm{A} = 3.5\times 10^{-6} \,\mathrm{A}$.
-The elementary charge is $e = 1.602\times 10^{-19} \,\mathrm{C}$.
-
-\begin{enumerate}[label=\alph*)]
-\item The number of protons per second is
-\[
-\dot{N}=\frac{I}{e}.
-\]
-Substituting,
-\[
-\dot{N} = \frac{3.5\times 10^{-6}}{1.602\times 10^{-19}} \,\mathrm{s}^{-1} \approx 2.18\times 10^{13} \,\mathrm{s}^{-1}.
-\]
-\item Each proton has an energy of $60 \,\mathrm{MeV}$.
-
-The deposited energy per second is
-\[
-P = V \cdot I = \frac{W}{Q} \cdot I = \frac{60 \,\mathrm{MeV}}{e} \cdot 3.5 \,\mu\mathrm{A} = 210 \,\mathrm{W}.
-\]
-\end{enumerate}
 \end{solution}
 \fi
 

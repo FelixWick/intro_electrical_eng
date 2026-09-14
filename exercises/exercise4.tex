@@ -19,7 +19,6 @@
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{Introduction to Electrical Engineering}
-\rhead{Winter Term 2025}
 \cfoot{\thepage}
 
 % ---------- Exercise Environment ----------
@@ -50,9 +49,9 @@
 % ----- Header Box -----
 \begin{tcolorbox}[enhanced, breakable, colback=gray!10!white,
   colframe=gray!70!black, fonttitle=\bfseries\large,
-  title={Exercise Sheet \#4}: Electric Field]
+  title={Exercise Sheet \#4}, sharp corners, width=\textwidth]
 \begin{center}
-  Discussion: Nov 10, 2025
+  Fields 1
 \end{center}
 \end{tcolorbox}
 \vspace{1cm}
@@ -104,85 +103,6 @@ q = -\frac{E_x \cdot 4\pi\varepsilon_0 \cdot r^2}{2 \cdot \cos\theta} = -\frac{4
 \fi
 
 % ----- Exercise 2 -----
-\begin{exercise}[Gauss‘s Law]
-A solid, non-conducting sphere of radius \(R\) carries a total charge \(Q\) distributed uniformly throughout its volume. Using Gauss's law, determine the electric field magnitude \(E(r)\) as a function of radial distance \(r\) from the centre for:
-\begin{enumerate}[label=\alph*)]
-  \item \(r \ge R\) (outside the sphere),
-  \item \(0 \le r < R\) (inside the sphere).
-\end{enumerate}
-Give the final expressions in terms of \(Q\), \(R\), \(r\), and the permittivity of free space \(\varepsilon_0\).
-\end{exercise}
-
-\ifshowsolutions
-\begin{solution}
-Because the charge is uniformly distributed over a sphere, the problem is spherically symmetric. The electric field must therefore be radial and have the same magnitude at every point on a spherical surface concentric with the charged sphere. Choose a spherical Gaussian surface of radius \(r\), concentric with the charged sphere.
-
-Gauss's law states:
-\[
-\oint_{\mathcal{S}} \mathbf{E}\cdot d\mathbf{A}=\frac{Q_{\mathrm{enc}}}{\varepsilon_0}.
-\]
-On the chosen spherical surface the field is radial and constant in magnitude, and \(d\mathbf{A}\) is radial, so the left-hand side becomes
-\[
-\oint_{\mathcal{S}} \mathbf{E}\cdot d\mathbf{A}=E(r)\cdot 4\pi r^2.
-\]
-
-We now compute \(Q_{\mathrm{enc}}\) for the two regions.
-
-\begin{enumerate}[label=\alph*)]
-\item Outside the sphere: \(r\ge R\)
-
-For \(r\ge R\) the Gaussian surface encloses the entire charge \(Q\). Thus \(Q_{\mathrm{enc}}=Q\), and Gauss's law gives:
-\[
-E(r)\,4\pi r^2=\frac{Q}{\varepsilon_0}
-\quad\Rightarrow\quad
-E(r)=\frac{Q}{4\pi\varepsilon_0\,r^2},\qquad r\ge R.
-\]
-This is identical to the electric field of a point charge \(Q\) placed at the centre.
-
-\item Inside the sphere: \(0\le r< R\)
-First compute the volume charge density \(\rho\). The sphere's total volume is \(\tfrac{4}{3}\pi R^3\), so
-\[
-\rho=\frac{Q}{\tfrac{4}{3}\pi R^3}=\frac{3Q}{4\pi R^3}.
-\]
-The charge enclosed by a Gaussian sphere of radius \(r<R\) is the charge occupying a smaller sphere of radius \(r\):
-\[
-Q_{\mathrm{enc}}=\rho\cdot \frac{4}{3}\pi r^3
-= \frac{3Q}{4\pi R^3}\cdot \frac{4}{3}\pi r^3
-= Q\frac{r^3}{R^3}.
-\]
-Apply Gauss's law:
-\[
-E(r)\,4\pi r^2=\frac{Q_{\mathrm{enc}}}{\varepsilon_0}
-=\frac{Q}{\varepsilon_0}\frac{r^3}{R^3}.
-\]
-Solve for \(E(r)\):
-\[
-E(r)=\frac{Q}{4\pi\varepsilon_0}\cdot\frac{r}{R^3},\qquad 0\le r< R.
-\]
-Thus inside the sphere the magnitude of the field increases linearly with \(r\).
-\end{enumerate}
-
-Combined (piecewise) result:
-\[
-E(r)=
-\begin{cases}
-\dfrac{Q}{4\pi\varepsilon_0}\dfrac{r}{R^3}, & 0\le r< R,\\[8pt]
-\dfrac{Q}{4\pi\varepsilon_0\,r^2}, & r\ge R.
-\end{cases}
-\]
-The direction is radial outward when \(Q>0\) and radial inward when \(Q<0\).
-
-\bigskip
-
-\textbf{Remarks:}\begin{itemize}
-  \item Continuity at the surface: At \(r=R\) the inside expression gives \(Q/(4\pi\varepsilon_0 R^2)\), which matches the outside expression evaluated at \(r=R\). So the field is continuous at the surface.
-  \item At the centre \(r=0\), \(E(0)=0\) (from the inside formula), consistent with symmetry.
-  \item Outside the sphere the field is identical to that of a point charge \(Q\) at the centre.
-\end{itemize}
-\end{solution}
-\fi
-
-% ----- Exercise 3 -----
 \begin{exercise}[Capacitors in DC Steady State]
 Find the voltages across the capacitors in the circuit below under DC conditions.
 
@@ -256,7 +176,7 @@ I_{C_2} = 0 \; (\text{DC steady state})
 \end{solution}
 \fi
 
-% ----- Exercise 4 -----
+% ----- Exercise 3 -----
 \begin{exercise}[Plate Capacitor]
 We want to design a capacitor with capacitance $C=1\,\mu\mathrm{F}$. Compute the length required for rectangular plates of $2\,\mathrm{cm}$ width if the dielectric is polyester ($\varepsilon_r = 3.4$) of $15\,\mu\mathrm{m}$ thickness.
 \end{exercise}
@@ -276,7 +196,7 @@ Remarks: This large length is a consequence of the relatively small plate width 
 \end{solution}
 \fi
 
-% ----- Exercise 5 -----
+% ----- Exercise 4 -----
 \begin{exercise}[Time-Dependent Capacitor Voltage and Current]
 If $v(0) = 0$, find $v(t)$, $i_1(t)$, and $i_2(t)$ in the circuit below.
 
@@ -363,7 +283,7 @@ i_2 = 4\,\mu\mathrm{F} \cdot (1.5 t - 7.5)\,\mathrm{kV/s} = (6 t - 30)\,\mathrm{
 \end{solution}
 \fi
 
-% ----- Exercise 6 -----
+% ----- Exercise 5 -----
 \begin{exercise}[Energy of Capacitors]
 Two capacitors ($25\,\mu\mathrm{F}$ and $75\,\mu\mathrm{F}$) are connected to a $100\,\mathrm{V}$ source. Find the energy stored in each capacitor if they are connected in:
 \begin{enumerate}[label=\alph*)]
@@ -404,7 +324,7 @@ The energy stored in each capacitor is
 \end{solution}
 \fi
 
-% ----- Exercise 7 -----
+% ----- Exercise 6 -----
 \begin{exercise}[Series and Parallel Capacitors]
 Determine the equivalent capacitance at terminals a-b of the circuit below.
 
@@ -422,6 +342,137 @@ C_{12, 4, 3, 6, 2} = \frac{C_{4, 12, 3} \cdot 6\,\mu\mathrm{F}}{C_{4, 12, 3} + 6
 \[
 C_{a-b} = \frac{C_{12, 4, 3, 6, 2} \cdot 5\,\mu\mathrm{F}}{C_{12, 4, 3, 6, 2} + 5\,\mu\mathrm{F}} = 2.5\,\mu\mathrm{F}
 \]
+\end{solution}
+\fi
+
+% ----- Exercise 7 -----
+\begin{exercise}[Magnetic Force]
+In a straight, current-carrying section of a conductor there is a current element
+\[
+I \vec{l}
+\]
+with
+\[
+I = 2.7~\text{A}, \quad \vec{l} = (3.0\,\hat{x} + 4.0\,\hat{y})~\text{cm}.
+\]
+It is surrounded by a uniform magnetic field
+\[
+\vec{B} = 1.3\,\hat{x}~\text{T}.
+\]
+Calculate the force acting on the section of the conductor.
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+Magnetic force:
+\[
+\vec{F} = I (\vec{l} \times \vec{B})
+\]
+
+Compute the cross product:
+\[
+\begin{aligned}
+(\vec{l} \times \vec{B})_x &= l_y B_z - l_z B_y = 0.04 \cdot 0 - 0 \cdot 0 = 0,\\[4pt]
+(\vec{l} \times \vec{B})_y &= l_z B_x - l_x B_z = 0 \cdot 1.3 - 0.03 \cdot 0 = 0,\\[4pt]
+(\vec{l} \times \vec{B})_z &= l_x B_y - l_y B_x = 0.03 \cdot 0 - 0.04 \cdot 1.3 = -0.052.
+\end{aligned}
+\]
+
+\[
+\Rightarrow \quad \vec{l} \times \vec{B} = -0.052\,\hat{z}~\text{m·T}
+\]
+
+Therefore:
+\[
+\vec{F} = 2.7~\text{A} \cdot (-0.052)\,\hat{z}~\text{m·T} = -0.14\,\hat{z}~\text{N}
+\]
+\end{solution}
+\fi
+
+% ----- Exercise 8 -----
+\begin{exercise}[Lorentz Force]
+A velocity selector operates with a magnetic field of \( B = 0.28\,\text{T} \) perpendicular to an electric field of \( E = 0.46\,\text{MV/m} \). How fast must a particle move in order to pass through the selector without deflection?
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+For no deflection, the electric and magnetic forces must balance:
+\[
+qE = qvB
+\]
+
+\[
+\Rightarrow v = \frac{E}{B} = \frac{0.46 \times 10^{6}\,\text{V/m}}{0.28\,\text{T}} = 1.64 \times 10^{6}\,\text{m/s}
+\]
+\end{solution}
+\fi
+
+% ----- Exercise 9 -----
+\begin{exercise}[Faraday's Law: Moving Conductor]
+A rectangular conducting loop has width $l=0.2\,\text{m}$ (the side that crosses the field boundary) and height $h=0.1\,\text{m}$. The loop lies initially entirely inside a region of uniform magnetic field $B$ directed \emph{into} the page, with magnitude $B=0.8\,\text{T}$. The loop is pulled to the right with constant speed $v=0.5\,\frac{\text{m}}{\text{s}}$, so that it leaves the magnetic region.
+\begin{enumerate}[label=\alph*)]
+  \item Calculate the magnitude of the induced voltage in the loop while it is partially leaving the magnetic region.
+  \item State the direction of the induced current (clockwise or counterclockwise) as seen by the observer, and justify using Lenz's law.
+\end{enumerate}
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+Magnetic flux through the portion of the loop inside the field is $\Phi=B\,A_{\rm in}$. As the loop leaves, $A_{\rm in}$ decreases, so $d\Phi/dt<0$. Faraday's law gives
+\[
+V = -\frac{d\Phi}{dt}\,,
+\]
+and for the straight side moving at speed $v$ the magnitude of the induced voltage is
+\[
+|V| = B \cdot l \cdot v\,.
+\]
+
+\begin{enumerate}[label=\alph*)]
+\item Magnitude:
+\[
+|V| = B \cdot l \cdot v = 0.8\,\text{T} \cdot 0.2\,\text{m} \cdot 0.5\,\frac{\text{m}}{\text{s}} = 0.08\,\text{V}
+\]
+
+\item Direction:
+The magnetic flux (into the page) is decreasing as the loop leaves. By Lenz's law the induced current will produce a magnetic field that tries to maintain the lost flux — i.e., it will produce a magnetic field \emph{into} the page. The conducting loop can be interpreted as a mini electromagnet (coil). So, using the right-hand rule (curl the fingers in the direction of current; thumb gives the magnetic field), a magnetic field into the page corresponds to a clockwise current as seen by the observer. Thus the induced current is clockwise.
+\end{enumerate}
+\end{solution}
+\fi
+
+% ----- Exercise 10 -----
+\begin{exercise}[Faraday's Law: Time-varying Field]
+A circular conducting loop of radius $r=5\,\text{cm}$ lies in a region where the magnetic field perpendicular to the loop is increasing in time according to
+\[
+B(t) = 0.012\,t\,\text{T}\quad\text{with }t\text{ in seconds.}
+\]
+The loop resistance is $R = 2\,\Omega$.  
+
+\begin{enumerate}[label=\alph*)]
+  \item Find the magnitude of the induced voltage at $t=4\,\text{s}$.
+  \item Find the induced current magnitude at that time and specify its sense (clockwise or counterclockwise) if $B$ points \emph{out} of the page.
+\end{enumerate}
+\end{exercise}
+
+\ifshowsolutions
+\begin{solution}
+Magnetic flux through the loop is $\Phi(t)=B(t) \cdot \pi r^{2}$. Faraday's law gives the induced voltage magnitude
+\[
+|V| = \left|\frac{d\Phi}{dt}\right| = \pi r^{2} \cdot \left|\frac{dB}{dt}\right|.
+\]
+Here $dB/dt$ is constant because $B(t) = 0.012\,t\,\text{T}$.
+
+\begin{enumerate}[label=\alph*)]
+\item Magnitude: Radius $r=0.05\,\text{m}$ and $dB/dt=0.012\ \mathrm{T/s}$. Thus
+\[
+|V|=\pi \cdot 0.05^2 \cdot 0.012\,\mathrm{V} \approx 9.42\times10^{-5}\,\mathrm{V}.
+\]
+
+\item Induced current and direction: According to Ohm's law
+\[
+I = |V|/R = \frac{9.42 \times 10^-5}{2}\,\mathrm{A} \approx 4.71 \times 10^{-5}\,\mathrm{A}.
+\]
+Direction: since $B$ is increasing \emph{out} of the page, the induced magnetic field must oppose the increase and therefore be \emph{into} the page. A magnetic field into the page corresponds to a \textbf{clockwise} induced current (viewed by the observer).
+\end{enumerate}
 \end{solution}
 \fi
 
