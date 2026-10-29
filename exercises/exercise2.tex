@@ -314,7 +314,7 @@ i_1 = \frac{200\, \mathrm{V}}{\frac{25}{7}\, \Omega} = 56\, \mathrm{A}
 Then, we can calculate \(i_2\) using current division:
 
 \[
-i_2 = i_1 \cdot \frac{R_3}{R_2 + R_3} = 56\, \mathrm{A} \cdot \frac{\frac{2}{3}\, \Omega}{4\, \Omega + \frac{2}{3}\, \Omega} = 8\, \mathrm{A}
+i_2 = i_1 \cdot \frac{R_{2,3}}{R_2} = i_1 \cdot \frac{R_2 \cdot R_3}{R_2 \cdot (R_2 + R_3)} = i_1 \cdot \frac{R_3}{R_2 + R_3} = 56\, \mathrm{A} \cdot \frac{\frac{2}{3}\, \Omega}{4\, \Omega + \frac{2}{3}\, \Omega} = 8\, \mathrm{A}
 \]
 
 KCL gives us \(i_3\):
@@ -334,6 +334,27 @@ Finally, KCL gives us \(i_5\):
 \[
 i_5 = i_3 - i_4 = 48\, \mathrm{A} - 32\, \mathrm{A} = 16\, \mathrm{A}
 \]
+
+Quicker alternative:
+\[
+v_1 = R_1 \cdot i_1 = 3\, \Omega \cdot 56\, \mathrm{A} = 168\, \mathrm{V}
+\]
+\[
+v_2 = v_4 = v_5 = v - v_1 = 32\, \mathrm{V}
+\]
+\[
+i_2= \frac{v_2}{R_2} = \frac{32}{4}\, \mathrm{A} = 8\, \mathrm{A}
+\]
+\[
+i_4= \frac{v_2}{R_4} = \frac{32}{1}\, \mathrm{A} = 32\, \mathrm{A}
+\]
+\[
+i_5= \frac{v_2}{R_5} = \frac{32}{2}\, \mathrm{A} = 16\, \mathrm{A}
+\]
+\[
+i_3= i_4 + i_5 = 32\, \mathrm{A} + 16\, \mathrm{A} = 48\, \mathrm{A}
+\]
+
 \end{solution}
 \fi
 
