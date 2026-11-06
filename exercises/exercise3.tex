@@ -116,9 +116,9 @@ Find the number of nodes, branches, and loops.
 
 \ifshowsolutions
 \begin{solution}
-There are $n = 9$ nodes, corresponding to the junctions.
+There are $n = 8$ nodes, corresponding to the junctions.
 
-There are $b = 15$ branches, corresponding to the individual segments connecting two nodes.
+There are $b = 14$ branches, corresponding to the individual segments connecting two nodes.
 
 There are overall $l = 15$ geometric loops, i.e., closed paths. But only $m = b - n + 1 = 7$ of these closed paths are independent loops. One could choose the $7$ meshes (smallest possible loops, not enclosing any other loop) for an electrical network analysis, but other combinations are also possible.
 \end{solution}
@@ -397,7 +397,7 @@ P_{\max} = \frac{V_\mathrm{th}^2 R_\mathrm{th}}{(R_\mathrm{th} + R_\mathrm{th})^
 
 % ----- Exercise 7 -----
 \begin{exercise}[Efficiency]
-Given the efficiencies listed below, determine the corresponding fraction of the maximum load power for each case.
+For a real voltage source with an internal resistance and a connected load, the efficiencies given below apply. For each case, calculate what fraction of the maximum possible power is absorbed by the load.
 \begin{enumerate}[label=\alph*)]
     \item $\eta = 75\%$
     \item $\eta = 90\%$
@@ -416,6 +416,11 @@ For a Thévenin source ($V_\mathrm{th}$, $R_\mathrm{th}$) with a load $R_L$, the
 At maximum power ($R_L = R_\mathrm{th}$): 
 \[
 P_{L,\max} = \frac{V_\mathrm{th}^2}{4 R_\mathrm{th}}
+\]
+
+And:
+\[
+P_L = I^2 \cdot R_L = \frac{V_\mathrm{th}^2}{(R_\mathrm{th} + R_L)^2} \cdot R_L = \dfrac{V_\mathrm{th}^2 R_L}{(R_\mathrm{th} + R_L)^2}
 \]
 
 Hence, the power ratio is:
